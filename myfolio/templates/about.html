@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="/static/logo1.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&display=swap" rel="stylesheet">
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Text:wght@800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Rubik', sans-serif;
+        }
+
+        /* NAVIGATION SECTION */
+        .navbar {
+            /* padding: 22px; */
+            padding: 13px;
+            background-color: white;
+        }
+
+        #logo {
+            width: 55px;
+            margin-left: 137PX;
+            padding: 4px;
+            border-radius: 50%;
+            background-color: #c0f5ed;
+            box-shadow: 0 0 20px #00735e;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            /* margin-left: 124px; */
+            margin-left: 25px;
+            border-radius: 10px;
+            padding: 0px 25px;
+            background-color: #c0f5ed;
+            box-shadow: 0 0 20px #00735e;
+
+        }
+
+        .navbar-nav {
+            /* position: absolute;
+            right: 100px;
+            margin-right: 79px; */
+            font-size: 17px;
+        }
+
+        .nav-link {
+            margin: 0 20px;
+
+        }
+
+        .nav-link:hover {
+            background-color: #32dbc6;
+            color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px #2196f3, 0 0 20px #2196f3, 0 0 40px #2196f3;
+            transition-delay: 100ms;
+        }
+
+        .welcome-user {
+            border: 1px solid cyan;
+            color: #01666b;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px #0a0a0a;
+        }
+
+        /* About section */
+
+        .introHeading {
+            font-size: 4em;
+            margin-top: 25px;
+            font-family: 'Big Shoulders Stencil Text', cursive;
+        }
+
+        .introPara {
+            font-family: 'Source Code Pro', monospace;
+            font-size: 1.7em;
+            color: darkcyan;
+            box-shadow: 0px 12px 20px;
+            padding: 0px 14px;
+        }
+
+        /* FOOTER */
+        .footer {
+            background-color: black;
+            margin-top: 50px;
+            height: 85vh;
+            color: white;
+        }
+
+        .contact-logo {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* UTILITY  */
+        .center {
+            text-align: center;
+
+        }
+
+        hr {
+            background-color: white;
+            width: 83%;
+            margin-top: 2rem;
+        }
+    </style>
+    <title>MyFolio</title>
+</head>
+
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <img src="/static/logo5.png" alt="Logo" id="logo">
+        <a class="navbar-brand" href="#">MyFolio</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="margin-right: 2rem;">
+            <div class="navbar-nav ml-auto">
+                <a class="nav-link " href="/">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link " style="cursor: pointer;"onclick="topFunction(2000)">Features <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/contact">Contact</a>
+                <a class="nav-link" href="/about" tabindex="-1" aria-disabled="true">About</a>
+            </div>
+        </div>
+        {% if user.is_authenticated %}
+        <div id="userDetails">
+            <!-- Button to launch Login Modal -->
+            <ul class="navbar-nav mr-2">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle welcome-user" style="color: #01666b;" href='#'
+                        id="navbarDropdown" role="button" data-toggle="dropdown"> Welcome {{request.user}}</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/logout">Logout</a>
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        </div>
+        {% else %}
+        <div id="userDetails">
+            <!-- Button to launch Login Modal -->
+            <button type="button" class="btn btn-primary" style="background-color: darkcyan;" data-toggle="modal"
+                data-target="#loginModal">
+                Login
+            </button>
+            <!-- Button to launch Sign Up Modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signUpModal">
+                Sign Up
+            </button>
+        </div>
+        {% endif %}
+    </nav>
+
+         <!-- Login Modal -->
+         <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color: cyan;">
+                        <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="http://127.0.0.1:8000/login/" method="POST"> {% csrf_token %}
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">Username</label>
+                                <input required type="text" class="form-control" name="loginUsername"
+                                    id="exampleFormControlInput1" placeholder="Username">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">Password</label>
+                                <input required type="password" class="form-control" name="loginPassword"
+                                    id="exampleFormControlInput1" placeholder="Username">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary"
+                                    style="background-color: darkcyan;">Login</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    
+        <!-- Sign Up Modal -->
+        <div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color: cyan;">
+                        <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" ">
+                        <form action="http://127.0.0.1:8000/signup/" method=post
+                        oninput='password.setCustomValidity(password.value != confirmPassword.value ? "Passwords do not match." : "")'>
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">First Name</label>
+                            <input required type="text" class="form-control" name="fname" id="exampleFormControlInput1"
+                                placeholder="First Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Last Name</label>
+                            <input required type="text" class="form-control" name="lname" id="exampleFormControlInput1"
+                                placeholder="Last Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Set Username</label>
+                            <input required type="text" class="form-control" name="username" id="exampleFormControlInput1"
+                                placeholder="Username">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Email</label>
+                            <input required type="email" class="form-control" name="email" id="exampleFormControlInput1"
+                                placeholder="name@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Password</label>
+                            <input required type="password" class="form-control" name="password"
+                                id="exampleFormControlInput1" placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Confirm Password</label>
+                            <input required type="text" class="form-control" name="confirmPassword"
+                                id="exampleFormControlInput1" placeholder="Confirm Password">
+                        </div>
+    
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary" style="background-color: darkcyan;">Sign
+                                Up</button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+    <div class="container">
+        <h1 class="introHeading">Who We Are</h1>
+        <p class="introPara">Based in Mumbai with Services all over the world</p>
+
+        <div class="container marketing">
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading">Started With, <span class="text-muted">Resume Development</span></h2>
+                    <p class="lead">Back in 2012, we started this website as resume building forum only. Back then building a catchy
+                        resume which can land you your dream job was still a dream for many. Thus we came up with this useful platform 
+                        where user can make their own resume, choosing their own design and template and fulfill their dreams.
+                    </p>
+                </div>
+                <div class="col-md-5">
+                    <img src="/static/aboutResume.jpg" width="400" height="400" alt="Discussion">
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="col-md-7 order-md-2">
+                    <h2 class="featurette-heading">Portfolio! <span class="text-muted">The need of the time.</span></h2>
+                    <p class="lead">
+                        Portfolios are a great way to demonstrate the competencies you would list on a resume or talk about in an interview — they allow you to show and not just tell. During a job search, the portfolio showcases your work to potential employers. It presents evidence of your relevant skills and abilities
+                    </p>
+                </div>
+                <div class="col-md-5 order-md-1">
+                    <img src="/static/aboutPortfolio.png" width="400" height="400" alt="Discussion">
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Discussion Forum!</span></h2>
+                    <p class="lead">We were already providing the service resume development and portfolio development by which our clients were getting their dream jobs, but however we thought th provide all this at one place! Yes, then we came up with idea of a discussion forum where users can share their resume and portfolios that they have developed and apart from this users can also post their work to attract the major recruiters. We offer these services at the nominal pricing options!</p>
+                </div>
+                <div class="col-md-5">
+                    <img src="/static/aboutDiscussion.jpg" width="400" height="400" alt="Discussion">
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+            <!-- /END THE FEATURETTES -->
+
+        </div><!-- /.container -->
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer ">
+
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-4 p-3">
+                    <h4>About Us</h4>
+                    <p style="color: grey">We are expert in making the best porfolios and resume you can expect. We
+                        provide the facility of making your resume and portfolio that can land you your
+                        dream job </p>
+                </div>
+                <div class="col-4 p-3">
+                    <h4>Features</h4>
+                    <ul style="color: grey; list-style: none;padding:0px;">
+                        <li>Resume</li>
+                        <li>Portfolio</li>
+                        <li>Discussion Forum</li>
+                    </ul>
+                </div>
+                <div class="col-4 p-3">
+                    <h4>Follow us</h4>
+                    <div class="contact-logo">
+                        <a href="https://facebook.com/" target="_blank"><img src="/static/lg1.png" alt=""
+                            style="width: 50px;margin:5px 0px;"></a>
+                    <a href="https://pintrest.com/" target="_blank"><img src="/static/lg2.png" alt=""
+                            style="width: 50px;margin:5px 0px;"></a>
+                    <a href="https://instagram.com/" target="_blank"><img src="/static/lg3.jpg" alt=""
+                            style="width: 50px;margin:5px 0px;"></a>
+                    <a href="https://linkedin.com/" target="_blank"><img src="/static/lg4.png" alt=""
+                            style="width: 50px;margin:5px 0px;"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <p class="center">Copywrite &#169;2020 MyFolio.com. All rights reserved</p>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+        <script>
+            function topFunction(x){
+                document.documentElement.scrollTop = x;
+            }
+        </script>
+</body>
+
+</html>

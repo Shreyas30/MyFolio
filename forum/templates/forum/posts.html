@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts</title>
+    <script>
+        document.onload(updateTime());
+    </script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: 'Rubik', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        /* NAVIGATION SECTION */
+        .navbar {
+            /* padding: 22px; */
+            padding: 13px;
+            background-color: white;
+        }
+
+        #logo {
+            width: 55px;
+            margin-left: 137PX;
+            padding: 4px;
+            border-radius: 50%;
+            background-color: #c0f5ed;
+            box-shadow: 0 0 20px #00735e;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            /* margin-left: 124px; */
+            margin-left: 25px;
+            border-radius: 10px;
+            padding: 0px 25px;
+            background-color: #c0f5ed;
+            box-shadow: 0 0 20px #00735e;
+
+        }
+
+        .navbar-nav {
+            /* position: absolute;
+        right: 100px;
+        margin-right: 79px; */
+            font-size: 17px;
+        }
+
+        .nav-link {
+            margin: 0 20px;
+
+        }
+
+        #profile-btn {
+            border: none;
+            background-color: #f8f9fa;
+        }
+
+        #profile-btn:hover {
+            background-color: #32dbc6;
+            border-radius: 5px;
+            /* box-shadow: 0 0 10px #2196f3, 0 0 20px #2196f3, 0 0 40px #2196f3; */
+            box-shadow: 0 0 10px #2196f3, 0 0 20px #2196f3, 0 0 40px #2196f3;
+            transition-delay: 100ms;
+        }
+
+
+        .nav-link:hover {
+            background-color: #32dbc6;
+            color: white;
+            border-radius: 5px;
+            /* box-shadow: 0 0 10px #2196f3, 0 0 20px #2196f3, 0 0 40px #2196f3; */
+            box-shadow: 0 0 10px #2196f3, 0 0 20px #2196f3, 0 0 40px #2196f3;
+            transition-delay: 100ms;
+        }
+
+        .welcome-user {
+            border: 1px solid cyan;
+            color: #01666b;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px #0a0a0a;
+        }
+
+        /* HOME section */
+        .ml2 {
+            font-weight: 900;
+            font-size: 2.5rem;
+            color: white;
+            position: absolute;
+            left: 30%;
+            /* top: 53% */
+            top: 27%
+        }
+
+        .ml2 .letter {
+            display: inline-block;
+            line-height: 1em;
+        }
+
+        .home-btn {
+            position: absolute;
+            left: 48%;
+            /* top: 64%; */
+            top: 85%;
+            padding: 9px 23px;
+            border: navajowhite;
+            border-radius: 10px;
+            background-color: #32dbc6;
+            font-family: 'Nunito', sans-serif;
+            font-family: 'Quicksand', sans-serif;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .home-btn:hover {
+            background-color: #32dbc6;
+            color: white;
+            box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 50px #2196f3;
+            transition-delay: 100ms;
+        }
+
+        /* CARDS */
+        .card-item {
+            position: relative;
+            width: 50%;
+        }
+
+        .image {
+            opacity: 1;
+            display: block;
+            width: 100%;
+            height: auto;
+            transition: .5s ease;
+            backface-visibility: hidden;
+        }
+
+        .middle {
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .card-item:hover .image {
+            opacity: 0.1;
+        }
+
+        .card-item:hover .middle {
+            opacity: 1;
+        }
+
+        .text {
+            background-color: #32dbc6;
+            box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 50px #2196f3;
+            transition-delay: 100ms;
+            color: black;
+            font-size: 16px;
+            padding: 16px 32px;
+        }
+
+        /* LETS STARTED */
+        .start {
+            background-color: #32dbc6;
+            color: white;
+            height: 108px;
+        }
+
+        /* FOOTER */
+        .footer {
+            background-color: black;
+            margin-top: 50px;
+            height: 85vh;
+            color: white;
+        }
+
+        .contact-logo {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* UTILITY  */
+        .center {
+            text-align: center;
+
+        }
+
+        hr {
+            background-color: white;
+            width: 83%;
+            margin-top: 2rem;
+        }
+
+        .right-div {
+            position: absolute;
+            top: 44%;
+            width: 25%;
+            left: 17%;
+            opacity: 0.3;
+        }
+
+        .center-div {
+            z-index: 1;
+            position: absolute;
+            top: 38%;
+            left: 36%;
+            width: 65%;
+        }
+
+        .left-div {
+            position: absolute;
+            top: 43%;
+            width: 25%;
+            right: 11%;
+            opacity: 0.3;
+        }
+
+        /* ================================ My CSS =========================== */
+
+        /* Search Sections Followers Result */
+
+        #searchBox {
+            width: 107px;
+        }
+
+        .modal-dialog-centered.modal-dialog-scrollable .modal-content {
+            max-height: 91%;
+        }
+
+        .follow-body {
+            margin: 10px 0px;
+            border-radius: 7px;
+            padding: 5px;
+        }
+
+        .follow-container {
+            border-radius: 5px;
+        }
+
+        .follow-box-image {
+
+            display: inline-block;
+            width: 14%;
+            height: 3rem
+        }
+
+
+        .follow-head {
+            background-color: #a6fcef;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+
+        .follow-box-image img {
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+            border: 1px solid black;
+        }
+
+        .follow-box-info {
+            display: inline-block;
+            width: 65%;
+            margin-left: 12px;
+        }
+
+        .follow-box-btn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 32%;
+        }
+
+        .follow-box-name {
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+
+
+
+        .follow-box-jobTitle {
+            font-size: 1rem;
+        }
+
+
+        .follow-box {
+            display: flex;
+            /* justify-content: space-around; */
+            padding: 0.1rem;
+            /* border: 2px solid green; */
+        }
+
+        .follow-container-body {
+            height: 34.5vh;
+            overflow-y: auto;
+        }
+
+        .follow-head {
+            padding: 0.1rem;
+        }
+
+        .follow-btn {
+            padding: 0.2rem 0.4rem;
+            margin-top: 0.4rem;
+        }
+
+        .unfollow-btn {
+            padding: 0.2rem 0.4rem;
+            margin-top: 0.4rem;
+        }
+
+
+        /* post-section */
+
+        #profile-section {
+            position: fixed;
+            margin-top: 1rem !important;
+            width: 18rem;
+        }
+
+        .col-9,
+        .col-3 {
+            padding: 0 !important;
+        }
+
+        h5 {
+            margin-bottom: 0 !important;
+        }
+
+        #post-section {
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        .post-container {
+            width: 90%;
+            margin: auto;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .post-sender-image {
+
+            display: inline-block;
+            width: 5%;
+            height: 2.5rem;
+        }
+
+        .post-top {
+            display: flex;
+            padding: 0.2rem;
+            background-color: rgb(43, 34, 34);
+            color: white;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            align-items: center;
+            justify-content: space-evenly;
+
+        }
+
+        .post-sender-image img {
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+            border: 1px solid black;
+        }
+
+        .post-sender-info {
+            display: inline-block;
+            width: 75%;
+            margin-left: 1rem
+        }
+
+        .time-stamp {
+            font-size: 0.8rem;
+            color: white;
+        }
+
+        .post-bottom {
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            padding: 0.2rem;
+            background-color: grey;
+            color: white;
+        }
+
+        .post-sender-name {
+            font-size: 1.2rem;
+        }
+
+        .post-sender-profession {
+            font-size: 0.7rem;
+        }
+
+        #post-btn {
+            height: 3rem;
+            width: 3rem;
+            border-radius: 50%;
+        }
+
+        .post-image {
+            width: 100%;
+            height: 20rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        #post-section p {
+            margin: 1rem;
+        }
+
+        .post-image img {
+            display: inline-block;
+            width: 90%;
+            height: 100%;
+            margin: auto;
+            border-radius: 15px;
+            border: 2px solid black;
+        }
+
+        .post-caption {
+            margin-left: 2rem;
+            margin-right: 2rem;
+        }
+
+        .post-title h1 {
+            text-align: center;
+        }
+
+        .post-content {
+            padding: 0.5rem;
+            text-align: justify;
+            background-color: aliceblue;
+        }
+
+        .post-profile-text {
+            border: none;
+            background-color: rgb(43, 34, 34);
+            color: white;
+        }
+
+        .post-profile-text:hover {
+            text-decoration: underline;
+            text-decoration-color: white;
+        }
+
+        /* Right-Section */
+        .row {
+            margin-left: 0.1rem;
+        }
+
+        #profile-btn {
+            outline: none;
+        }
+
+        #profile-btn:hover {
+            outline: none;
+        }
+
+        #profile-btn-text {
+            border: none;
+            background-color: rgb(232, 246, 253);
+            outline: none;
+        }
+
+        #profile-btn-text:hover {
+            text-decoration: underline;
+            font-weight: bolder;
+            outline: none;
+        }
+
+        #profile-container {
+            text-align: center;
+            border: 1px solid #007bff;
+            padding: 1rem;
+            border-radius: 5px;
+            background-color: rgb(232, 246, 253);
+            box-shadow: 0px 7px 11px black;
+            height: 370px;
+        }
+
+        #profile-pic {
+            margin: auto;
+            height: 11rem;
+            width: 11rem;
+            margin-top: 1rem;
+        }
+
+        #profile-pic img {
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+        }
+
+        #user-info h2 {
+            font-weight: bold;
+        }
+
+        #profile-container hr {
+            width: 100%;
+            margin: 1rem 0;
+            background-color: #0a0a0a;
+        }
+
+        #create-post h3 {
+            margin-bottom: 0 !important;
+            font-weight: bold;
+        }
+
+        #create-post-image {
+            margin-left: 2rem;
+        }
+
+        #create-post-form textarea[attribute='placeholder'] {
+            font-size: 2rem;
+        }
+
+        #create-post-btn {
+            width: 3rem;
+            height: 3rem;
+            margin: auto;
+            border-radius: 50%;
+        }
+
+        #create-post {
+            text-align: center;
+            border: 1px solid #007bff;
+            padding-bottom: 1rem;
+            border-radius: 5px;
+            background-color: rgb(232, 246, 253);
+            box-shadow: 0px 7px 11px black;
+            margin-top: 27px;
+            width: 99%;
+        }
+
+        #modal {
+            display: flex;
+            align-items: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <img src="/static/logo5.png" alt="Logo" id="logo">
+        <a class="navbar-brand" href="#">MyFolio</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-auto">
+
+                <a class="nav-link" href="http://127.0.0.1:8000/">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/forum/post">Posts</a>
+                <form action="/forum/profile/" enctype="multipart/form-data" method="POST">{% csrf_token %}
+                    <input type="hidden" name="req-user" value='{{user.user_id}}'>
+                    <button type='submit' id='profile-btn' class="nav-link">Profile</button>
+                </form>
+                <!-- S -->
+                <form style="margin-left: 2rem;">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="main-search" id="main-search" placeholder="Search"
+                            style="width: 10rem;border-radius: 6px;">
+                        <div class="input-group-btn">
+                            <button id="main-search-btn" class="btn btn-default border border-dark" type="button"
+                                data-toggle="modal" data-target="#searchModal" style='background-color: #9ffdef;margin-left: 5px;
+                                height: 37px'>
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search"
+                                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z" />
+                                    <path fill-rule="evenodd"
+                                        d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <!-- S -->
+            </div>
+        </div>
+        <div id="userDetails">
+            <!-- Button to launch Login Modal -->
+            <ul class="navbar-nav mr-2">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle welcome-user" style="color: #01666b;" href='#'
+                        id="navbarDropdown" role="button" data-toggle="dropdown"> Welcome {{request.user}}</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/logout">Logout</a>
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ==================== Search Results Modal ========================== -->
+
+    <!-- S -->
+    <!-- Search Result Modal -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: cyan;">
+                    <h5 class="modal-title" id="exampleModalLabel">Search Results</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id='search-results-modal'>
+
+                    <!-- List of Followers  -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- S -->
+    <!-- ========================== Main Page================================= -->
+
+    <div class="container mt-3" id="postPage">
+        <section id="main-section" class=" mt-2">
+            <div class="row">
+
+                <!-- ================ Left-Section================ -->
+                <div class="col-3"></div>
+                <div class="col-3" id='profile-section' style='margin-top: 3.5rem;'>
+                    <div id="profile-container" class='border-primary'>
+                        <div id="profile-pic">
+                            <!-- <img src="person_4.jpg" alt="Profile Picture" srcset=""> -->
+                            <img src="../media/{{user.profilePic}}" alt="Profile Picture" srcset="">
+                        </div>
+                        <div id='user-info' class='mt-3'>
+                            <form action="/forum/profile/" enctype="multipart/form-data" method="POST">{% csrf_token %}
+                                <input type="hidden" name="req-user" value='{{user.user_id}}'>
+                                <button type='submit' id='profile-btn-text'>
+                                    <h2 id='user-name'>{{user.first_name}} {{user.last_name}}</h2>
+                                </button>
+                            </form>
+                            <h5 id='user-profession'>{{user.jobTitle}}</h5>
+                            <div class='mt-2'><span class='mr-2'><strong>{{num_followers}}</strong>
+                                    Followers</span><span><strong>{{num_followings}}</strong> Followings</span></div>
+                        </div>
+                    </div>
+                    <div id="create-post" class='center'>
+
+                        <h3 class='mt-2'>Create Your Post</h3>
+                        <button class='btn btn-light mb-3 mt-2' id='create-post-btn' data-toggle="modal"
+                            data-target="#create-post-Modal"
+                            style='position: relative;
+                            top: 9px;border:3px solid blue; padding:0 !important; height:2.5rem;width:2.5rem;'>
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" style='font-size: 2.2rem; color:blue;'
+                                class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                            </svg>
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- ======================= Create Post Modal ============================ -->
+
+                <!-- Modal -->
+                <div class="modal fade" id="create-post-Modal" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header" id='modal'
+                                style='padding: 0.5rem !important; background-color: cyan;'>
+                                <h5 class="modal-title font-weight-bold" style='font-size: 1.8rem;'
+                                    id="exampleModalLabel">Create Your Post</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form id='create-post-form' action="/forum/createpost/" enctype="multipart/form-data"
+                                    method="POST">{% csrf_token %}
+                                    <input type="hidden" name="sender-id" value="{{user.user_id}}"></input>
+                                    <div class="form-group">
+                                        <textarea class="form-control" id="create-post-caption"
+                                            placeholder='What do you want to talk about ?' rows='10'
+                                            name='content'></textarea>
+                                    </div>
+                                    <label class="font-weight-bold" style="margin-left:0.3rem; Font-size:1.3rem;"
+                                        for="create-post-img">Insert an Image</label>
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="create-post-img"
+                                            name="create-post-img"></input>
+                                        <label class="custom-file-label" for="create-post-img">Choose a File
+                                        </label>
+                                    </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Post</button>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =================End Left Section =================== -->
+
+                <div id="post-section" class='col-9'>
+
+                    <!-- ============ POST-Container ======================== -->
+                    {% for post_dict in list_posts %}
+                    <div class="post-container p-2">
+                        <div class="post-top">
+                            <div class="post-sender-image">
+                                <!-- <img src="person_4.jpg" alt="Profile-Pic" srcset=""> -->
+                                <img src="../media/{{post_dict.sender.profilePic}}" alt="Profile-Pic" srcset="">
+                            </div>
+                            <div class='post-sender-info'>
+                                <form action="/forum/profile/" enctype="multipart/form-data" method="POST">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="req-user" value='{{post_dict.sender.user_id}}'>
+                                    <button type='submit' class='post-profile-text'>
+                                        <h5 class='post-sender-name'>{{post_dict.sender.first_name}}
+                                            {{post_dict.sender.last_name}}</h5>
+                                    </button>
+                                </form>
+
+                                <h5 class='post-sender-profession'>{{post_dict.sender.jobTitle}}</h5>
+                            </div>
+                            <div class="time-stamp text-light">
+                                <span class='date-time'
+                                    style='display:none;'>{{post_dict.post.time.year}}-{{post_dict.post.time.month}}-{{post_dict.post.time.day}}
+                                    {{post_dict.post.time.hour}}:{{post_dict.post.time.minute}}:{{post_dict.post.time.second}}</span>
+                                <span class="number">0 Minutes</span>
+                                <span>Ago</span>
+                            </div>
+                        </div>
+                        <div class="post-content border border-dark">
+                            <div class="post-caption">
+                                <p>
+                                    {{post_dict.post.content}}
+                                </p>
+                            </div>
+                            <div class="post-image">
+                                <!-- <img src="work4.jpg" alt="Image" srcset=""> -->
+                                <img src="../media/{{post_dict.post.image}}" alt="Image" srcset="">
+                            </div>
+                        </div>
+                        <div class="post-bottom">
+                            Like Share Comment
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <!-- ======================POST Container End ============================== -->
+                    <!-- ============ POST-Container ======================== -->
+
+
+                </div>
+
+                <!-- =================================== Left SEction End ============================= -->
+
+
+            </div>
+        </section>
+        <!-- =========================== Main Section End ===================================== -->
+
+    </div>
+
+    <!-- ============================== BootStrap JS ================================== -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <script>
+
+        setInterval(updateTime, 1000);
+        function updateTime() {
+            elements = document.getElementsByClassName('date-time');
+            Array.from(elements).forEach(element => {
+                let unit = '';
+                let num = 0;
+                let date = new Date(element.innerText);
+                let date_now = new Date();
+                diff_date = new Date(date_now - date);
+                let years = parseInt(diff_date.getUTCFullYear()) - 1970;
+                let months = parseInt(diff_date.getUTCMonth());
+                let days = parseInt(diff_date.getUTCDate()) - 1;
+                let hours = parseInt(diff_date.getUTCHours());
+                let minutes = parseInt(diff_date.getUTCMinutes());
+
+                if (years >= 1) {
+                    num = years;
+                    if (years == 1)
+                        unit = 'Year';
+                    else
+                        unit = 'Years';
+                }
+                else if (months >= 1) {
+                    num = months;
+                    if (months == 1)
+                        unit = 'Month';
+                    else
+                        unit = 'Months';
+                }
+                else if (days >= 7) {
+                    // num = days / 7;
+                    num = Math.floor(days/7)
+                    if (num == 1)
+                        unit = 'Week';
+                    else
+                        unit = 'Weeks';
+                }
+                else if (days >= 1) {
+                    num = days;
+                    if (days == 1)
+                        unit = 'Day';
+                    else
+                        unit = 'Days';
+                }
+                else if (hours >= 1) {
+                    num = hours;
+                    if (hours == 1)
+                        unit = 'Hour';
+                    else
+                        unit = 'Hours';
+                }
+                else {
+                    num = minutes;
+                    if (num < 2)
+                        unit = 'Minute';
+                    else
+                        unit = 'Minutes';
+                }
+
+
+                element.nextSibling.nextSibling.innerText = `${num} ${unit}`;
+
+            });
+        }
+
+        // setInterval(updateTime, 1000);
+        // function updateTime() {
+        //     elements = document.getElementsByClassName('date-time');
+        //     Array.from(elements).forEach(element => {
+        //         let unit = '';
+        //         let num = 0;
+        //         let date = new Date(element.innerText);
+        //         let date_now = new Date();
+        //         diff_date = new Date(date_now - date);
+        //         let years = parseInt(diff_date.getFullYear()) - 1970;
+        //         let months = parseInt(diff_date.getMonth()) - 0;
+        //         let days = parseInt(diff_date.getDate()) - 1;
+        //         let hours = parseInt(diff_date.getHours()) - 11;
+        //         let minutes = parseInt(diff_date.getMinutes()) - 0;
+
+        //         if (years >= 1) {
+        //             num = years;
+        //             if (years == 1)
+        //                 unit = 'Year';
+        //             else
+        //                 unit = 'Years';
+        //         }
+        //         else if (months >= 1) {
+        //             num = months;
+        //             if (months == 1)
+        //                 unit = 'Month';
+        //             else
+        //                 unit = 'Months';
+        //         }
+        //         else if (days >= 7) {
+        //             num = days % 7;
+        //             if (num == 1)
+        //                 unit = 'Week';
+        //             else
+        //                 unit = 'Weeks';
+        //         }
+        //         else if (days >= 1) {
+        //             num = days;
+        //             if (days == 1)
+        //                 unit = 'Day';
+        //             else
+        //                 unit = 'Days';
+        //         }
+        //         else if (hours >= 1) {
+        //             num = hours;
+        //             if (hours == 1)
+        //                 unit = 'Hour';
+        //             else
+        //                 unit = 'Hours';
+        //         }
+        //         else {
+        //             num = minutes;
+        //             if (num < 2)
+        //                 unit = 'Minute';
+        //             else
+        //                 unit = 'Minutes';
+        //         }
+
+
+        //         element.nextSibling.nextSibling.innerText = `${num} ${unit}`;
+        //         // element.nextSibling.nextSibling.nextSibling.innerText = `${unit}`;
+        //         // console.log(num + ' ' + unit);
+        //     });
+        // }
+
+        // Add the following code if you want the name of the file appear on select
+        $(".custom-file-input").on("change", function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+
+        // Search Results
+        var token = "{{csrf_token}}"
+        $("#main-search-btn").click(function () {
+            Data = {
+                'search': document.getElementById('main-search').value,
+            };
+            $.ajax({
+                headers: { "X-CSRFToken": token },
+                url: '/forum/search/',
+                type: 'POST',
+                data: Data,
+                success: function (response) {
+                    if (response.success) {
+                        let search_results = response.results;
+                        console.log(search_results.length);
+                        let markup = '';
+                        search_results.forEach((result) => {
+                            markup += `
+                    <div class="follow-body border border-dark">
+                        <div class="follow-box">
+                            <div class="follow-box-image">
+                                <img src="../media/${result.profilePic}" alt="Profile-Pic" srcset="">
+                            </div>
+                            <div class='follow-box-info'>
+                                <h5 class='follow-box-name'>${result.first_name} ${result.last_name}</h5>
+                                <h5 class='follow-box-jobTitle'>${result.jobTitle}</h5>
+                            </div>
+                            <div class="follow-box-btn">
+                                <form action="/forum/profile/" enctype="multipart/form-data" method="POST">{% csrf_token %}
+                                    <input type="hidden" name="req-user" value=${result.user_id}>
+                                    <button type = 'submit' class="btn btn-info">View Profile</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>` ;
+                        });
+
+                        document.getElementById('search-results-modal').innerHTML = markup;
+                    }
+                    else {
+                        // alert('Download Unsuccessful');
+                        let markup = `
+                    <div class="follow-body border border-dark" style="display: flex;flex-direction: column;justify-content: center;align-items: center;border: 2px solid;background-color: #f9c8c8;">
+                        <span style="font-size:6em">&#9785;</span> 
+                        <h2 style="margin:0px">No Such User Found!</h2>
+                    </div>` ;
+
+                        document.getElementById('search-results-modal').innerHTML = markup;
+                    }
+                }
+            })
+        });
+
+    </script>
+</body>
+
+</html>

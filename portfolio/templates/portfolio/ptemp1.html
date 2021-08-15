@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- <link rel="stylesheet" href="assets/css/styles.css"> -->
+
+    <!-- =====BOX ICONS===== -->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <title>Portfolio</title>
+    <script>
+        window.onbeforeunload = function (e) { localStorage.clear(); };
+    </script>
+    <style>
+        /* Original CSS */
+        /*===== GOOGLE FONTS =====*/
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+        /*===== VARIABLES CSS =====*/
+        :root {
+            --header-height: 3rem;
+            --font-semi: 600;
+        }
+
+        /*===== Colores =====*/
+        :root {
+            --first-color: #4070F4;
+            --second-color: #0E2431;
+        }
+
+        /*===== Fuente y tipografia =====*/
+        :root {
+            --body-font: 'Poppins', sans-serif;
+            --big-font-size: 2rem;
+            --h2-font-size: 1.25rem;
+            --normal-font-size: 0.938rem;
+        }
+
+        @media screen and (min-width: 768px) {
+            :root {
+                --big-font-size: 3.5rem;
+                --h2-font-size: 2rem;
+                --normal-font-size: 1rem;
+            }
+        }
+
+        /*===== Margenes =====*/
+        :root {
+            --mb-1: 0.5rem;
+            --mb-2: 1rem;
+            --mb-3: 1.5rem;
+            --mb-4: 2rem;
+            --mb-5: 2.5rem;
+            --mb-6: 3rem;
+        }
+
+        /*===== z index =====*/
+        :root {
+            --z-back: -10;
+            --z-normal: 1;
+            --z-tooltip: 10;
+            --z-fixed: 100;
+        }
+
+        /*===== BASE =====*/
+        *,
+        ::before,
+        ::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: var(--header-height) 0 0 0;
+            font-family: var(--body-font);
+            font-size: var(--normal-font-size);
+            color: var(--second-color);
+        }
+
+        h1,
+        h2,
+        p {
+            margin: 0;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /*===== CLASS CSS ===== */
+        .section-title {
+            position: relative;
+            font-size: var(--h2-font-size);
+            color: var(--first-color);
+            margin-top: var(--mb-2);
+            margin-bottom: var(--mb-4);
+            text-align: center;
+        }
+
+        .section-title::after {
+            position: absolute;
+            content: "";
+            width: 64px;
+            height: 0.18rem;
+            left: 0;
+            right: 0;
+            margin: auto;
+            top: 2rem;
+            background-color: var(--first-color);
+        }
+
+        .section {
+            padding-top: 3rem;
+            padding-bottom: 2rem;
+        }
+
+        /*===== LAYOUT =====*/
+        .bd-grid {
+            max-width: 1024px;
+            display: grid;
+            grid-template-columns: 100%;
+            grid-column-gap: 2rem;
+            width: calc(100% - 2rem);
+            margin-left: var(--mb-2);
+            margin-right: var(--mb-2);
+        }
+
+        .l-header {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: var(--z-fixed);
+            background-color: #fff;
+            box-shadow: 0 1px 4px rgba(146, 161, 176, .15);
+        }
+
+        /*===== NAV =====*/
+        .nav {
+            height: var(--header-height);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: var(--font-semi);
+        }
+
+        @media screen and (max-width: 768px) {
+            .nav__menu {
+                position: fixed;
+                top: var(--header-height);
+                right: -100%;
+                width: 80%;
+                height: 100%;
+                padding: 2rem;
+                background-color: var(--second-color);
+                transition: .5s;
+            }
+        }
+
+        .nav__item {
+            margin-bottom: var(--mb-4);
+        }
+
+        .nav__link {
+            position: relative;
+            color: #fff;
+        }
+
+        .nav__link:hover {
+            position: relative;
+        }
+
+        /* .nav__link:hover::after {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 0.18rem;
+            left: 0;
+            top: 2rem;
+            background-color: var(--first-color);
+        } */
+        */ nav__link:hover {
+            color: var(--first-color);
+            text-decoration: none;
+        }
+
+        .nav__logo {
+            color: var(--second-color);
+        }
+
+        .nav__toggle {
+            color: var(--second-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /*Active menu*/
+        .active::after {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 0.18rem;
+            left: 0;
+            top: 2rem;
+            background-color: var(--first-color);
+        }
+
+        /*=== Show menu ===*/
+        .show {
+            right: 0;
+        }
+
+        /*===== HOME =====*/
+        .home {
+            height: calc(100vh - 3rem);
+            row-gap: 1rem;
+        }
+
+        .home__data {
+            align-self: center;
+        }
+
+        .home__title {
+            font-size: var(--big-font-size);
+            margin-bottom: var(--mb-5);
+        }
+
+        .home__title-color {
+            color: var(--first-color);
+        }
+
+        .home__social {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .home__social-icon {
+            width: max-content;
+            margin-bottom: var(--mb-2);
+            font-size: 1.5rem;
+            color: var(--second-color);
+        }
+
+        .home__social-icon:hover {
+            color: var(--first-color);
+        }
+
+        .home__img {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 295px;
+        }
+
+        #editable-home-image {
+            height: 28rem;
+            width: 29rem;
+            border-radius: 5px;
+            /* border: 2px solid black; */
+        }
+
+        #edited-home-image {
+            margin: 12rem 2rem 3rem 7rem;
+        }
+
+        /*BUTTONS*/
+        .button {
+            display: inline-block;
+            background-color: var(--first-color);
+            color: #fff;
+            padding: .75rem 2.5rem;
+            font-weight: var(--font-semi);
+            border-radius: .5rem;
+        }
+
+        .button:hover {
+            box-shadow: 0 10px 36px rgba(0, 0, 0, .15);
+        }
+
+        /* ===== ABOUT =====*/
+        .about__container {
+            row-gap: 2rem;
+            text-align: center;
+        }
+
+        #editable-about-image {
+            height: 25rem;
+            width: 22rem;
+            border-radius: 5px;
+        }
+
+        #edited-about-image {
+            margin: 11rem -3rem 3rem 4rem;
+        }
+
+        .about__subtitle {
+            margin-bottom: var(--mb-2);
+        }
+
+        .about__img {
+            justify-self: center;
+        }
+
+        .about__img img {
+            width: 200px;
+            border-radius: .5rem;
+        }
+
+        /* ===== SKILLS =====*/
+        .skills__container {
+            row-gap: 2rem;
+            text-align: center;
+        }
+
+        .skills__subtitle {
+            margin-bottom: var(--mb-2);
+        }
+
+        .skills__text {
+            margin-bottom: var(--mb-4);
+        }
+
+        .skills__data {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            font-weight: var(--font-semi);
+            padding: .5rem 1rem;
+            margin-bottom: var(--mb-4);
+            border-radius: .5rem;
+            box-shadow: 0 4px 25px rgba(14, 36, 49, .15);
+        }
+
+        .skills__icon {
+            font-size: 2rem;
+            margin-right: var(--mb-2);
+            color: var(--first-color);
+        }
+
+        .skills__names {
+            display: flex;
+            align-items: center;
+        }
+
+        .skills__bar {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            background-color: var(--first-color);
+            height: .25rem;
+            border-radius: .5rem;
+            z-index: var(--z-back);
+        }
+
+        .skills__html {
+            width: 95%;
+        }
+
+        .skills__css {
+            width: 85%;
+        }
+
+        .skills__js {
+            width: 65%;
+        }
+
+        .skills__ux {
+            width: 85%;
+        }
+
+        .skills__img {
+            border-radius: .5rem;
+        }
+
+        .skills__icon {
+            margin-right: 2rem;
+        }
+
+        /* ===== WORK =====*/
+        .work__container {
+            row-gap: 2rem;
+        }
+
+        .editable-work-image {
+            width: 19rem;
+            height: 20rem;
+            border-radius: 5px;
+        }
+
+        .work__img {
+            box-shadow: 0 4px 25px rgba(14, 36, 49, .15);
+            border-radius: .5rem;
+            overflow: hidden;
+        }
+
+        .work__img img {
+            transition: 1s;
+            cursor: pointer;
+        }
+
+        .work__img img:hover {
+            transform: scale(1.1);
+        }
+
+        .work__img input {
+            margin: 8rem -5rem 3rem 3rem;
+        }
+
+        /* ===== CONTACT =====*/
+        .contact__input {
+            width: 100%;
+            font-size: var(--normal-font-size);
+            font-weight: var(--font-semi);
+            padding: 1rem;
+            border-radius: .5rem;
+            border: 1.5px solid var(--second-color);
+            outline: none;
+            margin-bottom: var(--mb-4);
+        }
+
+        .contact__button {
+            display: block;
+            border: none;
+            outline: none;
+            font-size: var(--normal-font-size);
+            cursor: pointer;
+            margin-left: auto;
+        }
+
+        /* ===== FOOTER =====*/
+        .footer {
+            background-color: var(--second-color);
+            color: #fff;
+            text-align: center;
+            font-weight: var(--font-semi);
+            padding: 2rem 0;
+        }
+
+        .footer__title {
+            font-size: 2rem;
+            margin-bottom: var(--mb-4);
+        }
+
+        .footer__social {
+            margin-bottom: var(--mb-4);
+        }
+
+        .footer__icon {
+            font-size: 1.5rem;
+            color: #fff;
+            margin: 0 var(--mb-2)
+        }
+
+        /* ===== MEDIA QUERIES=====*/
+        @media screen and (min-width: 768px) {
+            body {
+                margin: 0;
+            }
+
+            .section {
+                padding-top: 4rem;
+                padding-bottom: 3rem;
+            }
+
+            .section-title {
+                margin-bottom: var(--mb-6);
+            }
+
+            .section-title::after {
+                width: 80px;
+                top: 3rem;
+            }
+
+            .nav {
+                height: calc(var(--header-height) + 1rem);
+            }
+
+            .nav__list {
+                display: flex;
+                padding-top: 0;
+            }
+
+            .nav__item {
+                margin-left: var(--mb-6);
+                margin-bottom: 0;
+            }
+
+            .nav__toggle {
+                display: none;
+            }
+
+            .nav__link {
+                color: var(--second-color);
+            }
+
+            .home {
+                height: 100vh;
+            }
+
+            .home__data {
+                align-self: flex-end;
+            }
+
+            .home__social {
+                padding-top: 0;
+                padding-bottom: 2.5rem;
+                flex-direction: row;
+                align-self: flex-end;
+            }
+
+            .home__social-icon {
+                margin-bottom: 0;
+                margin-right: var(--mb-4);
+            }
+
+            .home__img {
+                width: 457px;
+                bottom: 15%;
+            }
+
+            .about__container,
+            .skills__container {
+                grid-template-columns: repeat(2, 1fr);
+                align-items: center;
+                text-align: initial;
+            }
+
+            .about__img img {
+                width: 300px;
+            }
+
+            .work__container {
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+                column-gap: 2rem;
+            }
+
+            .contact__form {
+                width: 360px;
+            }
+
+            .contact__container {
+                justify-items: center;
+            }
+        }
+
+        @media screen and (min-width: 1024px) {
+            .bd-grid {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .home__img {
+                right: 10%;
+            }
+        }
+
+        #save-btn {
+            position: fixed;
+            top: 65px;
+            right: 1%;
+            display: none;
+            position: fixed;
+            top: 50%;
+            right: 1%;
+
+            background-color: #a3f5b5;
+            border: navajowhite;
+            box-shadow: 0px 0px 20px darkcyan;
+            /* font-weight: bold; */
+            color: black;
+            font-size: 20px;
+        }
+
+        #edit-btn {
+            position: fixed;
+            top: 50%;
+            right: 1%;
+            display: block;
+            background-color: #17e6e6;
+            border: navajowhite;
+            box-shadow: 0px 0px 20px darkcyan;
+            /* font-weight: bold; */
+            color: black;
+            font-size: 20px;
+        }
+
+        #download-btn {
+            position: fixed;
+            top: 60%;
+            right: 1%;
+            background-color: #ff8383;
+            border: navajowhite;
+            box-shadow: 0px 0px 20px darkcyan;
+            /* font-weight: bold; */
+            color: black;
+            font-size: 20px;
+        }
+
+
+        .round {
+            border: 0.5px solid black;
+            border-radius: 5px;
+            box-shadow: 0px 0px 12px 0px rgb(64, 64, 250);
+        }
+
+    </style>
+</head>
+
+<body>
+    <button class="btn btn-danger remove" id="edit-btn" onclick="editing()">Edit Mode</button>
+    <button class="btn btn-success remove" id="save-btn" onclick="saving()">Save</button>
+    <button type="button" class="btn btn-danger remove" style="display: none;" id="download-btn">Download</button>
+   
+    <div class="container" id='container'>
+        <!--===== HEADER =====-->
+        <header class="l-header">
+            <nav class="nav bd-grid">
+                <div>
+                    <a href="#" class="nav__logo"><span id='editable-nav'>Marlon</span> </a>
+                </div>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
+                        <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                        <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
+                        <li class="nav__item"><a href="#work" class="nav__link">Work</a></li>
+                        <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </nav>
+        </header>
+
+        <main class="l-main">
+            <!--===== HOME =====-->
+            <section class="home bd-grid" id="home">
+                <div class="home__data">
+                    <h1 class="home__title">Hi,<br>I'am <span
+                            class="home__title-color editable-input">Marlon</span><br><span class="editable-input"> Web
+                            Designer</span></h1>
+
+                    <a href="#contact" class="button">Contact</a>
+                </div>
+
+                <div class="home__social">
+                    <a href="#" class="home__social-icon" id='editable-link-linkedin' target="_blank"><i
+                            class='bx bxl-linkedin'></i></a>
+                    <a href="#" class="home__social-icon" id='editable-link-github' target="_blank"><i
+                            class='bx bxl-github'></i></a>
+                </div>
+
+                <div class="home__img">
+                    <form action="/portfolio/img/" class=' remove' enctype="multipart/form-data" id="homeImageForm"
+                        method="POST">
+                        {% csrf_token %}
+                        <input type='file' name='Image' accpet='image/*' id='edited-home-image'
+                            style=' display:none;'></input>
+                        <button class='btn btn-success' style="display: none; margin: 2rem 4rem 9rem 9rem;"
+                            type="submit" id="saveHomeImagebtn">Save this Image</button>
+                    </form>
+                    <img id='editable-home-image' src="/static/perfil.jpg" alt="image">
+                    <!-- ../media/Krishna.jpg -->
+                </div>
+            </section>
+
+            <!--===== ABOUT =====-->
+            <section class="about section " id="about">
+                <h2 class="section-title">About</h2>
+
+                <div class="about__container bd-grid">
+                    <div class="about__img">
+                        <form action="/portfolio/img/" class=' remove' enctype="multipart/form-data" id="aboutImageForm"
+                            method="POST">
+                            {% csrf_token %}
+                            <input type='file' name='Image' accpet='image/*' id='edited-about-image'
+                                style=' display:none;'></input>
+                            <button class='btn btn-success' style="display: none; margin: 2rem 4rem 9rem 9rem"
+                                type="submit" id="saveAboutImagebtn">Save this Image</button>
+                        </form>
+                        <img id='editable-about-image' src="/static/perfil.jpg" alt="image">
+                    </div>
+
+                    <div>
+                        <h2 class="about__subtitle">I'am <span class='editable-input'>Marlon</span> </h2>
+                        <div class="about__text editable-textarea">Lorem, ipsum dlor sit amet consectetur
+                            adipisicing elit. Voluptate cum expedita quo culpa tempora, assumenda, quis fugiat ut
+                            voluptates soluta, aut earum nemo recusandae cumque perferendis! Recusandae alias accusamus
+                            atque.</div>
+                    </div>
+                </div>
+            </section>
+
+            <!--===== SKILLS =====-->
+            <section class="skills section" id="skills">
+                <h2 class="section-title">Skills</h2>
+
+                <div class="skills__container bd-grid">
+                    <div>
+
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                <!-- <i class='bx bxl-html5 skills__icon'></i> -->
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-layers-fill skills__icon"
+                                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M7.765 1.559a.5.5 0 0 1 .47 0l7.5 4a.5.5 0 0 1 0 .882l-7.5 4a.5.5 0 0 1-.47 0l-7.5-4a.5.5 0 0 1 0-.882l7.5-4z" />
+                                    <path fill-rule="evenodd"
+                                        d="M2.125 8.567l-1.86.992a.5.5 0 0 0 0 .882l7.5 4a.5.5 0 0 0 .47 0l7.5-4a.5.5 0 0 0 0-.882l-1.86-.992-5.17 2.756a1.5 1.5 0 0 1-1.41 0l-5.17-2.756z" />
+                                </svg>
+                                <span class="skills__name editable-skills">SKILL</span>
+                            </div>
+                        </div>
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                <!-- <i class='bx bxl-html5 skills__icon'></i> -->
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-layers-fill skills__icon"
+                                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M7.765 1.559a.5.5 0 0 1 .47 0l7.5 4a.5.5 0 0 1 0 .882l-7.5 4a.5.5 0 0 1-.47 0l-7.5-4a.5.5 0 0 1 0-.882l7.5-4z" />
+                                    <path fill-rule="evenodd"
+                                        d="M2.125 8.567l-1.86.992a.5.5 0 0 0 0 .882l7.5 4a.5.5 0 0 0 .47 0l7.5-4a.5.5 0 0 0 0-.882l-1.86-.992-5.17 2.756a1.5 1.5 0 0 1-1.41 0l-5.17-2.756z" />
+                                </svg>
+                                <span class="skills__name editable-skills">SKILL</span>
+                            </div>
+                        </div>
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                <!-- <i class='bx bxl-html5 skills__icon'></i> -->
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-layers-fill skills__icon"
+                                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M7.765 1.559a.5.5 0 0 1 .47 0l7.5 4a.5.5 0 0 1 0 .882l-7.5 4a.5.5 0 0 1-.47 0l-7.5-4a.5.5 0 0 1 0-.882l7.5-4z" />
+                                    <path fill-rule="evenodd"
+                                        d="M2.125 8.567l-1.86.992a.5.5 0 0 0 0 .882l7.5 4a.5.5 0 0 0 .47 0l7.5-4a.5.5 0 0 0 0-.882l-1.86-.992-5.17 2.756a1.5 1.5 0 0 1-1.41 0l-5.17-2.756z" />
+                                </svg>
+                                <span class="skills__name editable-skills">SKILL</span>
+                            </div>
+                        </div>
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                <!-- <i class='bx bxl-html5 skills__icon'></i> -->
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-layers-fill skills__icon"
+                                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M7.765 1.559a.5.5 0 0 1 .47 0l7.5 4a.5.5 0 0 1 0 .882l-7.5 4a.5.5 0 0 1-.47 0l-7.5-4a.5.5 0 0 1 0-.882l7.5-4z" />
+                                    <path fill-rule="evenodd"
+                                        d="M2.125 8.567l-1.86.992a.5.5 0 0 0 0 .882l7.5 4a.5.5 0 0 0 .47 0l7.5-4a.5.5 0 0 0 0-.882l-1.86-.992-5.17 2.756a1.5 1.5 0 0 1-1.41 0l-5.17-2.756z" />
+                                </svg>
+                                <span class="skills__name editable-skills">SKILL</span>
+                            </div>
+                        </div>
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                <!-- <i class='bx bxl-html5 skills__icon'></i> -->
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-layers-fill skills__icon"
+                                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M7.765 1.559a.5.5 0 0 1 .47 0l7.5 4a.5.5 0 0 1 0 .882l-7.5 4a.5.5 0 0 1-.47 0l-7.5-4a.5.5 0 0 1 0-.882l7.5-4z" />
+                                    <path fill-rule="evenodd"
+                                        d="M2.125 8.567l-1.86.992a.5.5 0 0 0 0 .882l7.5 4a.5.5 0 0 0 .47 0l7.5-4a.5.5 0 0 0 0-.882l-1.86-.992-5.17 2.756a1.5 1.5 0 0 1-1.41 0l-5.17-2.756z" />
+                                </svg>
+                                <span class="skills__name editable-skills">SKILL</span>
+                            </div>
+                        </div>
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                <!-- <i class='bx bxl-html5 skills__icon'></i> -->
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-layers-fill skills__icon"
+                                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M7.765 1.559a.5.5 0 0 1 .47 0l7.5 4a.5.5 0 0 1 0 .882l-7.5 4a.5.5 0 0 1-.47 0l-7.5-4a.5.5 0 0 1 0-.882l7.5-4z" />
+                                    <path fill-rule="evenodd"
+                                        d="M2.125 8.567l-1.86.992a.5.5 0 0 0 0 .882l7.5 4a.5.5 0 0 0 .47 0l7.5-4a.5.5 0 0 0 0-.882l-1.86-.992-5.17 2.756a1.5 1.5 0 0 1-1.41 0l-5.17-2.756z" />
+                                </svg>
+                                <span class="skills__name editable-skills">SKILL</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div>
+                        <img src="/static/work3.jpg" alt="image" id='staticImage1' class="skills__img">
+                    </div>
+                </div>
+            </section>
+
+            <!--===== WORK =====-->
+            <section class="work section" id="work">
+                <h2 class="section-title">Work</h2>
+
+                <div class="work__container d-flex justify-content-around flex-wrap bd-grid">
+                    <div class="work__img">
+                        <form action="/portfolio/img/" class='remove' enctype="multipart/form-data" id="workImageForm-1"
+                            method="POST">
+                            {% csrf_token %}
+                            <input type='file' name='Image' accpet='image/*' id='edited-work-image-1'
+                                style='display: none; margin: 8rem -5rem 3rem 3rem;'></input>
+                            <button class='btn btn-success' style="display: none; margin: 2rem 4rem 9rem 9rem;"
+                                type="submit" id="saveWorkImagebtn-1">Save this Image</button>
+                        </form>
+                        <img id='workImage-1' class='editable-work-image' src="/static/work1.jpg" alt="image">
+                    </div>
+                    <div class="work__img">
+                        <form action="/portfolio/img/" class='remove' enctype="multipart/form-data" id="workImageForm-2"
+                            method="POST">
+                            {% csrf_token %}
+                            <input type='file' name='Image' accpet='image/*' id='edited-work-image-2'
+                                style='display: none; margin: 8rem -5rem 3rem 3rem;'></input>
+                            <button class='btn btn-success' style="display: none; margin: 2rem 4rem 9rem 9rem;"
+                                type="submit" id="saveWorkImagebtn-2">Save this Image</button>
+                        </form>
+                        <img id='workImage-2' class='editable-work-image' src="/static/work2.jpg" alt="image">
+                    </div>
+                    <div class="work__img">
+                        <form action="/portfolio/img/" class='remove' enctype="multipart/form-data" id="workImageForm-3"
+                            method="POST">
+                            {% csrf_token %}
+                            <input type='file' name='Image' accpet='image/*' id='edited-work-image-3'
+                                style='display: none; margin: 8rem -5rem 3rem 3rem;'></input>
+                            <button class='btn btn-success' style="display: none; margin: 2rem 4rem 9rem 9rem;"
+                                type="submit" id="saveWorkImagebtn-3">Save this Image</button>
+                        </form>
+                        <img id='workImage-3' class='editable-work-image' src="/static/work3.jpg" alt="image">
+                    </div>
+                    <div class="work__img">
+                        <form action="/portfolio/img/" class='remove' enctype="multipart/form-data" id="workImageForm-4"
+                            method="POST">
+                            {% csrf_token %}
+                            <input type='file' name='Image' accpet='image/*' id='edited-work-image-4'
+                                style='display:none; margin: 8rem -5rem 3rem 3rem;'></input>
+                            <button class='btn btn-success' style="display: none; margin: 2rem 4rem 9rem 9rem;"
+                                type="submit" id="saveWorkImagebtn-4">Save this Image</button>
+                        </form>
+                        <img id='workImage-4' class='editable-work-image' src="/static/work4.jpg" alt="image">
+                    </div>
+                    <div class="work__img">
+                        <form action="/portfolio/img/" class='remove' enctype="multipart/form-data" id="workImageForm-5"
+                            method="POST">
+                            {% csrf_token %}
+                            <input type='file' name='Image' accpet='image/*' id='edited-work-image-5'
+                                style='display:none; margin: 8rem -5rem 3rem 3rem;'></input>
+                            <button class='btn btn-success' style="display: none; margin: 2rem 4rem 9rem 9rem;"
+                                type="submit" id="saveWorkImagebtn-5">Save this Image</button>
+                        </form>
+                        <img id='workImage-5' class='editable-work-image' src="/static/work5.jpg" alt="image">
+                    </div>
+                    <div class="work__img">
+                        <form action="/portfolio/img/" class='remove' enctype="multipart/form-data" id="workImageForm-6"
+                            method="POST">
+                            {% csrf_token %}
+                            <input type='file' name='Image' accpet='image/*' id='edited-work-image-6'
+                                style='display:none; margin: 8rem -5rem 3rem 3rem;'></input>
+                            <button class='btn btn-success' style="display: none; margin: 2rem 4rem 9rem 9rem;"
+                                type="submit" id="saveWorkImagebtn-6">Save this Image</button>
+                        </form>
+                        <img id='workImage-6' class='editable-work-image' src="/static/work6.jpg" alt="image">
+                    </div>
+                </div>
+            </section>
+
+            <!--===== CONTACT =====-->
+            <section class="contact section" id="contact">
+                <h2 class="section-title">Contact</h2>
+
+                <div class="contact__container bd-grid">
+                    <form action="" class="contact__form">
+                        <input type="text" placeholder="Name" class="contact__input">
+                        <input type="mail" placeholder="Email" class="contact__input">
+                        <textarea name="" id="" cols="0" rows="10" class="contact__input"></textarea>
+                        <input type="button" value="Contact" class="contact__button button">
+                    </form>
+                </div>
+            </section>
+        </main>
+
+
+
+
+        <!--===== FOOTER =====-->
+        <footer class="footer">
+            <p class="footer__title " id='editable-footer'>Marlon</p>
+            <div class="footer__social">
+                <a href="#" id='editable-link-facebook' class="footer__icon"><i class='bx bxl-facebook'></i></a>
+                <a href="#" id='editable-link-instagram' class="footer__icon"><i class='bx bxl-instagram'></i></a>
+                <a href="#" id='editable-link-twitter' class="footer__icon"><i class='bx bxl-twitter'></i></a>
+            </div>
+            <p>&#169; 2020 copyright all right reserved</p>
+        </footer>
+
+
+        <!--===== SCROLL REVEAL =====-->
+        <!-- <script id='removable-js' src="https://unpkg.com/scrollreveal"></script> -->
+
+        <!--===== MAIN JS =====-->
+        <!-- <script src="assets/js/main.js"></script> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+        <script>
+            // Original JS
+            /*===== MENU SHOW =====*/
+            const showMenu = (toggleId, navId) => {
+                const toggle = document.getElementById(toggleId),
+                    nav = document.getElementById(navId)
+
+                if (toggle && nav) {
+                    toggle.addEventListener('click', () => {
+                        nav.classList.toggle('show')
+                    })
+                }
+            }
+            showMenu('nav-toggle', 'nav-menu')
+
+            /*===== ACTIVE AND REMOVE MENU =====*/
+            const navLink = document.querySelectorAll('.nav__link');
+
+            function linkAction() {
+                /*Active link*/
+                navLink.forEach(n => n.classList.remove('active'));
+                this.classList.add('active');
+
+                /*Remove menu mobile*/
+                const navMenu = document.getElementById('nav-menu')
+                navMenu.classList.remove('show')
+            }
+            navLink.forEach(n => n.addEventListener('click', linkAction));
+
+            /*===== SCROLL REVEAL ANIMATION =====*/
+            const sr = ScrollReveal({
+                origin: 'top',
+                distance: '80px',
+                duration: 2000,
+                reset: true
+            });
+
+            /*SCROLL HOME*/
+            sr.reveal('.home__title', {});
+            sr.reveal('.button', { delay: 200 });
+            sr.reveal('.home__img', { delay: 400 });
+            sr.reveal('.home__social-icon', { interval: 200 });
+
+            /*SCROLL ABOUT*/
+            sr.reveal('.about__img', {});
+            sr.reveal('.about__subtitle', { delay: 400 });
+            sr.reveal('.about__text', { delay: 400 });
+
+            /*SCROLL SKILLS*/
+            sr.reveal('.skills__subtitle', {});
+            sr.reveal('.skills__text', {});
+            sr.reveal('.skills__data', { interval: 200 });
+            sr.reveal('.skills__img', { delay: 600 });
+
+            /*SCROLL WORK*/
+            sr.reveal('.work__img', { interval: 200 });
+
+            /*SCROLL CONTACT*/
+            sr.reveal('.contact__input', { interval: 200 });
+        </script>
+
+        <script class='remove'>
+            // MyScript
+
+            console.log("Welcome here");
+
+            // HomeImage
+            if (localStorage.getItem('homeImage') == null) {
+
+                localStorage.setItem('homeImage', 'perfil.png');
+            }
+            let imageKey = localStorage.getItem('homeImage');
+            console.log(`the image value ${imageKey}`);
+            $('#editable-home-image').attr('src', `/static/${imageKey}`);
+
+            // About Iamge
+            if (localStorage.getItem('aboutImage') == null) {
+
+                localStorage.setItem('aboutImage', 'about.jpg');
+            }
+            imageKey = localStorage.getItem('aboutImage');
+            console.log(`the image value ${imageKey}`);
+            $('#editable-about-image').attr('src', `/static/${imageKey}`);
+
+            // For Work Images
+            for (let i = 1; i < 7; i++) {
+                if (localStorage.getItem('workImage-' + i) == null) {
+
+                    localStorage.setItem('workImage-' + i, 'work' + i + '.jpg');
+                }
+                imageKey = localStorage.getItem('workImage-' + i);
+                console.log(`the image value ${imageKey}`);
+                $('#workImage-' + i).attr('src', `/static/${imageKey}`);
+            }
+
+            // Downloading the zip file here
+            $('#download-btn').click(() => {
+
+                let removingElements = document.getElementsByClassName('remove');
+                Array.from(removingElements).forEach(element => {
+                    element.remove();
+                });
+
+                //To Chnage Location of Image src from static folder to Media Folder for Download
+                let img=document.getElementById('staticImage1');
+                img.setAttribute('src','../media/work3.jpg');
+
+                var token = '{{csrf_token}}';
+
+                // console.log(workImage);
+                downloadData = {
+                    'html': document.documentElement.innerHTML,
+                    'homeImage': localStorage.getItem('homeImage'),
+                    'aboutImage': localStorage.getItem('aboutImage'),
+                    'workImage1': localStorage.getItem('workImage-1'),
+                    'workImage2': localStorage.getItem('workImage-2'),
+                    'workImage3': localStorage.getItem('workImage-3'),
+                    'workImage4': localStorage.getItem('workImage-4'),
+                    'workImage5': localStorage.getItem('workImage-5'),
+                    'workImage6': localStorage.getItem('workImage-6'),
+                    'number': '1',
+                    'staticImage1':'work3.jpg',
+                };
+                $.ajax({
+                    headers: { "X-CSRFToken": token },
+                    url: '/portfolio/download/',
+                    type: 'POST',
+                    data: downloadData,
+                    success: function (response) {
+                        if (response.error) {
+                            alert('Download Unsuccessful');
+                        }
+                        else {
+                            alert('Download Successful');
+                            let a = document.createElement('a');
+                            a.setAttribute('href', '../media/user.zip')
+                            a.setAttribute('download', 'done')
+                            a.click();
+                            window.location = '/portfolio/download';
+                        }
+                    }
+                });
+            })
+            function editing() {
+
+                document.getElementById('save-btn').style.display = 'block';
+                document.getElementById('edit-btn').style.display = 'none';
+
+                // For Nav Bar Name
+                let nav_name = document.getElementById('editable-nav');
+                let name = nav_name.innerText;
+                let input = document.createElement('input');
+                input.setAttribute('type', 'text');
+                input.setAttribute('value', name);
+                input.setAttribute('id', 'edited-nav');
+                input.setAttribute('class', 'round');
+                input.setAttribute('style', 'width: 15rem !important;');
+                nav_name.parentElement.insertBefore(input, nav_name);
+                nav_name.style.display = 'none';
+
+
+                // For Input type=text
+
+                let elements = document.getElementsByClassName('editable-input');
+                Array.from(elements).forEach(element => {
+                    let text = element.innerText;
+                    let input = document.createElement('input');
+                    input.setAttribute('value', text);
+                    input.setAttribute('class', 'edited-input round');
+                    input.setAttribute('style', 'width: 25rem; margin: 0.75rem;');
+                    element.parentElement.insertBefore(input, element);
+                    element.style.display = 'none';
+                });
+
+                // For TextAreas
+                elements = document.getElementsByClassName('editable-textarea');
+                Array.from(elements).forEach(element => {
+                    let text = element.innerText;
+                    let textarea = document.createElement('textarea');
+                    textarea.setAttribute('class', 'edited-textarea round');
+                    textarea.setAttribute('style', 'width:30rem; height:20rem; margin:0.75rem;');
+                    textarea.defaultValue = text;
+                    element.parentElement.insertBefore(textarea, element);
+                    let list = element.classList;
+                    let style = element.style;
+                    let p = document.createElement('p');
+                    p.classList = list;
+                    p.style = style;
+                    element.parentElement.insertBefore(p, element);
+                    element.remove();
+                });
+
+                // For Home Profile Image
+                saveImagebtn = document.getElementById('saveHomeImagebtn')
+                saveImagebtn.setAttribute('style', 'display:block; margin: 0rem 0rem 8.5rem 9rem;')
+                element = document.getElementById('editable-home-image');
+                let image = document.getElementById('edited-home-image');
+                image.style.display = 'block';
+                element.parentElement.classList += ' round';
+                element.style.display = 'none';
+
+                imgForm = document.getElementById('homeImageForm');
+                imgForm.insertBefore(image, saveImagebtn)
+                $('#homeImageForm').submit(function (e) {
+                    e.preventDefault();
+                    $form = $(this);
+                    let formData = new FormData(this);
+                    $.ajax({
+                        url: '/portfolio/img/',
+                        type: 'POST',
+                        data: formData,
+                        success: function (response) {
+                            $('.error').remove();
+                            console.log(response)
+                            if (response.error) {
+                                alert('Upload Unsuccessful');
+                            }
+                            else {
+                                $('#editable-home-image').attr('src', `../media/${response.responseValue}`)
+                                localStorage.setItem('homeImage', response.responseValue);
+
+                                document.getElementById('editable-home-image').setAttribute('style', 'display:block; ')
+
+                                document.getElementById('saveHomeImagebtn').setAttribute('style', 'display:none;')
+
+                                document.getElementById('edited-home-image').setAttribute('style', 'display:none;')
+
+                            }
+                        },
+                        cache: false,
+                        contentType: false,
+                        processData: false
+                    });
+
+                });
+
+
+
+                // For About Image
+                saveImagebtn = document.getElementById('saveAboutImagebtn')
+                saveImagebtn.setAttribute('style', 'display:block; margin: 0rem 0rem 7.5rem 6rem;')
+                element = document.getElementById('editable-about-image');
+                image = document.getElementById('edited-about-image');
+                image.style.display = 'block';
+                element.parentElement.classList += ' round';
+                element.style.display = 'none';
+
+                imgForm = document.getElementById('aboutImageForm');
+                imgForm.insertBefore(image, saveImagebtn)
+                $('#aboutImageForm').submit(function (e) {
+                    e.preventDefault();
+                    $form = $(this);
+                    let formData = new FormData(this);
+                    $.ajax({
+                        url: '/portfolio/img/',
+                        type: 'POST',
+                        data: formData,
+                        success: function (response) {
+                            $('.error').remove();
+                            console.log(response)
+                            if (response.error) {
+                                alert('Upload Unsuccessful');
+                            }
+                            else {
+                                $('#editable-about-image').attr('src', `../media/${response.responseValue}`)
+                                localStorage.setItem('aboutImage', response.responseValue);
+
+                                document.getElementById('editable-about-image').setAttribute('style', 'display:block; ')
+
+                                document.getElementById('saveAboutImagebtn').setAttribute('style', 'display:none;')
+
+                                document.getElementById('edited-about-image').setAttribute('style', 'display:none;')
+
+                            }
+                        },
+                        cache: false,
+                        contentType: false,
+                        processData: false
+                    });
+
+                });
+
+                // For Work Images
+
+                for (let i = 1; i < 7; i++) {
+                    saveImagebtn = document.getElementById('saveWorkImagebtn-' + i);
+                    saveImagebtn.setAttribute('style', 'display:block; margin: 0rem 0rem 4.5rem 5rem;')
+                    element = document.getElementById('workImage-' + i);
+                    element.parentElement.style.display = 'block';
+                    element.parentElement.classList.remove('remove');
+                    image = document.getElementById('edited-work-image-' + i);
+                    image.style.display = 'block';
+                    element.parentElement.classList += ' round';
+                    element.style.display = 'none';
+
+                    imgForm = document.getElementById('workImageForm-' + i);
+                    imgForm.insertBefore(image, saveImagebtn)
+                    $('#workImageForm-' + i).submit(function (e) {
+                        e.preventDefault();
+                        $form = $(this);
+                        let formData = new FormData(this);
+                        $.ajax({
+                            url: '/portfolio/img/',
+                            type: 'POST',
+                            data: formData,
+                            success: function (response) {
+                                $('.error').remove();
+                                console.log(response)
+                                if (response.error) {
+                                    alert('Upload Unsuccessful');
+                                }
+                                else {
+                                    $('#workImage-' + i).attr('src', `../media/${response.responseValue}`)
+                                    localStorage.setItem('workImage-' + i, response.responseValue);
+
+                                    document.getElementById('workImage-' + i).setAttribute('style', 'display:block; ')
+
+                                    document.getElementById('saveWorkImagebtn-' + i).setAttribute('style', 'display:none;')
+
+                                    document.getElementById('edited-work-image-' + i).setAttribute('style', 'display:none;')
+
+                                }
+                            },
+                            cache: false,
+                            contentType: false,
+                            processData: false
+                        });
+
+                    });
+                }
+
+                // For Linkedin Link
+                let link = document.getElementById('editable-link-linkedin');
+                let link_value = link.href;
+                if (link_value == document.location.href || link_value == document.location.href + '#')
+                    link_value = '';
+                input = document.createElement('input');
+                input.setAttribute('type', 'text');
+                input.id = 'edited-link-linkedin';
+                input.setAttribute('placeholder', 'LinkedIn Link');
+                input.setAttribute('class', 'round');
+                input.setAttribute('value', link_value);
+                input.setAttribute('style', 'margin-right:1rem;');
+                link.parentElement.insertBefore(input, link);
+                link.style.display = 'none';
+
+                // For GitHub Link
+                link = document.getElementById('editable-link-github');
+                input = document.createElement('input');
+                link_value = link.href;
+                if (link_value == document.location.href || link_value == document.location.href + '#')
+                    link_value = '';
+                input.setAttribute('type', 'text');
+                input.id = 'edited-link-github';
+                input.setAttribute('class', 'round');
+                input.setAttribute('placeholder', 'Github Link');
+                input.setAttribute('value', link_value);
+                link.parentElement.insertBefore(input, link);
+                link.style.display = 'none';
+
+                // For Skills
+                skills = document.getElementsByClassName('editable-skills');
+                Array.from(skills).forEach(skill => {
+                    skill.parentElement.parentElement.style.display = 'block';
+                    let input = document.createElement('input');
+                    input.setAttribute('type', 'text');
+                    input.setAttribute('class', 'edited-skills round');
+                    let skill_value = skill.innerText;
+                    if (skill_value == 'SKILL' || skill_value == '' || skill_value == ' ') {
+                        skill_value = '';
+                    }
+                    input.setAttribute('value', skill_value);
+                    skill.parentElement.insertBefore(input, skill);
+                    skill.style.display = 'none';
+                });
+
+                // For Footer Name
+                let footer_name = document.getElementById('editable-footer');
+                name = footer_name.innerText;
+                input = document.createElement('input');
+                input.setAttribute('type', 'text');
+                input.setAttribute('value', name);
+                input.setAttribute('id', 'edited-footer');
+                input.setAttribute('class', 'round');
+                input.setAttribute('style', 'width: 15rem; margin:2rem;');
+                footer_name.parentElement.insertBefore(input, footer_name);
+                footer_name.style.display = 'none';
+
+                // Footer Links
+                //1.Facebook Link
+                link = document.getElementById('editable-link-facebook');
+                link_value = link.href;
+                if (link_value == document.location.href || link_value == document.location.href + '#')
+                    link_value = '';
+                input = document.createElement('input');
+                input.setAttribute('type', 'text');
+                input.id = 'edited-link-facebook';
+                input.setAttribute('placeholder', 'Facebook Link');
+                input.setAttribute('class', 'round');
+                input.setAttribute('value', link_value);
+                input.setAttribute('style', 'margin-right:1rem;');
+                link.parentElement.insertBefore(input, link);
+                link.style.display = 'none';
+
+                //2.Instagram Link
+                link = document.getElementById('editable-link-instagram');
+                link_value = link.href;
+                if (link_value == document.location.href || link_value == document.location.href + '#')
+                    link_value = '';
+                input = document.createElement('input');
+                input.setAttribute('type', 'text');
+                input.id = 'edited-link-instagram';
+                input.setAttribute('placeholder', 'Instagram Link');
+                input.setAttribute('class', 'round');
+                input.setAttribute('value', link_value);
+                input.setAttribute('style', 'margin-right:1rem;');
+                link.parentElement.insertBefore(input, link);
+                link.style.display = 'none';
+
+                //3.Twitter Link
+                link = document.getElementById('editable-link-twitter');
+                link_value = link.href;
+                if (link_value == document.location.href || link_value == document.location.href + '#')
+                    link_value = '';
+                input = document.createElement('input');
+                input.setAttribute('type', 'text');
+                input.id = 'edited-link-twitter';
+                input.setAttribute('placeholder', 'Twitter Link');
+                input.setAttribute('class', 'round');
+                input.setAttribute('value', link_value);
+                input.setAttribute('style', 'margin-right:1rem;');
+                link.parentElement.insertBefore(input, link);
+                link.style.display = 'none';
+            }
+
+            //For Saving Changes
+            function saving() {
+
+                document.getElementById('save-btn').style.display = 'none';
+                document.getElementById('edit-btn').style.display = 'block';
+                document.getElementById('download-btn').setAttribute('style', 'display:block')
+
+                // For NavBar Name
+                let input = document.getElementById('edited-nav');
+                let name = input.value;
+                input.nextSibling.style.display = 'block';
+                input.nextSibling.innerText = name;
+                input.remove();
+
+                // Input type=text
+                let elements = document.getElementsByClassName('edited-input');
+                Array.from(elements).forEach(element => {
+                    let Sibling = element.nextSibling;
+                    Sibling.style.display = 'inline';
+                    let text = element.value;
+                    Sibling.innerText = text;
+                    element.remove();
+                });
+
+                // textarea
+                elements = document.getElementsByClassName('edited-textarea');
+                Array.from(elements).forEach(element => {
+                    let Sibling = element.nextSibling;
+                    Sibling.style.display = 'block';
+                    let text = element.value;
+                    Sibling.innerText = text;
+                    element.remove();
+                });
+
+
+                let imgValue
+
+                // Home Profile Image
+                document.getElementById('saveHomeImagebtn').setAttribute('style', 'display:none;')
+                element = document.getElementById('edited-home-image'); //input tag with input value taken from user
+                imgValue = localStorage.getItem('homeImage');
+                let home_image = document.getElementById('editable-home-image'); //img tag
+                if (imgValue != '')
+                    home_image.setAttribute('src', `../media/${imgValue}`)
+                // if (imgValue != '' && imgValue == 'perfil.png')
+                //     home_image.setAttribute('src', `/static/${imgValue}`)
+                home_image.style = 'display:block;'; //now img tag is showm
+                home_image.parentElement.classList.remove('round');
+                element.style.display = 'none';
+
+                // About Image
+                document.getElementById('saveAboutImagebtn').setAttribute('style', 'display:none;')
+                element = document.getElementById('edited-about-image'); //input tag with input value taken from user
+                imgValue = localStorage.getItem('aboutImage');
+                let about_image = document.getElementById('editable-about-image'); //img tag
+                if (imgValue != '')
+                    about_image.setAttribute('src', `../media/${imgValue}`)
+                about_image.style = 'display:block;'; //now img tag is showm
+                about_image.parentElement.classList.remove('round');
+                element.style.display = 'none';
+
+                // Work Images
+                for (let i = 1; i < 7; i++) {
+                    document.getElementById('saveWorkImagebtn-' + i).setAttribute('style', 'display:none;')
+                    element = document.getElementById('edited-work-image-' + i); //input tag with input value taken from user
+                    imgValue = localStorage.getItem('workImage-' + i);
+                    let work_image = document.getElementById('workImage-' + i); //img tag
+                    if (imgValue != '' && imgValue != 'work' + i + '.jpg')
+                        work_image.setAttribute('src', `../media/${imgValue}`)
+                    if (imgValue == 'work' + i + '.jpg' || imgValue == null) {
+                        localStorage.removeItem('workImage-' + i)
+                        element.parentElement.parentElement.style.display = 'none';
+                        element.parentElement.parentElement.classList += ' remove';
+                    }
+                    work_image.style = 'display:block;'; //now img tag is showm
+                    work_image.parentElement.classList.remove('round');
+                    element.style.display = 'none';
+                }
+
+                // LinkedIn Link
+                input = document.getElementById('edited-link-linkedin');
+                let link = input.value;
+                document.getElementById('editable-link-linkedin').href = link;
+                if (link == '') {
+                }
+                else {
+                    input.nextSibling.style.display = "block";
+                }
+                input.remove();
+
+                // Github Link
+                input = document.getElementById('edited-link-github');
+                link = input.value;
+                document.getElementById('editable-link-github').href = link;
+                if (link == '') {
+                    input.nextSibling.style.visibibility = "hidden";
+                }
+                else {
+                    input.nextSibling.style.display = "block";
+                }
+                input.remove();
+
+                // Skills
+                elements = document.getElementsByClassName('edited-skills');
+                Array.from(elements).forEach(skill => {
+
+                    let Sibling = skill.nextSibling;
+                    let skill_value = skill.value;
+                    if (skill_value == '' || skill_value == ' ' || skill_value == 'SKILL') {
+                        Sibling.innerText = '';
+                        Sibling.parentElement.parentElement.style.display = 'none';
+                    }
+                    else {
+                        Sibling.style.display = 'block';
+                        Sibling.innerText = skill_value;
+                    }
+                    skill.remove();
+                });
+
+                // For Footer Name
+                input = document.getElementById('edited-footer');
+                name = input.value;
+                input.nextSibling.style.display = 'block';
+                input.nextSibling.innerText = name;
+                input.remove();
+
+                // Facebook Link
+                input = document.getElementById('edited-link-facebook');
+                link = input.value;
+                document.getElementById('editable-link-facebook').href = link;
+                if (link != '') {
+                    input.nextSibling.style.display = "inline";
+                }
+                input.remove();
+
+                // Instagram Link
+                input = document.getElementById('edited-link-instagram');
+                link = input.value;
+                document.getElementById('editable-link-instagram').href = link;
+                if (link != '') {
+                    input.nextSibling.style.display = "inline";
+                }
+                input.remove();
+
+                // Twitter Link
+                input = document.getElementById('edited-link-twitter');
+                link = input.value;
+                document.getElementById('editable-link-twitter').href = link;
+                if (link != '') {
+                    input.nextSibling.style.display = "inline";
+                }
+                input.remove();
+            }
+        </script>
+    </div>
+</body>
+
+</html>

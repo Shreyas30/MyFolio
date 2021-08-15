@@ -1,0 +1,644 @@
+{% extends 'forum/basic.html' %}
+{% block title %}Forum{% endblock %}
+{% block style %}
+<style>
+    .heading {
+        padding-top: 17px;
+    }
+
+    .heading h1 {
+        text-align: center;
+        color: #1b5250;
+        text-shadow: 0 2px 4px darkcyan;
+    }
+
+    .heading h2 {
+        text-align: center;
+        color: #1b5250;
+        text-shadow: 0 2px 4px darkcyan;
+    }
+
+    .NBcontainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px 0px;
+        /* background-color: #111; */
+    }
+
+    .testimonials {
+        position: relative;
+        max-width: 100%;
+        -webkit-box-reflect: below 1px linear-gradient(transparent 70%, #0009);
+    }
+
+    .swiper-slide {
+        background-position: center;
+        background-size: cover;
+        width: 350px;
+        min-height: 350px;
+        background: #fff;
+        margin: 0 20px;
+
+    }
+
+    .swiper-container-3d .swiper-slide-shadow-left {
+        background-image: none;
+    }
+
+    .swiper-container-3d .swiper-slide-shadow-right {
+        background-image: none;
+    }
+
+    .testimonials .card {
+        position: relative;
+        width: 100%;
+        margin: 0 20px;
+        background: #4d585d;
+        padding: 60px 40px;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .testimonials .card .layer {
+        position: absolute;
+        top: calc(100% + 2px);
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(#03a9f4, #e91ee3);
+        z-index: 1;
+        transition: 0.5s;
+    }
+
+    .testimonials .card:hover .layer {
+        top: 0;
+    }
+
+    .testimonials .card .content {
+        position: relative;
+        z-index: 2;
+    }
+
+    .testimonials .card .content p {
+        font-size: 18px;
+        line-height: 24px;
+        margin-bottom: 20px;
+        color: #fff;
+    }
+
+    .testimonials .card .content .imgBx {
+        width: 36%;
+        height: 100px;
+        margin: 0 auto 10px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 4px solid #fff;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .testimonials .card .content .imgBx img {
+        width: 92px;
+
+    }
+
+    .testimonials .card .content h2 {
+        font-size: 18px;
+        color: #fff;
+
+    }
+
+    .testimonials .card .content h2 span {
+        color: #03a9f4;
+        font-size: 14px;
+        transition: 0.5s;
+    }
+
+    .testimonials .card:hover .content h2 span {
+        color: #fff;
+    }
+
+    /* Pricing details */
+    .pricing-table {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        width: min(1600px, 100%);
+        margin: auto;
+    }
+
+    .pricing-card {
+        flex: 1;
+        max-width: 360px;
+        background-color: #bbf3eb;
+        border-radius: 52px;
+        margin: 20px 10px;
+        text-align: center;
+        cursor: pointer;
+        overflow: hidden;
+        color: #2d2d2d;
+        transition: .3s linear;
+    }
+
+    .pricing-card-header {
+        background-color: #0fbcf9;
+        display: inline-block;
+        color: #fff;
+        padding: 12px 30px;
+        border-radius: 0 0 20px 20px;
+        font-size: 16px;
+        text-transform: uppercase;
+        font-weight: 600;
+        transition: .4s linear;
+    }
+
+    .pricing-card:hover .pricing-card-header {
+        box-shadow: 0 0 0 20em #0fbcf9;
+    }
+
+    .price {
+        font-size: 70px;
+        color: #0fbcf9;
+        margin: 0 0;
+        transition: .2s linear;
+    }
+
+    .price sup,
+    .price span {
+        font-size: 22px;
+        font-weight: 700;
+    }
+
+    .pricing-card:hover,
+    .pricing-card:hover .price {
+        color: #fff;
+    }
+
+    .pricing-card li {
+        font-size: 16px;
+        padding: 7px 0;
+        text-transform: uppercase;
+    }
+
+    .order-btn {
+        display: inline-block;
+        margin-bottom: 22px;
+        margin-top: 14px;
+        border: 2px solid #0fbcf9;
+        color: #0fbcf9;
+        padding: 18px 40px;
+        border-radius: 8px;
+        text-transform: uppercase;
+        font-weight: 500;
+        transition: .3s linear;
+        outline: none;
+    }
+
+    .order-btn:hover {
+        background-color: #0fbcf9;
+        color: #fff;
+        outline: none;
+    }
+
+    @media screen and (max-width:1100px) {
+        .pricing-card {
+            flex: 50%;
+        }
+    }
+
+    /* Service */
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+    }
+
+    .imgService {
+        width: 286px;
+        height: 286px;
+        padding: 12px;
+    }
+
+    /* Go to Forum */
+    .forum {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 220px;
+        /* border: 1px solid; */
+        border-radius: 121px;
+        margin: 46px 116px;
+        background-color: #028e8e;
+        box-shadow: 0 0 34px #25ebf5;
+    }
+
+    .home-btn {
+        padding: 9px 23px;
+        border: navajowhite;
+        border-radius: 10px;
+        background-color: #32dbc6;
+        font-family: 'Nunito', sans-serif;
+        font-family: 'Quicksand', sans-serif;
+        font-family: 'Roboto', sans-serif;
+        outline: none;
+    }
+
+    .home-btn:hover {
+        background-color: #32dbc6;
+        color: white;
+        box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 50px #2196f3;
+        transition-delay: 100ms;
+        outline: none;
+    }
+
+    /* Subscription Modal */
+    .pricing-card-modal {
+        flex: 1;
+        max-width: 360px;
+        background-color: #d3eae7;
+        margin: 20px 10px;
+        text-align: center;
+        cursor: pointer;
+        overflow: hidden;
+        color: #2d2d2d;
+        transition: .3s linear;
+    }
+
+    .pricing-card-header-modal {
+        background-color: #0fbcf9;
+        display: inline-block;
+        color: #fff;
+        padding: 12px 30px;
+        border-radius: 0 0 20px 20px;
+        font-size: 16px;
+        text-transform: uppercase;
+        font-weight: 600;
+        transition: .4s linear;
+    }
+
+    .price-modal {
+        font-size: 70px;
+        color: #0fbcf9;
+        margin: 0 0;
+        transition: .2s linear;
+    }
+
+    .price-modal sup,
+    .price-modal span {
+        font-size: 22px;
+        font-weight: 700;
+    }
+
+    .pricing-card-modal li {
+        font-size: 16px;
+        padding: 7px 0;
+        text-transform: uppercase;
+    }
+
+    .modal-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .goToForum {
+        background-color: darkslateblue;
+        color: white;
+        padding: 5px;
+        border-radius: 5px;
+        position: relative;
+        font-size: 1.5em;
+        bottom: 24px;
+    }
+    .goToForum:hover {
+        cursor: pointer;
+        color: white;
+        background-color: rgb(91, 78, 175);
+        text-decoration: none;
+    }
+</style>
+{% endblock %}
+{% block body %}
+
+<div class="heading">
+    <h1>If these can get their opportunities then you can too!</h1>
+</div>
+
+<div class="NBcontainer fluid">
+    <div class="testimonials">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="card">
+                        <div class="layer"></div>
+                        <div class="content">
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat cupiditate, doloribus
+                                odio
+                                facilis accusantium dicta recusandae. Ad quibusdam porro culpa.</p>
+                            <div class="imgBx">
+                                <img src="/static/person_1.jpg" alt="">
+                            </div>
+                            <div class="details">
+                                <h2>Someone Famous<br><span>Website Designer</span></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+                        <div class="layer"></div>
+                        <div class="content">
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat cupiditate, doloribus
+                                odio
+                                facilis accusantium dicta recusandae. Ad quibusdam porro culpa.</p>
+                            <div class="imgBx">
+                                <img src="/static/person_1.jpg" alt="">
+                            </div>
+                            <div class="details">
+                                <h2>Someone Famous<br><span>Website Designer</span></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+                        <div class="layer"></div>
+                        <div class="content">
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat cupiditate, doloribus
+                                odio
+                                facilis accusantium dicta recusandae. Ad quibusdam porro culpa.</p>
+                            <div class="imgBx">
+                                <img src="/static/person_1.jpg" alt="">
+                            </div>
+                            <div class="details">
+                                <h2>Someone Famous<br><span>Website Designer</span></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+                        <div class="layer"></div>
+                        <div class="content">
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat cupiditate, doloribus
+                                odio
+                                facilis accusantium dicta recusandae. Ad quibusdam porro culpa.</p>
+                            <div class="imgBx">
+                                <img src="/static/person_1.jpg" alt="">
+                            </div>
+                            <div class="details">
+                                <h2>Someone Famous<br><span>Website Designer</span></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Services Offered -->
+<div class="heading" style="margin-top: 100px;">
+    <h1>What you will Get</h1>
+</div>
+<div class="container">
+    <div class="card" style="width: 18rem; height: 507px;">
+        <div class="imgService">
+            <img src="/static/ability.jpg" class="card-img-top" alt="...">
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Show your Abilities</h5>
+            <p class="card-text">In this world of competetions it is important to showcase your abilities to the best of
+                your potential</p>
+            <a href="#" class="btn btn-success">Subscribe</a>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem; height: 507px;">
+        <!-- <img src="/static/connections.png" class="card-img-top" style="
+        width: 177%" alt="..."> -->
+        <div class="imgService">
+            <img src="/static/connections.png" class="card-img-top" alt="...">
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Build your Connections</h5>
+            <p class="card-text">Build your connectionswith bests in the industry and enhance your learning and work
+                experince</p>
+            <a href="#" class="btn btn-success">Subscribe</a>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;height: 507px;">
+        <div class="imgService">
+            <img src="/static/hire.png" class="card-img-top" alt="...">
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Get Hired!</h5>
+            <p class="card-text">Get the best opportunities of getting hired from the professionals and recruiters of
+                this forum.</p>
+            <a href="#" class="btn btn-success">Subscribe</a>
+        </div>
+    </div>
+</div>
+
+<!-- Subscription Request -->
+<div class="forum">
+    <button class="home-btn" onclick="scrollFunction()"><a>
+            <h1>Go to forum now!</h1>
+        </a></button>
+</div>
+
+<!-- Pricing details -->
+<div class="heading" style="margin-top: 100px;">
+    <h1>Pricing</h1>
+</div>
+<div class="pricing-table">
+    <div class="pricing-card" id="price1">
+        <h3 class="pricing-card-header">Personal</h3>
+        <div class="price"><sup></sup>Free<span></span></div>
+        <ul>
+            <li><strong>Profile </strong>Creation</li>
+            <li><strong>In-Email</strong>Messages</li>
+            <li><strong>5 </strong>Profile Search/Month</li>
+            <li><strong>5 </strong>POSTS/DAY</li>
+            <li><strong>NO </strong>Record of who viewed your profile</li>
+        </ul>
+        <!-- <a href="#" class="order-btn">Subscribe Now</a> -->
+        <button type="button" id="price1btn" class="order-btn" data-toggle="modal" data-target="#signUpModal">
+            Subscribe
+        </button>
+    </div>
+
+    <div class="pricing-card" id="price2">
+        <h3 class="pricing-card-header">Professional</h3>
+        <div class="price"><sup>$</sup>30<span>/MO</span></div>
+        <ul>
+            <li><strong>Profile </strong>Creation</li>
+            <li><strong>In-Email</strong>Messages</li>
+            <li><strong>100 </strong>Profile Search/Month</li>
+            <li><strong>20 </strong>POSTS/Day</li>
+            <li><strong>NO </strong>Record of who viewed your profile</li>
+        </ul>
+        <!-- <a href="#" class="order-btn">Subscribe Now</a> -->
+        <button type="button" id="price2btn" class="order-btn" data-toggle="modal" data-target="#signUpModal">
+            Subscribe
+        </button>
+    </div>
+
+    <div class="pricing-card" id="price3">
+        <h3 class="pricing-card-header">Premium</h3>
+        <div class="price"><sup>$</sup>50<span>/MO</span></div>
+        <ul>
+            <li><strong>Profile </strong>Creation</li>
+            <li><strong>In-Email</strong>Messages</li>
+            <li><strong>Unlimited </strong>Profile Search</li>
+            <li><strong>Unlimited </strong> POSTS/Day</li>
+            <li><strong>Check </strong>who has viewed your profile recently</li>
+        </ul>
+        <!-- <a href="#" class="order-btn">Subscribe Now</a> -->
+        <button type="button" id="price3btn" class="order-btn" data-toggle="modal" data-target="#signUpModal">
+            Subscribe
+        </button>
+    </div>
+</div>
+
+<!-- Subscribe Modal -->
+<div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: cyan;">
+                <h5 class="modal-title" id="exampleModalLabel">New Subscription</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/forum/payment/" method="POST">
+                    {% csrf_token %}
+                    <input type="text" style="display:none" name="plan" id="plan">
+
+
+                    <h2 style="text-align: center;">Plan Details</h2>
+                    <div class="pricing-card-modal" id="subscribeModal">
+                        <h3 class="pricing-card-header-modal">Premium</h3>
+                        <div class="price-modal"><sup>$</sup>50<span>/MO</span></div>
+                        <ul>
+                            <li><strong>Profile </strong>Creation</li>
+                            <li><strong>In-Email</strong>Messages</li>
+                            <li><strong>Unlimited </strong>Profile Search</li>
+                            <li><strong>Unlimited </strong> POSTS/Day</li>
+                            <li><strong>Check </strong>who has viewed your profile recently</li>
+                        </ul>
+                    </div>
+                    <!-- <a href="http://127.0.0.1:8000/forum/post"><button class="btn btn-primary">Subscribe and
+                            Pay</button></a> -->
+                    <!-- <button style="margin-left: 31%;" class="btn btn-primary" id="paybtn">Subscribe and
+                            Pay</button> -->
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block js %}
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        effect: 'coverflow',
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        coverflowEffect: {
+            rotate: 0,
+            stretch: 0,
+            depth: 0,
+            modifier: 1,
+            slideShadows: true,
+        },
+        loop: true,
+    });
+
+    function scrollFunction() {
+        let flag = "{{flag}}"         //Flag=1 means user is already Registered 
+        if (flag == 1) {
+            let a = document.createElement('a');
+            a.setAttribute('href', 'http://127.0.0.1:8000/forum/post/');
+            a.click();
+        }
+        else {
+            document.documentElement.scrollTop = 1630;
+        }
+    }
+
+
+    //Managing the Plan Details Modal
+    var price1 = document.getElementById('price1');
+    var price2 = document.getElementById('price2');
+    var price3 = document.getElementById('price3');
+
+    var plan_type = '';
+    if ({{ plan }} == '1') {
+        plan_type = "Free";
+    }
+    else if ({{ plan }} == '2') {
+        plan_type = "Professional";
+    }
+    else if ({{ plan }} == '3') {
+        plan_type = "Premium";
+    }
+
+    document.getElementById('price1btn').addEventListener('click', () => {
+        let flag = "{{flag}}"         //Flag=1 means user is already Registered 
+        if (flag == 1) {
+            let content = `<h3 style="padding:45px">You are already a Subscribed User to Forum with <strong>${plan_type}</strong> Plan</h3><a class="goToForum" href='http://127.0.0.1:8000/forum/post/'>Go to Forum</a>`
+            document.getElementById('subscribeModal').innerHTML = content
+        }
+        else {
+
+            // setting the plan value input
+            document.getElementById('plan').setAttribute('value', 1)
+            let content = price1.innerHTML.slice(0, -148);
+            content += '<button type="submit" style="margin-bottom: 12px;" class="btn btn-primary" id="paybtn">Subscribe and Pay</button>'
+            document.getElementById('subscribeModal').innerHTML = content
+        }
+
+    })
+    document.getElementById('price2btn').addEventListener('click', () => {
+        let flag = "{{flag}}"         //Flag=1 means user is already Registered 
+        if (flag == 1) {
+            let content = `<h3 style="padding:45px">You are already a Subscribed User to Forum with <strong>${plan_type}</strong> Plan</h3><a class="goToForum" href='http://127.0.0.1:8000/forum/post/'>Go to Forum</a>`
+            document.getElementById('subscribeModal').innerHTML = content
+        }
+        else {
+
+            // setting the plan value input
+            document.getElementById('plan').setAttribute('value', 2)
+            let content = price2.innerHTML.slice(0, -148);
+            content += `<button type="submit" style="margin-bottom: 12px;" class="btn btn-primary" id="paybtn">Subscribe and
+                            Pay</button>`
+            document.getElementById('subscribeModal').innerHTML = content
+        }
+
+    })
+    document.getElementById('price3btn').addEventListener('click', () => {
+        let flag = "{{flag}}"         //Flag=1 means user is already Registered 
+        if (flag == 1) {
+            let content = `<h3 style="padding:45px">You are already a Subscribed User to Forum with <strong>${plan_type}</strong> Plan</h3><a class="goToForum" href='http://127.0.0.1:8000/forum/post/'>Go to Forum</a>`
+            document.getElementById('subscribeModal').innerHTML = content
+        }
+        else {
+
+            // setting the plan value input
+            document.getElementById('plan').setAttribute('value', 3)
+            let content = price3.innerHTML.slice(0, -148);
+            content += `<button type="submit" style="margin-bottom: 12px;" class="btn btn-primary" id="paybtn">Subscribe and
+                            Pay</button>`
+            document.getElementById('subscribeModal').innerHTML = content
+        }
+
+    })
+
+</script>
+
+{% endblock %}

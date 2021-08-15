@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: 'Rubik', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        /* NAVIGATION SECTION */
+        .navbar {
+            /* padding: 22px; */
+            padding: 13px;
+            background-color: white;
+        }
+
+        #logo {
+            width: 55px;
+            margin-left: 137PX;
+            padding: 4px;
+            border-radius: 50%;
+            background-color: #c0f5ed;
+            box-shadow: 0 0 20px #00735e;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            /* margin-left: 124px; */
+            margin-left: 25px;
+            border-radius: 10px;
+            padding: 0px 25px;
+            background-color: #c0f5ed;
+            box-shadow: 0 0 20px #00735e;
+
+        }
+
+        .navbar-nav {
+            /* position: absolute;
+        right: 100px;
+        margin-right: 79px; */
+            font-size: 17px;
+        }
+
+        .nav-link {
+            margin: 0 20px;
+
+        }
+
+        .nav-link:hover {
+            background-color: #32dbc6;
+            color: white;
+            border-radius: 5px;
+            /* box-shadow: 0 0 10px #2196f3, 0 0 20px #2196f3, 0 0 40px #2196f3; */
+            box-shadow: 0 0 10px #2196f3, 0 0 20px #2196f3, 0 0 40px #2196f3;
+            transition-delay: 100ms;
+        }
+
+        .welcome-user {
+            border: 1px solid cyan;
+            color: #01666b;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px #0a0a0a;
+        }
+
+        /* HOME section */
+        .ml2 {
+            font-weight: 900;
+            font-size: 2.5rem;
+            color: white;
+            position: absolute;
+            left: 30%;
+            /* top: 53% */
+            top: 27%
+        }
+
+        .ml2 .letter {
+            display: inline-block;
+            line-height: 1em;
+        }
+
+        .home-btn {
+            position: absolute;
+            left: 48%;
+            /* top: 64%; */
+            top: 85%;
+            padding: 9px 23px;
+            border: navajowhite;
+            border-radius: 10px;
+            background-color: #32dbc6;
+            font-family: 'Nunito', sans-serif;
+            font-family: 'Quicksand', sans-serif;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        #profile-btn {
+            border: none;
+            background-color: #f8f9fa;
+        }
+
+        #profile-btn:hover {
+            background-color: #32dbc6;
+            border-radius: 5px;
+            /* box-shadow: 0 0 10px #2196f3, 0 0 20px #2196f3, 0 0 40px #2196f3; */
+            box-shadow: 0 0 10px #2196f3, 0 0 20px #2196f3, 0 0 40px #2196f3;
+            transition-delay: 100ms;
+        }
+
+        #profile-btn-text {
+            border: none;
+            background-color: rgb(232, 246, 253);
+        }
+
+        #profile-btn-text:hover {
+            text-decoration: underline;
+            font-weight: bolder;
+        }
+
+        .home-btn:hover {
+            background-color: #32dbc6;
+            color: white;
+            box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 50px #2196f3;
+            transition-delay: 100ms;
+        }
+
+        /* CARDS */
+        .card-item {
+            position: relative;
+            width: 50%;
+        }
+
+        .image {
+            opacity: 1;
+            display: block;
+            width: 100%;
+            height: auto;
+            transition: .5s ease;
+            backface-visibility: hidden;
+        }
+
+        .middle {
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .card-item:hover .image {
+            opacity: 0.1;
+        }
+
+        .card-item:hover .middle {
+            opacity: 1;
+        }
+
+        .text {
+            background-color: #32dbc6;
+            box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 50px #2196f3;
+            transition-delay: 100ms;
+            color: black;
+            font-size: 16px;
+            padding: 16px 32px;
+        }
+
+        /* LETS STARTED */
+        .start {
+            background-color: #32dbc6;
+            color: white;
+            height: 108px;
+        }
+
+        /* FOOTER */
+        .footer {
+            background-color: black;
+            margin-top: 50px;
+            height: 85vh;
+            color: white;
+        }
+
+        .contact-logo {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* UTILITY  */
+        .center {
+            text-align: center;
+
+        }
+
+        hr {
+            background-color: white;
+            width: 83%;
+            margin-top: 2rem;
+        }
+
+        .right-div {
+            position: absolute;
+            top: 44%;
+            width: 25%;
+            left: 17%;
+            opacity: 0.3;
+        }
+
+        .center-div {
+            z-index: 1;
+            position: absolute;
+            top: 38%;
+            left: 36%;
+            width: 65%;
+        }
+
+        .left-div {
+            position: absolute;
+            top: 43%;
+            width: 25%;
+            right: 11%;
+            opacity: 0.3;
+        }
+
+        /* =========================== MY CSSS ================================= */
+        #left-section {
+            position: fixed;
+            width: 24.5rem;
+
+        }
+
+        #left-section h2 {
+            text-align: center;
+            padding: 0;
+            margin: 0 !important;
+        }
+
+        #left-section h5 {
+            margin: 0 !important;
+        }
+
+        .follow-container {
+            border-radius: 5px;
+            /* border: 2px solid black; */
+        }
+
+        .follow-box-image {
+
+            display: inline-block;
+            width: 14%;
+            height: 3rem;
+            margin: 0px 7px;
+        }
+
+        .follow-box h5 {
+            margin-bottom: 0rem !important;
+        }
+
+        .follow-head {
+            background-color: #a6fcef;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+
+        .follow-body {
+            margin: 10px;
+            border-radius: 8px;
+        }
+
+        .follow-box-image img {
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+            border: 1px solid black;
+        }
+
+        .follow-box-info {
+            display: inline-block;
+            width: 65%;
+            /* margin-left */
+        }
+
+        .follow-box-btn {
+            display: inline-block;
+            width: 10%;
+        }
+
+        .follow-box-btn-search {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 32%;
+        }
+
+        .follow-box-name {
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+
+
+
+        .follow-box-jobTitle {
+            font-size: 1rem;
+        }
+
+
+        .follow-box {
+            display: flex;
+            justify-content: space-around;
+            padding: 0.1rem;
+            /* border: 2px solid green; */
+        }
+
+        .follow-container-body {
+            height: 34.5vh;
+            overflow-y: auto;
+        }
+
+        .follow-head {
+            padding: 0.1rem;
+        }
+
+        .follow-btn {
+            padding: 0.2rem 0.4rem;
+            margin-top: 0.4rem;
+            position: relative;
+            right: 11px;
+        }
+
+        .unfollow-btn {
+            padding: 0.2rem 0.4rem;
+            margin-top: 0.4rem;
+            position: relative;
+            right: 11px;
+        }
+
+        .follow-profile-text {
+            border: none;
+            background-color: white;
+            outline: none;
+        }
+
+        .follow-profile-text:hover {
+            text-decoration: underline;
+            outline: none;
+        }
+
+
+        /* Right-Section */
+
+        #profile-btn {
+            outline: none;
+        }
+
+        #profile-btn:hover {
+            outline: none;
+        }
+
+        #profile-pic {
+            height: 11rem;
+            width: 11rem;
+            margin-left: 36%;
+            margin-top: 2rem;
+            position: absolute;
+        }
+
+        #profile-pic img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            margin: 0;
+            padding: 0;
+            /* border: 5px solid black; */
+        }
+
+        #profile-info {
+            padding: 1rem;
+        }
+
+        #profile-name {
+            font-size: 4rem;
+            font-weight: bolder;
+            text-align: center;
+        }
+
+        #job-title {
+            font-size: 2rem;
+            font-weight: 400;
+            text-align: center;
+        }
+
+        #edit-btn {
+            float: right;
+            padding: 0.3rem 0.5rem;
+            margin: 1rem;
+        }
+
+        #profile-container {
+            border-radius: 10px;
+            border: 2px solid black;
+        }
+
+        #bio {
+            text-align: center;
+        }
+
+        #profile-pic-back {
+            height: 7rem;
+            background-color: #2196f3;
+            margin-bottom: 5rem;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        #profile-btns {
+            width: 50%;
+            margin: auto;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .profile-follow {
+            font-size: 1.4rem;
+            /* margin-right:1.2rem; */
+        }
+
+        /* Self-Posts */
+
+        #profile-section {
+
+            position: fixed;
+            width: 18rem;
+        }
+
+        .col-9,
+        .col-3 {
+            padding: 0 !important;
+        }
+
+
+        #self-posts h5 {
+            margin-bottom: 0 !important;
+        }
+
+        #post-section {
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        .post-container {
+            width: 90%;
+            margin: auto;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .post-sender-image {
+
+            display: inline-block;
+            width: 6%;
+            height: 2.5rem;
+        }
+
+        .post-top {
+            display: flex;
+            padding: 0.2rem;
+            background-color: rgb(43, 34, 34);
+            color: white;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            align-items: center;
+            justify-content: space-evenly;
+
+        }
+
+        .post-sender-image img {
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+            border: 1px solid black;
+        }
+
+        .post-profile-text {
+            border: none;
+            background-color: rgb(43, 34, 34);
+            color: white;
+        }
+
+        .post-profile-text:hover {
+            text-decoration: underline;
+            text-decoration-color: white;
+        }
+
+        .post-sender-info {
+            display: inline-block;
+            width: 75%;
+            margin-left: 1rem
+        }
+
+        .post-bottom {
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            padding: 0.2rem;
+            background-color: grey;
+            color: white;
+        }
+
+        .post-sender-name {
+            font-size: 1.2rem;
+        }
+
+        .post-sender-profession {
+            font-size: 0.7rem;
+        }
+
+        .post-image {
+            width: 100%;
+            height: 20rem;
+            text-align: center;
+            margin-bottom: 1rem;
+
+        }
+
+        #post-section p {
+            margin: 1rem;
+        }
+
+        .post-image img {
+            display: inline-block;
+            width: 90%;
+            height: 100%;
+            margin: auto;
+            border-radius: 15px;
+            border: 2px solid black;
+        }
+
+        .post-caption {
+            margin-left: 2rem;
+            margin-right: 2rem;
+        }
+
+        .post-title h1 {
+            text-align: center;
+        }
+
+        .post-content {
+            padding: 0.5rem;
+            text-align: justify;
+            background-color: aliceblue;
+        }
+
+        #self-posts h1 {
+            margin-top: 1rem;
+            text-align: center;
+            font-weight: bold;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <img src="/static/logo5.png" alt="Logo" id="logo">
+        <a class="navbar-brand" href="#">MyFolio</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-auto">
+                <a class="nav-link" href="http://127.0.0.1:8000/">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/forum/post">Posts</a>
+                <form action="/forum/profile/" enctype="multipart/form-data" method="POST">{% csrf_token %}
+                    <input type="hidden" name="req-user" value='{{cur_user.user_id}}'>
+                    <button type='submit' id='profile-btn' class="nav-link">Profile</button>
+                </form>
+                <form style="margin-left: 2rem;">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="main-search" id="main-search" placeholder="Search"
+                            style="width: 10rem;border-radius: 6px;">
+                        <div class="input-group-btn">
+                            <button id="main-search-btn" class="btn btn-default border border-dark" type="button"
+                                data-toggle="modal" data-target="#searchModal" style='background-color: #9ffdef;margin-left: 5px;
+                                height: 37px'>
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search"
+                                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z" />
+                                    <path fill-rule="evenodd"
+                                        d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="userDetails">
+            <!-- Button to launch Login Modal -->
+            <ul class="navbar-nav mr-2">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle welcome-user" style="color: #01666b;" href='#'
+                        id="navbarDropdown" role="button" data-toggle="dropdown"> Welcome {{request.user}}</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/logout">Logout</a>
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ==================== Search Results Modal ========================== -->
+
+    <!-- S -->
+    <!-- Search Result Modal -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: cyan;">
+                    <h5 class="modal-title" id="exampleModalLabel">Search Results</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id='search-results-modal'>
+
+                    <!-- List of Followers  -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- S -->
+
+    <!-- ========================== Main Page================================= -->
+    <div class="container mt-2">
+        <div class="row">
+            <div class="col-4"></div>
+            <div id='left-section' class="col-4">
+
+                <!-- Followers Container -->
+                <div id='followers-container' class="follow-container">
+                    <div class="follow-head border border-dark">
+                        <h2>Followers ({{num_followers}})</h2>
+
+                    </div>
+                    <div class="follow-container-body border border-dark">
+                        {% if num_followers == 0 %}
+                        <div style="margin-top:5rem; font-size: 2rem;
+                        text-align: center;">No Followers Yet</div>
+                        {% endif %}
+                        {% for follower in followers %}
+                        <div class="follow-body border border-dark">
+                            <div class="follow-box">
+                                <div class="follow-box-image">
+                                    <img src="../media/{{follower.profilePic}}" alt="Profile-Pic" srcset="">
+                                </div>
+                                <div class='follow-box-info'>
+                                    <form action="/forum/profile/" enctype="multipart/form-data" method="POST">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="req-user" value='{{follower.user_id}}'>
+                                        <button type='submit' class='follow-profile-text'>
+                                            <h5 class='follow-box-name'>{{follower.first_name}} {{follower.last_name}}
+                                            </h5>
+                                        </button>
+                                    </form>
+                                    <h5 class='follow-box-jobTitle'>{{follower.jobTitle}}</h5>
+                                </div>
+                                <div class="follow-box-btn">
+                                    {% if follower.user_id == cur_user.user_id %}
+                                    <!-- Blank -->
+                                    {% elif follower.user_id in cur_followings %}
+                                    <form action="/forum/unfollow/" enctype="multipart/form-data" method="POST">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="current-user" value='{{cur_user.user_id}}'>
+                                        <input type="hidden" name="other-user" value='{{follower.user_id}}'>
+                                        <input type="hidden" name="req-user" value='{{req_user.user_id}}'>
+                                        <button class='btn btn-danger unfollow-btn' type='submit'
+                                            id="follower-unfollow-btn-{{forloop.counter}}">
+                                            <svg width="1em" height="1em" viewBox="0 0 16 16"
+                                                class="bi bi-person-x-fill" fill="currentColor"
+                                                xmlns="http://www.w3.org/2000/svg" style='font-size:1.5rem;'>
+                                                <path fill-rule="evenodd"
+                                                    d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z" />
+                                            </svg>
+                                        </button>
+                                    </form>
+                                    {% else %}
+                                    <form action="/forum/follow/" enctype="multipart/form-data" method="POST">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="current-user" value='{{cur_user.user_id}}'>
+                                        <input type="hidden" name="other-user" value='{{follower.user_id}}'>
+                                        <input type="hidden" name="req-user" value='{{req_user.user_id}}'>
+                                        <button class='btn btn-info follow-btn' type='submit'
+                                            id="follower-follow-btn-{{forloop.counter}}">
+                                            <svg width="1em" height="1em" viewBox="0 0 16 16"
+                                                class="bi bi-person-plus-fill" fill="currentColor"
+                                                xmlns="http://www.w3.org/2000/svg" style='font-size:1.5rem;'>
+                                                <path fill-rule="evenodd"
+                                                    d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7.5-3a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
+                                            </svg>
+                                        </button>
+                                    </form>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- Following Container -->
+                <div id='following-container' class="follow-container mt-3">
+                    <div class="follow-head border border-dark">
+                        <h2>Followings ({{num_followings}})</h2>
+                    </div>
+                    <div class="follow-container-body border border-dark">
+                        {% if num_followings == 0 %}
+                        <div style="margin-top:5rem; font-size: 2rem;
+                        text-align: center;">No Followings Yet</div>
+                        {% endif %}
+                        {% for following in followings %}
+                        <div class="follow-body border border-dark">
+                            <div class="follow-box">
+                                <div class="follow-box-image">
+                                    <img src="../media/{{following.profilePic}}" alt="Profile-Pic" srcset="">
+                                </div>
+                                <div class='follow-box-info'>
+                                    <form action="/forum/profile/" enctype="multipart/form-data" method="POST">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="req-user" value='{{following.user_id}}'>
+                                        <button type='submit' class='follow-profile-text'>
+                                            <h5 class='follow-box-name'>{{following.first_name}} {{following.last_name}}
+                                            </h5>
+                                        </button>
+                                    </form>
+
+                                    <h5 class='follow-box-jobTitle'>{{following.jobTitle}}</h5>
+                                </div>
+                                <div class="follow-box-btn">
+                                    {% if following.user_id == cur_user.user_id %}
+                                    <!-- Blank -->
+                                    {% elif following.user_id in cur_followings %}
+                                    <form action="/forum/unfollow/" enctype="multipart/form-data" method="POST">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="current-user" value='{{cur_user.user_id}}'>
+                                        <input type="hidden" name="other-user" value='{{following.user_id}}'>
+                                        <input type="hidden" name="req-user" value='{{req_user.user_id}}'>
+                                        <button class='btn btn-danger unfollow-btn' type='submit'
+                                            id="following-unfollow-btn-{{forloop.counter}}">
+                                            <svg width="1em" height="1em" viewBox="0 0 16 16"
+                                                class="bi bi-person-x-fill" fill="currentColor"
+                                                xmlns="http://www.w3.org/2000/svg" style='font-size:1.5rem;'>
+                                                <path fill-rule="evenodd"
+                                                    d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z" />
+                                            </svg>
+                                        </button>
+                                    </form>
+                                    {% else %}
+                                    <form action="/forum/follow/" enctype="multipart/form-data" method="POST">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="current-user" value='{{cur_user.user_id}}'>
+                                        <input type="hidden" name="other-user" value='{{following.user_id}}'>
+                                        <input type="hidden" name="req-user" value='{{req_user.user_id}}'>
+                                        <button class='btn btn-info follow-btn' type='submit'
+                                            id="following-follow-btn-{{forloop.counter}}">
+                                            <svg width="1em" height="1em" viewBox="0 0 16 16"
+                                                class="bi bi-person-plus-fill" fill="currentColor"
+                                                xmlns="http://www.w3.org/2000/svg" style='font-size:1.5rem;'>
+                                                <path fill-rule="evenodd"
+                                                    d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7.5-3a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
+                                            </svg>
+                                        </button>
+                                    </form>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ====================== Right Section  =========================== -->
+
+            <div id='right-section' class="col-8">
+                <div id="profile-container" class="">
+                    {% if req_user.user_id == cur_user.user_id %}
+                    <button type="button" id='edit-btn' data-toggle="modal" class="btn btn-light border border-primary"
+                        data-target="#myModal">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-fill" fill="currentColor"
+                            style='font-size: 1.1rem; color: black;' xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
+                        </svg>
+                    </button>
+                    {% endif %}
+                    <div id="profile-pic">
+                        <img src="../media/{{req_user.profilePic}}" alt="" srcset="">
+                    </div>
+                    <div id="profile-pic-back">
+                    </div>
+                    <div id="profile-info" class="">
+
+                        <h5 id='profile-name'>{{req_user.first_name}} {{req_user.last_name}}</h5>
+                        <h5 id='job-title' class='font-weight-bold'>{{req_user.jobTitle}}</h5>
+                        <div class='my-2 center'><span class='profile-follow mr-4'>{{num_followers}}
+                                Followers</span><span class='profile-follow'>{{num_followings}} Followings</span></div>
+                        <p id="bio">{{req_user.bio}}</p>
+
+                        <div id="profile-btns" class="">
+                            <a href="../media/{{req_user.resume}}" class='btn btn-primary resume-btn'>Resume</a>
+                            <a href="../media/{{req_user.portfolio}}"
+                                class='btn btn-success portfolio-btn'>Portfolio</a>
+                            {% if req_user.user_id == cur_user.user_id %}
+                            <!-- Blank Since User is seeing his own Profile -->
+                            {% elif req_user.user_id in cur_followings %}
+                            <form action="/forum/unfollow/" enctype="multipart/form-data" method="POST">
+                                {% csrf_token %}
+                                <input type="hidden" name="current-user" value='{{cur_user.user_id}}'>
+                                <input type="hidden" name="other-user" value='{{req_user.user_id}}'>
+                                <input type="hidden" name="req-user" value='{{req_user.user_id}}'>
+                                <button type='submit' class="btn btn-danger">Unfollow</button>
+                            </form>
+                            {% else %}
+                            <form action="/forum/follow/" enctype="multipart/form-data" method="POST">
+                                {% csrf_token %}
+                                <input type="hidden" name="current-user" value='{{cur_user.user_id}}'>
+                                <input type="hidden" name="other-user" value='{{req_user.user_id}}'>
+                                <input type="hidden" name="req-user" value='{{req_user.user_id}}'>
+                                <button type='submit' class="btn btn-info">Follow</button>
+                            </form>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ================================= Edit Modal Form ================================= -->
+                <!-- The Modal -->
+                <div class="modal fade" id="myModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title font-weight-bolder">Edit Your Details</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <form id='edit-form' action="/forum/editprofile/" enctype="multipart/form-data"
+                                    method="POST"> {% csrf_token %}
+                                    <input type="hidden" name="user_id" value="{{cur_user.user_id}}">
+                                    <label class="font-weight-bold" for="profile-pic-input">Profile Picture</label>
+                                    <div class="custom-file">
+                                        <div class="custom-file">
+                                            <input type="file" name='profilePic-input' class="custom-file-input"
+                                                id="customFile">
+                                            <label class="custom-file-label" for="customFile">Choose file</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group mt-1">
+                                        <label class="font-weight-bold" for="job-title-input">Job Title </label>
+                                        <input type="text" class="form-control" id="job-title-input"
+                                            name='jobTitle-input' placeholder="Job Title">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="bio-input" class="font-weight-bold">Bio </label>
+                                        <textarea class="form-control" id="bio-input" name="bio-input"
+                                            rows="3"></textarea>
+                                    </div>
+
+                                    <label class="font-weight-bold" for="portfolio-input">Resume Pdf</label>
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="resume-input"
+                                            name='resume-input'>
+                                        <label class="custom-file-label" for="resume-input">Choose File</label>
+                                    </div>
+
+                                    <label class="font-weight-bold mt-1" for="portfolio-input"></label>
+                                    <div class="custom-file">
+                                        <label class="font-weight-bold" for="job-title-input">Portfolio Link</label>
+                                        <input type="text" class="form-control" id="job-title-input"
+                                            name='portfolio-input' placeholder="Portfolio Link">
+                                    </div>
+                            </div>
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button type="submit" id='save-btn' class="btn btn-success">Save</button>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==================================== Self Posts ============================ -->
+
+                <div id="self-posts">
+                    <h1>Recent Posts</h1>
+                    {% if num_posts == 0 %}
+                    <div style="margin-top:2rem; font-size: 2rem;
+                    text-align: center;">No Posts Yet</div>
+                    {% endif %}
+                    {% for post in req_posts %}
+                    <!-- ============ POST-Container ======================== -->
+                    <div class="post-container p-2">
+                        <div class="post-top">
+                            <div class="post-sender-image">
+                                <img src="../media/{{req_user.profilePic}}" alt="Profile-Pic" srcset="">
+                            </div>
+                            <div class='post-sender-info'>
+                                <form action="/forum/profile/" enctype="multipart/form-data" method="POST">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="req-user" value='{{req_user.user_id}}'>
+                                    <button type='submit' class='post-profile-text'>
+                                        <h5 class='post-sender-name'>{{req_user.first_name}} {{req_user.last_name}}</h5>
+                                    </button>
+                                </form>
+                                <h5 class='post-sender-profession'>{{req_user.jobTitle}}</h5>
+                            </div>
+                            <div class="time-stamp text-light">
+                                <span class='date-time'
+                                    style='display:none;'>{{post.time.year}}-{{post.time.month}}-{{post.time.day}}
+                                    {{post.time.hour}}:{{post.time.minute}}:{{post.time.second}}</span>
+                                <span class="number">0 Minutes</span>
+                                <span>Ago</span>
+                            </div>
+                        </div>
+                        <div class="post-content border border-dark">
+                            <div class="post-caption">
+                                <p>
+                                    {{post.content}}
+                                </p>
+                            </div>
+                            <div class="post-image">
+                                <img src="../media/{{post.image}}" alt="Image" srcset="">
+                            </div>
+                        </div>
+                        <div class="post-bottom">
+                            Like Share Comment
+                        </div>
+                    </div>
+
+                    <!-- ======================POST Container End ============================== -->
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    <!-- ================================= Bootstrap JS ============================== -->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+
+    <script>
+
+        setInterval(updateTime, 1000);
+        function updateTime() {
+            elements = document.getElementsByClassName('date-time');
+            Array.from(elements).forEach(element => {
+                let unit = '';
+                let num = 0;
+                let date = new Date(element.innerText);
+                let date_now = new Date();
+                diff_date = new Date(date_now - date);
+                let years = parseInt(diff_date.getFullYear()) - 1970;
+                let months = parseInt(diff_date.getMonth()) - 0;
+                let days = parseInt(diff_date.getDate()) - 1;
+                let hours = parseInt(diff_date.getHours()) - 11;
+                let minutes = parseInt(diff_date.getMinutes()) - 0;
+
+                if (years >= 1) {
+                    num = years;
+                    if (years == 1)
+                        unit = 'Year';
+                    else
+                        unit = 'Years';
+                }
+                else if (months >= 1) {
+                    num = months;
+                    if (months == 1)
+                        unit = 'Month';
+                    else
+                        unit = 'Months';
+                }
+                else if (days >= 7) {
+                    num = days % 7;
+                    if (num == 1)
+                        unit = 'Week';
+                    else
+                        unit = 'Weeks';
+                }
+                else if (days >= 1) {
+                    num = days;
+                    if (days == 1)
+                        unit = 'Day';
+                    else
+                        unit = 'Days';
+                }
+                else if (hours >= 1) {
+                    num = hours;
+                    if (hours == 1)
+                        unit = 'Hour';
+                    else
+                        unit = 'Hours';
+                }
+                else {
+                    num = minutes;
+                    if (num < 2)
+                        unit = 'Minute';
+                    else
+                        unit = 'Minutes';
+                }
+
+
+                element.nextSibling.nextSibling.innerText = `${num} ${unit}`;
+            });
+        }
+
+        // Add the following code if you want the name of the file appear on select
+        $(".custom-file-input").on("change", function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+
+
+        // Search Results
+        var token = "{{csrf_token}}"
+        $("#main-search-btn").click(function () {
+            Data = {
+                'search': document.getElementById('main-search').value,
+            };
+            $.ajax({
+                headers: { "X-CSRFToken": token },
+                url: '/forum/search/',
+                type: 'POST',
+                data: Data,
+                success: function (response) {
+                    if (response.success) {
+                        let search_results = response.results;
+                        console.log(search_results.length);
+                        let markup = '';
+                        search_results.forEach((result) => {
+                            markup += `
+                    <div class="follow-body border border-dark">
+                        <div class="follow-box">
+                            <div class="follow-box-image">
+                                <img src="../media/${result.profilePic}" alt="Profile-Pic" srcset="">
+                            </div>
+                            <div class='follow-box-info'>
+                                <h5 class='follow-box-name'>${result.first_name} ${result.last_name}</h5>
+                                <h5 class='follow-box-jobTitle'>${result.jobTitle}</h5>
+                            </div>
+                            <div class="follow-box-btn-search">
+                                <form action="/forum/profile/" enctype="multipart/form-data" method="POST">{% csrf_token %}
+                                    <input type="hidden" name="req-user" value=${result.user_id}>
+                                    <button type = 'submit' class="btn btn-info">View Profile</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>` ;
+                        });
+
+                        document.getElementById('search-results-modal').innerHTML = markup;
+                    }
+                    else {
+                        // alert('Download Unsuccessful');
+                        let markup = `
+                    <div class="follow-body border border-dark" style="display: flex;flex-direction: column;justify-content: center;align-items: center;border: 2px solid;background-color: #f9c8c8;">
+                        <span style="font-size:6em">&#9785;</span> 
+                        <h2 style="margin:0px">No Such User Found!</h2>
+                    </div>` ;
+
+                        document.getElementById('search-results-modal').innerHTML = markup;
+                    }
+                }
+            })
+        });
+    </script>
+
+</body>
+
+</html>

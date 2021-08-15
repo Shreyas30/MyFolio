@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1, maximum-scale=1" />
+	<title>Portfolio</title>
+	<script src="bower_components/jquery/dist/jquery.min.js" charset="utf-8"></script>
+	<link rel="stylesheet" href="bower_components/foundation-sites/dist/css/foundation.min.css">
+	<link rel="stylesheet" href="">
+	<script src="bower_components/foundation-sites/dist/js/foundation.min.js" charset="utf-8"></script>
+	<script src="bower_components/normalize-css/normalize.css" charset="utf-8"></script>
+	<script src="bower_components/typed.js/dist/typed.min.js" charset="utf-8"></script>
+	<script src="bower_components/jqcloud2/dist/jqcloud.min.js" charset="utf-8"></script>
+	<link rel="stylesheet" href="bower_components/jqcloud2/dist/jqcloud.min.css">
+	<script src="bower_components/custombox/dist/custombox.min.js"></script>
+	<link href="bower_components/custombox/dist/custombox.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Maven+Pro:400,500" rel="stylesheet">
+	<link rel="stylesheet" href="assets/fonts/foundation-icons/foundation-icons.css">
+    <link rel="stylesheet" href="assets/styles/styles.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,300i,400,700');
+
+/*********** Global Styles********/
+
+body, html {
+	background-color: #6c7173;;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Lato", sans-serif !important;
+	font-weight: 900 !important;
+}
+
+.wrapper {
+		background: #E3E3E3;
+}
+
+.img-circle {
+		border-radius: 50%;
+}
+
+.my-button {
+		font-size: 1em;
+		line-height: normal;
+		text-transform: uppercase;
+		font-family: 'Lato', sans-serif;
+		font-weight: 900;
+		-webkit-transition: all .3s ease-in-out;
+		transition: all .3s ease-in-out, color 0.2s 0.3s;
+		letter-spacing: 0;
+		border-radius: 45px;
+		height: auto;
+		padding: .8em 2.1em;
+}
+
+.my-button:hover {
+	cursor: pointer;
+	padding: .8em 2.7em;
+}
+
+.my-button:active,
+.my-button:focus,
+.my-button.active {
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+/*#my-modal {
+	display: none;
+}
+
+.my-form {
+	margin-top: 20em;
+}
+
+.custombox-content {
+	background: #212332;
+}*/
+
+/**********************************/
+
+
+/*** thin bar ***/
+
+.thin-bar {
+		border-bottom: 5px solid #F33F12;
+}
+
+
+/*** About Section ***/
+
+#about {
+		margin-top: 10em;
+		border: 1px solid #eee;
+		background-color: white;
+		padding-bottom: 1em;
+}
+
+#about img {
+		max-width: 15em;
+		position: relative;
+		bottom: 7.5em;
+}
+
+#about .details {
+		margin-top: -2em;
+}
+
+#about h2 {
+		color: #646464;
+		font-size: 3.8em;
+		padding-bottom: 1em;
+}
+
+#about span {
+		font-weight: 300;
+		font-size: .7em;
+}
+
+#about h5 {
+		color: #8A8A8B;
+}
+
+#about p {
+		margin-top: 1em;
+		color: #646464;
+		font-family: "roboto";
+		font-weight: 300;
+}
+
+.cta .cta-button {
+		color: #cc4b37;
+		text-transform: uppercase;
+		border: 2px solid rgba(255, 103, 68, 0.91);
+		border-radius: 50px;
+		background: white;
+}
+
+.cta .cta-button:hover, .cta .cta-button:focus {
+		box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 14px 1px rgba(0, 0, 0, 0.15);
+		background-color: rgba(255, 103, 68, 0.91);
+		color: white;
+}
+
+#about i {
+	margin-top: 2em;
+}
+
+.fa {
+	font-size: 1.2em;
+	padding: 0.1em 0.4em;
+	color: #8a8a8a;
+}
+
+.fa:hover {
+	cursor: pointer;
+}
+
+/*** Experience ***/
+
+#experience {
+	background-color: #4c6d86;
+	padding: 6em 4em 5.6em;
+}
+
+#experience h2 {
+	color: #fff;
+	margin-bottom: .7em;
+}
+
+#experience .tag-line {
+	color: white;
+	font-size: 1.4em;
+}
+
+#experience i {
+	color: rgb(255, 138, 89);
+	font-size: 4em;
+}
+
+#experience h3 {
+	color: #fff;
+}
+
+.experience-topics p {
+	color: #ACAEB2;
+	font-family: "Maven pro", sans-serif;
+	/*font-weight: 500;*/
+}
+
+.experience-topics ul li {
+	list-style: none;
+	color: #bbd2ff;
+	font-family: "Maven pro", sans-serif;
+	font-weight: 500;
+}
+
+/*** work ***/
+#work {
+	padding: 6em 4em 3em;
+	background-color: #fff;
+}
+
+#work h2 {
+	color: #FF6945;
+	margin-bottom: .7em;
+}
+
+
+#work .tag-line {
+	color: #767779;
+	font-size: 1.4em;
+	margin-bottom: 4em;
+}
+
+#work .work-row {
+	margin-bottom: 5.5em;
+}
+
+.details h3 {
+	color: #00185d;
+	text-transform: uppercase;
+}
+
+.details .platform{
+	font-size: 0.8em;
+	text-transform: uppercase;
+	margin: 2em 0 -0.1em;
+	font-family: "Maven pro", sans-serif;
+	font-weight: 500;
+	color: #ff7654;
+}
+
+.details i {
+	color: #ff7654;
+	margin-right: 1em;
+}
+
+.details p {
+	color: #040404;
+	font-family: "Maven pro", sans-serif;
+	font-weight: bold;
+	font-size: 1.2em;
+	margin-bottom: 1.8em;
+}
+
+.details a, .details a:link, .details a:active{
+		color: rgba(255, 103, 68, 0.91);
+		border: 2px solid rgba(255, 103, 68, 0.91) !important;
+		background-color: #fff;
+}
+
+.details a:hover, .details a:focus {
+		/*box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 14px 1px rgba(0, 0, 0, 0.15);*/
+		background-color: rgba(255, 103, 68, 0.91) !important;
+		color: #fff;
+}
+
+/*** teaching ***/
+#teaching {
+	padding: 6em 4em 3em;
+}
+
+#teaching h2 {
+	color: #595959;
+}
+
+#teaching .tag-line {
+	color: #848282;
+	font-size: 1.4em;
+}
+
+#teaching .teaching-domains {
+	height: 500px;
+	width: auto;
+	margin-top: -4em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*** Footer Call-to-action ***/
+#footer-cta {
+	background-color: rgba(255, 103, 68, 0.91);
+	padding: 6em 4em 5.6em;
+}
+
+#footer-cta h2 {
+	color: white;
+}
+
+#footer-cta p {
+	color: #fff;
+	font-family: "Maven pro", sans-serif;
+	font-weight: 500;
+	font-size: 1.2em;
+}
+
+#startButtonDiv {
+	margin-top: 3em;
+}
+
+#footer-cta a {
+	border: 2px solid #fff;
+	border-radius: 45px;
+	color: #fff;
+}
+
+#footer-cta a:hover {
+	background: #fff;
+	color: rgba(255, 103, 68, 0.91);
+	box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 14px 1px rgba(0, 0, 0, 0.15);
+}
+
+/*** footer starts ***/
+
+#footer {
+	padding: 5em 4em 2em;
+}
+
+#footer #logo {
+	background-color: rgba(255, 103, 68, 0.91);
+	border-radius: 50%;
+	color: #fff;
+	padding: .4em;
+	font-family: "Maven pro", sans-serif;
+	font-size: 1.6em;
+	font-weight: 500;
+	display: inline;
+}
+
+#footer #copyright {
+	margin-top: 1.6em;
+	font-family: "Maven pro", sans-serif;
+	font-weight: 500;
+	color: #7d7d7d;
+}
+
+
+.profile-photo {
+	width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    border-radius: 50%;
+    background-size: cover;
+    margin-top: -100px;
+    margin-bottom: 40px;
+
+}
+    </style>
+    <style>
+        @font-face {
+  font-family: "foundation-icons";
+  src: url("foundation-icons.eot");
+  src: url("foundation-icons.eot?#iefix") format("embedded-opentype"),
+       url("foundation-icons.woff") format("woff"),
+       url("foundation-icons.ttf") format("truetype"),
+       url("foundation-icons.svg#fontcustom") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.fi-address-book:before,
+.fi-alert:before,
+.fi-align-center:before,
+.fi-align-justify:before,
+.fi-align-left:before,
+.fi-align-right:before,
+.fi-anchor:before,
+.fi-annotate:before,
+.fi-archive:before,
+.fi-arrow-down:before,
+.fi-arrow-left:before,
+.fi-arrow-right:before,
+.fi-arrow-up:before,
+.fi-arrows-compress:before,
+.fi-arrows-expand:before,
+.fi-arrows-in:before,
+.fi-arrows-out:before,
+.fi-asl:before,
+.fi-asterisk:before,
+.fi-at-sign:before,
+.fi-background-color:before,
+.fi-battery-empty:before,
+.fi-battery-full:before,
+.fi-battery-half:before,
+.fi-bitcoin-circle:before,
+.fi-bitcoin:before,
+.fi-blind:before,
+.fi-bluetooth:before,
+.fi-bold:before,
+.fi-book-bookmark:before,
+.fi-book:before,
+.fi-bookmark:before,
+.fi-braille:before,
+.fi-burst-new:before,
+.fi-burst-sale:before,
+.fi-burst:before,
+.fi-calendar:before,
+.fi-camera:before,
+.fi-check:before,
+.fi-checkbox:before,
+.fi-clipboard-notes:before,
+.fi-clipboard-pencil:before,
+.fi-clipboard:before,
+.fi-clock:before,
+.fi-closed-caption:before,
+.fi-cloud:before,
+.fi-comment-minus:before,
+.fi-comment-quotes:before,
+.fi-comment-video:before,
+.fi-comment:before,
+.fi-comments:before,
+.fi-compass:before,
+.fi-contrast:before,
+.fi-credit-card:before,
+.fi-crop:before,
+.fi-crown:before,
+.fi-css3:before,
+.fi-database:before,
+.fi-die-five:before,
+.fi-die-four:before,
+.fi-die-one:before,
+.fi-die-six:before,
+.fi-die-three:before,
+.fi-die-two:before,
+.fi-dislike:before,
+.fi-dollar-bill:before,
+.fi-dollar:before,
+.fi-download:before,
+.fi-eject:before,
+.fi-elevator:before,
+.fi-euro:before,
+.fi-eye:before,
+.fi-fast-forward:before,
+.fi-female-symbol:before,
+.fi-female:before,
+.fi-filter:before,
+.fi-first-aid:before,
+.fi-flag:before,
+.fi-folder-add:before,
+.fi-folder-lock:before,
+.fi-folder:before,
+.fi-foot:before,
+.fi-foundation:before,
+.fi-graph-bar:before,
+.fi-graph-horizontal:before,
+.fi-graph-pie:before,
+.fi-graph-trend:before,
+.fi-guide-dog:before,
+.fi-hearing-aid:before,
+.fi-heart:before,
+.fi-home:before,
+.fi-html5:before,
+.fi-indent-less:before,
+.fi-indent-more:before,
+.fi-info:before,
+.fi-italic:before,
+.fi-key:before,
+.fi-laptop:before,
+.fi-layout:before,
+.fi-lightbulb:before,
+.fi-like:before,
+.fi-link:before,
+.fi-list-bullet:before,
+.fi-list-number:before,
+.fi-list-thumbnails:before,
+.fi-list:before,
+.fi-lock:before,
+.fi-loop:before,
+.fi-magnifying-glass:before,
+.fi-mail:before,
+.fi-male-female:before,
+.fi-male-symbol:before,
+.fi-male:before,
+.fi-map:before,
+.fi-marker:before,
+.fi-megaphone:before,
+.fi-microphone:before,
+.fi-minus-circle:before,
+.fi-minus:before,
+.fi-mobile-signal:before,
+.fi-mobile:before,
+.fi-monitor:before,
+.fi-mountains:before,
+.fi-music:before,
+.fi-next:before,
+.fi-no-dogs:before,
+.fi-no-smoking:before,
+.fi-page-add:before,
+.fi-page-copy:before,
+.fi-page-csv:before,
+.fi-page-delete:before,
+.fi-page-doc:before,
+.fi-page-edit:before,
+.fi-page-export-csv:before,
+.fi-page-export-doc:before,
+.fi-page-export-pdf:before,
+.fi-page-export:before,
+.fi-page-filled:before,
+.fi-page-multiple:before,
+.fi-page-pdf:before,
+.fi-page-remove:before,
+.fi-page-search:before,
+.fi-page:before,
+.fi-paint-bucket:before,
+.fi-paperclip:before,
+.fi-pause:before,
+.fi-paw:before,
+.fi-paypal:before,
+.fi-pencil:before,
+.fi-photo:before,
+.fi-play-circle:before,
+.fi-play-video:before,
+.fi-play:before,
+.fi-plus:before,
+.fi-pound:before,
+.fi-power:before,
+.fi-previous:before,
+.fi-price-tag:before,
+.fi-pricetag-multiple:before,
+.fi-print:before,
+.fi-prohibited:before,
+.fi-projection-screen:before,
+.fi-puzzle:before,
+.fi-quote:before,
+.fi-record:before,
+.fi-refresh:before,
+.fi-results-demographics:before,
+.fi-results:before,
+.fi-rewind-ten:before,
+.fi-rewind:before,
+.fi-rss:before,
+.fi-safety-cone:before,
+.fi-save:before,
+.fi-share:before,
+.fi-sheriff-badge:before,
+.fi-shield:before,
+.fi-shopping-bag:before,
+.fi-shopping-cart:before,
+.fi-shuffle:before,
+.fi-skull:before,
+.fi-social-500px:before,
+.fi-social-adobe:before,
+.fi-social-amazon:before,
+.fi-social-android:before,
+.fi-social-apple:before,
+.fi-social-behance:before,
+.fi-social-bing:before,
+.fi-social-blogger:before,
+.fi-social-delicious:before,
+.fi-social-designer-news:before,
+.fi-social-deviant-art:before,
+.fi-social-digg:before,
+.fi-social-dribbble:before,
+.fi-social-drive:before,
+.fi-social-dropbox:before,
+.fi-social-evernote:before,
+.fi-social-facebook:before,
+.fi-social-flickr:before,
+.fi-social-forrst:before,
+.fi-social-foursquare:before,
+.fi-social-game-center:before,
+.fi-social-github:before,
+.fi-social-google-plus:before,
+.fi-social-hacker-news:before,
+.fi-social-hi5:before,
+.fi-social-instagram:before,
+.fi-social-joomla:before,
+.fi-social-lastfm:before,
+.fi-social-linkedin:before,
+.fi-social-medium:before,
+.fi-social-myspace:before,
+.fi-social-orkut:before,
+.fi-social-path:before,
+.fi-social-picasa:before,
+.fi-social-pinterest:before,
+.fi-social-rdio:before,
+.fi-social-reddit:before,
+.fi-social-skillshare:before,
+.fi-social-skype:before,
+.fi-social-smashing-mag:before,
+.fi-social-snapchat:before,
+.fi-social-spotify:before,
+.fi-social-squidoo:before,
+.fi-social-stack-overflow:before,
+.fi-social-steam:before,
+.fi-social-stumbleupon:before,
+.fi-social-treehouse:before,
+.fi-social-tumblr:before,
+.fi-social-twitter:before,
+.fi-social-vimeo:before,
+.fi-social-windows:before,
+.fi-social-xbox:before,
+.fi-social-yahoo:before,
+.fi-social-yelp:before,
+.fi-social-youtube:before,
+.fi-social-zerply:before,
+.fi-social-zurb:before,
+.fi-sound:before,
+.fi-star:before,
+.fi-stop:before,
+.fi-strikethrough:before,
+.fi-subscript:before,
+.fi-superscript:before,
+.fi-tablet-landscape:before,
+.fi-tablet-portrait:before,
+.fi-target-two:before,
+.fi-target:before,
+.fi-telephone-accessible:before,
+.fi-telephone:before,
+.fi-text-color:before,
+.fi-thumbnails:before,
+.fi-ticket:before,
+.fi-torso-business:before,
+.fi-torso-female:before,
+.fi-torso:before,
+.fi-torsos-all-female:before,
+.fi-torsos-all:before,
+.fi-torsos-female-male:before,
+.fi-torsos-male-female:before,
+.fi-torsos:before,
+.fi-trash:before,
+.fi-trees:before,
+.fi-trophy:before,
+.fi-underline:before,
+.fi-universal-access:before,
+.fi-unlink:before,
+.fi-unlock:before,
+.fi-upload-cloud:before,
+.fi-upload:before,
+.fi-usb:before,
+.fi-video:before,
+.fi-volume-none:before,
+.fi-volume-strike:before,
+.fi-volume:before,
+.fi-web:before,
+.fi-wheelchair:before,
+.fi-widget:before,
+.fi-wrench:before,
+.fi-x-circle:before,
+.fi-x:before,
+.fi-yen:before,
+.fi-zoom-in:before,
+.fi-zoom-out:before {
+  font-family: "foundation-icons";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  text-decoration: inherit;
+}
+
+.fi-address-book:before { content: "\f100"; }
+.fi-alert:before { content: "\f101"; }
+.fi-align-center:before { content: "\f102"; }
+.fi-align-justify:before { content: "\f103"; }
+.fi-align-left:before { content: "\f104"; }
+.fi-align-right:before { content: "\f105"; }
+.fi-anchor:before { content: "\f106"; }
+.fi-annotate:before { content: "\f107"; }
+.fi-archive:before { content: "\f108"; }
+.fi-arrow-down:before { content: "\f109"; }
+.fi-arrow-left:before { content: "\f10a"; }
+.fi-arrow-right:before { content: "\f10b"; }
+.fi-arrow-up:before { content: "\f10c"; }
+.fi-arrows-compress:before { content: "\f10d"; }
+.fi-arrows-expand:before { content: "\f10e"; }
+.fi-arrows-in:before { content: "\f10f"; }
+.fi-arrows-out:before { content: "\f110"; }
+.fi-asl:before { content: "\f111"; }
+.fi-asterisk:before { content: "\f112"; }
+.fi-at-sign:before { content: "\f113"; }
+.fi-background-color:before { content: "\f114"; }
+.fi-battery-empty:before { content: "\f115"; }
+.fi-battery-full:before { content: "\f116"; }
+.fi-battery-half:before { content: "\f117"; }
+.fi-bitcoin-circle:before { content: "\f118"; }
+.fi-bitcoin:before { content: "\f119"; }
+.fi-blind:before { content: "\f11a"; }
+.fi-bluetooth:before { content: "\f11b"; }
+.fi-bold:before { content: "\f11c"; }
+.fi-book-bookmark:before { content: "\f11d"; }
+.fi-book:before { content: "\f11e"; }
+.fi-bookmark:before { content: "\f11f"; }
+.fi-braille:before { content: "\f120"; }
+.fi-burst-new:before { content: "\f121"; }
+.fi-burst-sale:before { content: "\f122"; }
+.fi-burst:before { content: "\f123"; }
+.fi-calendar:before { content: "\f124"; }
+.fi-camera:before { content: "\f125"; }
+.fi-check:before { content: "\f126"; }
+.fi-checkbox:before { content: "\f127"; }
+.fi-clipboard-notes:before { content: "\f128"; }
+.fi-clipboard-pencil:before { content: "\f129"; }
+.fi-clipboard:before { content: "\f12a"; }
+.fi-clock:before { content: "\f12b"; }
+.fi-closed-caption:before { content: "\f12c"; }
+.fi-cloud:before { content: "\f12d"; }
+.fi-comment-minus:before { content: "\f12e"; }
+.fi-comment-quotes:before { content: "\f12f"; }
+.fi-comment-video:before { content: "\f130"; }
+.fi-comment:before { content: "\f131"; }
+.fi-comments:before { content: "\f132"; }
+.fi-compass:before { content: "\f133"; }
+.fi-contrast:before { content: "\f134"; }
+.fi-credit-card:before { content: "\f135"; }
+.fi-crop:before { content: "\f136"; }
+.fi-crown:before { content: "\f137"; }
+.fi-css3:before { content: "\f138"; }
+.fi-database:before { content: "\f139"; }
+.fi-die-five:before { content: "\f13a"; }
+.fi-die-four:before { content: "\f13b"; }
+.fi-die-one:before { content: "\f13c"; }
+.fi-die-six:before { content: "\f13d"; }
+.fi-die-three:before { content: "\f13e"; }
+.fi-die-two:before { content: "\f13f"; }
+.fi-dislike:before { content: "\f140"; }
+.fi-dollar-bill:before { content: "\f141"; }
+.fi-dollar:before { content: "\f142"; }
+.fi-download:before { content: "\f143"; }
+.fi-eject:before { content: "\f144"; }
+.fi-elevator:before { content: "\f145"; }
+.fi-euro:before { content: "\f146"; }
+.fi-eye:before { content: "\f147"; }
+.fi-fast-forward:before { content: "\f148"; }
+.fi-female-symbol:before { content: "\f149"; }
+.fi-female:before { content: "\f14a"; }
+.fi-filter:before { content: "\f14b"; }
+.fi-first-aid:before { content: "\f14c"; }
+.fi-flag:before { content: "\f14d"; }
+.fi-folder-add:before { content: "\f14e"; }
+.fi-folder-lock:before { content: "\f14f"; }
+.fi-folder:before { content: "\f150"; }
+.fi-foot:before { content: "\f151"; }
+.fi-foundation:before { content: "\f152"; }
+.fi-graph-bar:before { content: "\f153"; }
+.fi-graph-horizontal:before { content: "\f154"; }
+.fi-graph-pie:before { content: "\f155"; }
+.fi-graph-trend:before { content: "\f156"; }
+.fi-guide-dog:before { content: "\f157"; }
+.fi-hearing-aid:before { content: "\f158"; }
+.fi-heart:before { content: "\f159"; }
+.fi-home:before { content: "\f15a"; }
+.fi-html5:before { content: "\f15b"; }
+.fi-indent-less:before { content: "\f15c"; }
+.fi-indent-more:before { content: "\f15d"; }
+.fi-info:before { content: "\f15e"; }
+.fi-italic:before { content: "\f15f"; }
+.fi-key:before { content: "\f160"; }
+.fi-laptop:before { content: "\f161"; }
+.fi-layout:before { content: "\f162"; }
+.fi-lightbulb:before { content: "\f163"; }
+.fi-like:before { content: "\f164"; }
+.fi-link:before { content: "\f165"; }
+.fi-list-bullet:before { content: "\f166"; }
+.fi-list-number:before { content: "\f167"; }
+.fi-list-thumbnails:before { content: "\f168"; }
+.fi-list:before { content: "\f169"; }
+.fi-lock:before { content: "\f16a"; }
+.fi-loop:before { content: "\f16b"; }
+.fi-magnifying-glass:before { content: "\f16c"; }
+.fi-mail:before { content: "\f16d"; }
+.fi-male-female:before { content: "\f16e"; }
+.fi-male-symbol:before { content: "\f16f"; }
+.fi-male:before { content: "\f170"; }
+.fi-map:before { content: "\f171"; }
+.fi-marker:before { content: "\f172"; }
+.fi-megaphone:before { content: "\f173"; }
+.fi-microphone:before { content: "\f174"; }
+.fi-minus-circle:before { content: "\f175"; }
+.fi-minus:before { content: "\f176"; }
+.fi-mobile-signal:before { content: "\f177"; }
+.fi-mobile:before { content: "\f178"; }
+.fi-monitor:before { content: "\f179"; }
+.fi-mountains:before { content: "\f17a"; }
+.fi-music:before { content: "\f17b"; }
+.fi-next:before { content: "\f17c"; }
+.fi-no-dogs:before { content: "\f17d"; }
+.fi-no-smoking:before { content: "\f17e"; }
+.fi-page-add:before { content: "\f17f"; }
+.fi-page-copy:before { content: "\f180"; }
+.fi-page-csv:before { content: "\f181"; }
+.fi-page-delete:before { content: "\f182"; }
+.fi-page-doc:before { content: "\f183"; }
+.fi-page-edit:before { content: "\f184"; }
+.fi-page-export-csv:before { content: "\f185"; }
+.fi-page-export-doc:before { content: "\f186"; }
+.fi-page-export-pdf:before { content: "\f187"; }
+.fi-page-export:before { content: "\f188"; }
+.fi-page-filled:before { content: "\f189"; }
+.fi-page-multiple:before { content: "\f18a"; }
+.fi-page-pdf:before { content: "\f18b"; }
+.fi-page-remove:before { content: "\f18c"; }
+.fi-page-search:before { content: "\f18d"; }
+.fi-page:before { content: "\f18e"; }
+.fi-paint-bucket:before { content: "\f18f"; }
+.fi-paperclip:before { content: "\f190"; }
+.fi-pause:before { content: "\f191"; }
+.fi-paw:before { content: "\f192"; }
+.fi-paypal:before { content: "\f193"; }
+.fi-pencil:before { content: "\f194"; }
+.fi-photo:before { content: "\f195"; }
+.fi-play-circle:before { content: "\f196"; }
+.fi-play-video:before { content: "\f197"; }
+.fi-play:before { content: "\f198"; }
+.fi-plus:before { content: "\f199"; }
+.fi-pound:before { content: "\f19a"; }
+.fi-power:before { content: "\f19b"; }
+.fi-previous:before { content: "\f19c"; }
+.fi-price-tag:before { content: "\f19d"; }
+.fi-pricetag-multiple:before { content: "\f19e"; }
+.fi-print:before { content: "\f19f"; }
+.fi-prohibited:before { content: "\f1a0"; }
+.fi-projection-screen:before { content: "\f1a1"; }
+.fi-puzzle:before { content: "\f1a2"; }
+.fi-quote:before { content: "\f1a3"; }
+.fi-record:before { content: "\f1a4"; }
+.fi-refresh:before { content: "\f1a5"; }
+.fi-results-demographics:before { content: "\f1a6"; }
+.fi-results:before { content: "\f1a7"; }
+.fi-rewind-ten:before { content: "\f1a8"; }
+.fi-rewind:before { content: "\f1a9"; }
+.fi-rss:before { content: "\f1aa"; }
+.fi-safety-cone:before { content: "\f1ab"; }
+.fi-save:before { content: "\f1ac"; }
+.fi-share:before { content: "\f1ad"; }
+.fi-sheriff-badge:before { content: "\f1ae"; }
+.fi-shield:before { content: "\f1af"; }
+.fi-shopping-bag:before { content: "\f1b0"; }
+.fi-shopping-cart:before { content: "\f1b1"; }
+.fi-shuffle:before { content: "\f1b2"; }
+.fi-skull:before { content: "\f1b3"; }
+.fi-social-500px:before { content: "\f1b4"; }
+.fi-social-adobe:before { content: "\f1b5"; }
+.fi-social-amazon:before { content: "\f1b6"; }
+.fi-social-android:before { content: "\f1b7"; }
+.fi-social-apple:before { content: "\f1b8"; }
+.fi-social-behance:before { content: "\f1b9"; }
+.fi-social-bing:before { content: "\f1ba"; }
+.fi-social-blogger:before { content: "\f1bb"; }
+.fi-social-delicious:before { content: "\f1bc"; }
+.fi-social-designer-news:before { content: "\f1bd"; }
+.fi-social-deviant-art:before { content: "\f1be"; }
+.fi-social-digg:before { content: "\f1bf"; }
+.fi-social-dribbble:before { content: "\f1c0"; }
+.fi-social-drive:before { content: "\f1c1"; }
+.fi-social-dropbox:before { content: "\f1c2"; }
+.fi-social-evernote:before { content: "\f1c3"; }
+.fi-social-facebook:before { content: "\f1c4"; }
+.fi-social-flickr:before { content: "\f1c5"; }
+.fi-social-forrst:before { content: "\f1c6"; }
+.fi-social-foursquare:before { content: "\f1c7"; }
+.fi-social-game-center:before { content: "\f1c8"; }
+.fi-social-github:before { content: "\f1c9"; }
+.fi-social-google-plus:before { content: "\f1ca"; }
+.fi-social-hacker-news:before { content: "\f1cb"; }
+.fi-social-hi5:before { content: "\f1cc"; }
+.fi-social-instagram:before { content: "\f1cd"; }
+.fi-social-joomla:before { content: "\f1ce"; }
+.fi-social-lastfm:before { content: "\f1cf"; }
+.fi-social-linkedin:before { content: "\f1d0"; }
+.fi-social-medium:before { content: "\f1d1"; }
+.fi-social-myspace:before { content: "\f1d2"; }
+.fi-social-orkut:before { content: "\f1d3"; }
+.fi-social-path:before { content: "\f1d4"; }
+.fi-social-picasa:before { content: "\f1d5"; }
+.fi-social-pinterest:before { content: "\f1d6"; }
+.fi-social-rdio:before { content: "\f1d7"; }
+.fi-social-reddit:before { content: "\f1d8"; }
+.fi-social-skillshare:before { content: "\f1d9"; }
+.fi-social-skype:before { content: "\f1da"; }
+.fi-social-smashing-mag:before { content: "\f1db"; }
+.fi-social-snapchat:before { content: "\f1dc"; }
+.fi-social-spotify:before { content: "\f1dd"; }
+.fi-social-squidoo:before { content: "\f1de"; }
+.fi-social-stack-overflow:before { content: "\f1df"; }
+.fi-social-steam:before { content: "\f1e0"; }
+.fi-social-stumbleupon:before { content: "\f1e1"; }
+.fi-social-treehouse:before { content: "\f1e2"; }
+.fi-social-tumblr:before { content: "\f1e3"; }
+.fi-social-twitter:before { content: "\f1e4"; }
+.fi-social-vimeo:before { content: "\f1e5"; }
+.fi-social-windows:before { content: "\f1e6"; }
+.fi-social-xbox:before { content: "\f1e7"; }
+.fi-social-yahoo:before { content: "\f1e8"; }
+.fi-social-yelp:before { content: "\f1e9"; }
+.fi-social-youtube:before { content: "\f1ea"; }
+.fi-social-zerply:before { content: "\f1eb"; }
+.fi-social-zurb:before { content: "\f1ec"; }
+.fi-sound:before { content: "\f1ed"; }
+.fi-star:before { content: "\f1ee"; }
+.fi-stop:before { content: "\f1ef"; }
+.fi-strikethrough:before { content: "\f1f0"; }
+.fi-subscript:before { content: "\f1f1"; }
+.fi-superscript:before { content: "\f1f2"; }
+.fi-tablet-landscape:before { content: "\f1f3"; }
+.fi-tablet-portrait:before { content: "\f1f4"; }
+.fi-target-two:before { content: "\f1f5"; }
+.fi-target:before { content: "\f1f6"; }
+.fi-telephone-accessible:before { content: "\f1f7"; }
+.fi-telephone:before { content: "\f1f8"; }
+.fi-text-color:before { content: "\f1f9"; }
+.fi-thumbnails:before { content: "\f1fa"; }
+.fi-ticket:before { content: "\f1fb"; }
+.fi-torso-business:before { content: "\f1fc"; }
+.fi-torso-female:before { content: "\f1fd"; }
+.fi-torso:before { content: "\f1fe"; }
+.fi-torsos-all-female:before { content: "\f1ff"; }
+.fi-torsos-all:before { content: "\f200"; }
+.fi-torsos-female-male:before { content: "\f201"; }
+.fi-torsos-male-female:before { content: "\f202"; }
+.fi-torsos:before { content: "\f203"; }
+.fi-trash:before { content: "\f204"; }
+.fi-trees:before { content: "\f205"; }
+.fi-trophy:before { content: "\f206"; }
+.fi-underline:before { content: "\f207"; }
+.fi-universal-access:before { content: "\f208"; }
+.fi-unlink:before { content: "\f209"; }
+.fi-unlock:before { content: "\f20a"; }
+.fi-upload-cloud:before { content: "\f20b"; }
+.fi-upload:before { content: "\f20c"; }
+.fi-usb:before { content: "\f20d"; }
+.fi-video:before { content: "\f20e"; }
+.fi-volume-none:before { content: "\f20f"; }
+.fi-volume-strike:before { content: "\f210"; }
+.fi-volume:before { content: "\f211"; }
+.fi-web:before { content: "\f212"; }
+.fi-wheelchair:before { content: "\f213"; }
+.fi-widget:before { content: "\f214"; }
+.fi-wrench:before { content: "\f215"; }
+.fi-x-circle:before { content: "\f216"; }
+.fi-x:before { content: "\f217"; }
+.fi-yen:before { content: "\f218"; }
+.fi-zoom-in:before { content: "\f219"; }
+.fi-zoom-out:before { content: "\f21a"; }
+    </style>
+</head>
+
+<body>
+	<!-- Watch how to use it on YouTube -->
+	<!-- https://youtu.be/ddLuZXs8Uyw -->
+
+
+	<!-- Watch how to deploy it live -->
+	<!-- https://youtu.be/E1dqffpUlMA -->
+	<div class="wrapper">
+		
+
+		<section id="about">
+			<div class="row">
+				<div class="small-12 large-8 large-offset-2 columns text-center">
+					<div class="profile-photo" style="background-image: url(/static/person_1.jpg);">
+					</div>
+					<div class="details">
+						<h2>Hey! Myself Prashant<br> <span id="writing-text"><span></h2>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="small-12 column">
+					<div class="cta text-center">
+						<a class="my-button cta-button expand form-button" href="mailto:prashantdwivedi194@gmail.com">Get In Touch</a>
+					</div>
+				</div>
+				<div class="small-12 column">
+					<div class="my-arrow-div text-center">
+						<a href="https://www.instagram.com/_prashant_dwivedi_1/?hl=en"><i class="fa fa-instagram fa-2x"></i></a>
+					</div>
+				</div>
+			</div>
+
+		</section>
+
+
+		<section id="experience">
+
+			<div class="row column">
+				<div class="small-12">
+					<h2 class="text-center">My Experience</h2>
+					<p class="text-center tag-line">Specialist in need. Generalist at heart.</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="small-12 medium-4 columns text-center experience-topics">
+					<i class="fi-laptop"></i>
+					<h3>Front-end</h3>
+					<ul>
+						<li>html(5)</li>
+						<li>css(3)</li>
+						<li>Javascript</li>
+					</ul>
+				</div>
+				<div class="small-12 medium-4 columns text-center experience-topics">
+					<i class="fi-database"></i>
+					<h3>Back-end</h3>
+					<ul>
+						<li>NodeJS</li>
+						<li>Restful Web Services</li>
+						<li>Flask | Python</li>
+					</ul>
+				</div>
+				<div class="small-12 medium-4 columns text-center experience-topics">
+					<i class="fi-star"></i>
+					<h3>Tools</h3>
+					<ul>
+						<li>Vim</li>
+						<li>Bower</li>
+						<li>Atom || Webstorm</li>
+					</ul>
+				</div>
+			</div>
+
+		</section>
+
+		<section id="work">
+			<h2 class="text-center">Work</h2>
+			<div class="row">
+				<p class="text-center tag-line">Here are few of my former clients.</p>
+			</div>
+
+
+			<div class="row work-row"> <!-- odd -->
+				<div class="small-12 medium-6 medium-push-6 columns">
+					<img src="assets/images/TIC-TAC-TOE.JPG" alt="">
+				</div>
+				<div class="small-12 medium-5 medium-pull-7 columns">
+					<div class="details details-ftm">
+						<h3>TIC-TAC-TOE</h3>
+						<p class="platform">Web</p>
+						<p class="icons"><i class="fi-monitor"></i><i class="fi-tablet-portrait"></i><i class="fi-mobile"></i></p>
+						<p>This is good time-tailing game project! Popularly known as Tic-Tac-Toe or Xs and 0s. It's a Python Project</p>
+						<a class="my-button" target="_blank" href="http://google.com">Visit Website</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="row work-row"> <!-- even -->
+				<div class="small-12 medium-6 columns">
+					<img src="assets/images/project2.png" alt="">
+				</div>
+				<div class="small-12 medium-5 medium-offset-1 columns">
+					<div class="details details-ftm">
+						<h3>AwesomeTechSmth</h3>
+						<p class="platform">Web</p>
+						<p class="icons"><i class="fi-monitor"></i><i class="fi-tablet-portrait"></i><i class="fi-mobile"></i></p>
+						<p>GreatTechSmth is venenatis porta dolor sit amet vestibulum.</p>
+						<a class="my-button" target="_blank" href="http://google.com">Visit Website</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="row work-row"> <!-- odd -->
+				<div class="small-12 medium-6 medium-push-6 columns">
+					<img src="assets/images/project3.png" alt="">
+				</div>
+				<div class="small-12 medium-5 medium-pull-7 columns">
+					<div class="details details-ftm">
+						<h3>Suspendisse Cars</h3>
+						<p class="platform">Web</p>
+						<p class="icons"><i class="fi-monitor"></i><i class="fi-tablet-portrait"></i><i class="fi-mobile"></i></p>
+						<p>Suspendisse Cars pulvinar magna a mattis maximus.</p>
+						<a class="my-button" target="_blank" href="http://google.com">Visit Website</a>
+					</div>
+				</div>
+			</div>
+
+
+
+
+
+
+
+
+
+		</section>
+
+		<!-- <section id="teaching">
+			<h2 class="text-center">Teaching</h2>
+			<div class="row">
+				<div class="small-12 medium-8 medium-offset-2">
+					<p class="text-center tag-line">In the last couple of years, I've taught programming to hundreds of students both privately in person and remotely. Here are some of the domains I've helped students with...</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="small-12 medium-8 medium-offset-2 columns">
+					<div class="teaching-domains">
+					</div>
+				</div>
+			</div>
+		</section> -->
+
+		<section id="footer-cta">
+			<h2 class="text-center">Wanna work with me?</h2>
+			<p></p>
+			<div class="row text-center">
+				<div class="small-12 medium-8 medium-offset-2 columns">
+					<p class="text-center">I'm currently available for work.</p>
+				</div>
+				<div class="small-12 columns" id="startButtonDiv">
+					<a class="my-button form-button" href="mailto:prashantdwivedi194@gmail.com">Start Now</a>
+				</div>
+			</div>
+		</section>
+
+		<footer id="footer">
+			<div class="row text-center">
+				<div class="small-12 medium-6 medium-offset-3 columns">
+					<p id="logo">JW</p>
+					<p id="copyright">Copyright &copy; 2017 | Jakob  Wolitzki</p>
+				</div>
+			</div>
+		</footer>
+
+
+
+	</div>
+	<script>
+        const Portfolio = function() {
+	function makeWords() {
+		var words = [
+			{
+				text: "rapping",
+				weight: 12.3
+			}, {
+				text: "css3",
+				weight: 8
+			}, {
+				text: "javascript",
+				weight: 14
+			}, {
+				text: "jquery",
+				weight: 3
+			}, {
+				text: "programming",
+				weight: 7
+			}, {
+				text: "python",
+				weight: 10
+			}, {
+				text: "java",
+				weight: 9
+			}, {
+				text: "qazi",
+				weight: 15
+			}, {
+				text: "newText",
+				weight: 7
+			}
+		];
+		return words;
+	}
+
+	function makeWordCloud(words) {
+		$('.teaching-domains').jQCloud(words, {delay: 120});
+	}
+
+	function displayWordCloud() {
+		var count = 1;
+		$(window).on('scroll', function() {
+			var y_scroll_pos = window.pageYOffset;
+			var scroll_pos_test = 2700; // set to whatever you want it to be
+			var words = makeWords();
+			if (y_scroll_pos > scroll_pos_test && count <= 1) {
+				makeWordCloud(words);
+				count++;
+			}
+		});
+	}
+
+	function designForm() {
+		$("#my-modal form").addClass("my-form");
+	}
+
+	function typeAnimation() {
+		Typed.new("#writing-text", {
+			strings: [
+				"am a JS geek!", "loves to help to you with my knowledge.", "also teach programming to people.", "solve problems."
+			],
+			// Optionally use an HTML element to grab strings from (must wrap each string in a <p>)
+			stringsElement: null,
+			// typing speed
+			typeSpeed: 1,
+			contentType: 'text',
+			callback: function() {
+				$("#writing-text").css({"color": "#fff", "background-color": "#C8412B"});
+			},
+			preStringTyped: function() {},
+			onStringTyped: function() {}
+		});
+	}
+
+	return {
+		displayWordCloud: displayWordCloud,
+		typeAnimation: typeAnimation
+	}
+
+}();
+
+
+Portfolio.displayWordCloud();
+Portfolio.typeAnimation();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1941 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Portfolio</title>
+    <script>
+        window.onbeforeunload = function (e) { localStorage.clear(); };
+    </script>
+    <!-- =============== Fonts ============== -->
+    <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <!-- ==================== ICONS ================= -->
+
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <!--using FontAwesome---------------->
+    <!-- <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script> -->
+
+    <!-- Bootstrap css file  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+            background-color: #161616;
+        }
+
+        /* Navigation Bar */
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        #main {
+            padding: 30px 50px;
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            box-sizing: border-box;
+            background-size: 1330px;
+            background-position: right bottom;
+            background-repeat: no-repeat;
+            background-image: url("../images/bg.png");
+            background-color: #edf1fd;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 2px;
+            font-family: calibri;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px 50px;
+            background-color: #F4F7FF;
+            box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.05);
+            z-index: 1;
+        }
+
+        .menu {
+            display: flex;
+        }
+
+        .menu li a {
+            padding: 10px 15px;
+            color: #6c707c;
+            font-size: 19px;
+
+        }
+
+        .lang {
+            color: #292929;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #292929;
+            font-family: Poppins;
+        }
+
+        .toggle {
+            display: none;
+        }
+
+        .active a,
+        .menu li a:hover {
+            background-color: #292929;
+            color: #FFF !important;
+            font-weight: bold;
+            transition: all ease 0.4s;
+        }
+
+
+
+        /* Home Page */
+
+        .name {
+            font-family: calibri;
+            width: 500px;
+            position: absolute;
+            left: 20%;
+            top: 50%;
+            transform: translate(-20%, -50%);
+        }
+
+        .name h2,
+        .name .details {
+            color: #6c707c;
+            font-size: 24px;
+        }
+
+        .name h3 {
+            color: #6c707c;
+            font-size: 44px;
+        }
+
+        .name h1 {
+            font-family: Poppins;
+            font-size: 40px;
+            margin: 0px;
+            letter-spacing: 3px;
+            color: #292929;
+        }
+
+        .cv-btn {
+            width: 200px;
+            height: 45px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #292929;
+            color: #FFFFFF;
+            margin-top: 1rem;
+        }
+
+        .cv-btn:hover {
+            background-color: #131313;
+            transition: all ease 0.5s;
+        }
+
+        .black-line {
+            align-self: end;
+            width: 50%;
+            height: 15%;
+            margin-bottom: 4em;
+            position: absolute;
+            bottom: 0px;
+            left: -3%;
+            border-right: 1px solid rgba(41, 41, 41, 0.30);
+        }
+
+        .black-line::after {
+            content: ' ';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 11px 11px 0 11px;
+            border-color: #292929 transparent transparent transparent;
+            right: -.7em;
+            bottom: -2px;
+        }
+
+
+        .social {
+            position: absolute;
+            left: 50px;
+            bottom: 50px;
+            display: flex;
+
+        }
+
+        .social a {
+            margin: 6px 12px;
+
+        }
+
+        .social i {
+            color: rgba(18, 17, 17, 0.40);
+            font-size: 14px;
+        }
+
+        .social a:hover i {
+            color: #17d1ac;
+            transition: all ease 0.5s;
+        }
+
+        /* About Me */
+
+        #about {
+            width: 100%;
+            height: 100vh;
+            background-color: #161616;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 50px 5% 0px 5%;
+            position: relative;
+        }
+
+        .about-text {
+            font-family: calibri;
+            width: 50%;
+        }
+
+        .about-text h1 {
+            font-size: 5rem;
+            color: #17d1ac;
+        }
+
+        .about-text h2 {
+            font-size: 3rem;
+            color: #FFFFFF;
+            font-weight: 400;
+        }
+
+        .about-text h1,
+        h2 {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .about-text p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.90);
+
+        }
+
+        .about-text button {
+            width: 180px;
+            height: 40px;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+            background-color: #17d1ac;
+        }
+
+        .about-text button:hover {
+            background-color: #FFFFFF;
+            transition: all ease 0.3s;
+        }
+
+        /* Skills Area */
+
+        .card-body h5 {
+            color: #FFFFFF;
+            font-size: 1rem;
+            margin: 0px;
+            padding: 0px;
+            margin-bottom: 1rem;
+        }
+
+        /* Work Area */
+
+        #services {
+            width: 100%;
+            /* height: 100vh; */
+            box-sizing: border-box;
+            font-family: calibri;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-top: 40px;
+
+        }
+
+        .s-heading h1 {
+            color: #FFFFFF;
+            font-size: 3rem;
+            margin: 0px;
+            padding: 0px;
+
+        }
+
+        .s-heading p {
+            color: rgba(255, 255, 255, 0.30);
+            font-size: 1rem;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .s-heading {
+            text-align: center;
+            margin: 20px 0px;
+        }
+
+        .s-box {
+            background-color: #2B2B2B;
+            width: 350px;
+            height: 350px;
+            margin: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .b-container {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            flex-wrap: wrap;
+
+        }
+
+        .s-b-img {
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .s-b-img img {
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .s-b-text {
+            width: 100%;
+            height: 30%;
+            background-color: #1E1E1E;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .s-b-text a {
+            margin: 0px;
+            color: #FFFFFF;
+            font-size: 1.1rem;
+            font-family: calibri;
+            display: block;
+            display: -webkit-box;
+            max-width: 80%;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .s-b-text a:hover {
+            color: rgba(255, 255, 255, 0.50)
+        }
+
+        .s-type {
+            font-family: calibri;
+            color: #FFFFFF;
+            background-color: #151515;
+            padding: 10px 15px;
+            position: absolute;
+            top: 0px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 18px;
+            border-radius: 0px 0px 10px 10px;
+            box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .s-box:hover {
+            transform: translateY(-10px);
+            transition: all ease 0.3s;
+
+        }
+
+        /* Contact-Button */
+
+
+        #contact-btn {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+            background-color: #F4F7FF;
+            margin: 20px 0px;
+            box-sizing: border-box;
+            box-shadow: 2px 0px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .c-b-heading {
+            font-size: 2rem;
+            color: #1E1E1E;
+            font-family: calibri;
+            margin: 10px;
+            padding: 5px;
+            letter-spacing: 4px;
+            border-bottom: 2px solid #1E1E1E;
+
+        }
+
+        #contact-btn a {
+            color: #FFFFFF;
+            font-size: 1.2rem;
+            font-family: calibri;
+            width: 150px;
+            height: 40px;
+            margin: 10px;
+            padding: 6px 28px;
+            ;
+            background-color: #1E1E1E;
+            border: none;
+            outline: none;
+            box-shadow: 2px 5px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        #contact-btn a:hover {
+            background-color: #17d1ac;
+            color: #000000;
+            transition: all ease 0.5s;
+            font-weight: bold;
+        }
+
+        /* Conatct Form */
+
+        #contact-form {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        #contact-form form {
+            display: flex;
+            width: 70%;
+            height: 60vh;
+            background-color: #1A1A1A;
+            box-shadow: 2px 12px 20px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.01)
+        }
+
+        .contact-left {
+            width: 40%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-right {
+            width: 60%;
+            height: 100%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-left: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .contact-right button {
+            width: 100%;
+            height: 4rem;
+            padding: 0.4rem;
+            background-color: #1ED98B;
+            font-weight: bold;
+            outline: none;
+            border: none;
+            margin: 0px;
+            color: #1B1B1B;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+
+        }
+
+        .c-l-heading {
+            font-family: calibri;
+            color: #FFFFFF;
+            font-size: 3rem;
+            letter-spacing: 2px;
+            font-weight: 400;
+
+        }
+
+        .f-name,
+        .f-email {
+            display: flex;
+            flex-direction: column;
+            font-family: calibri;
+
+        }
+
+        .f-name span,
+        .f-email span {
+            color: #BFBFBF;
+            font-size: 22px;
+        }
+
+        .f-name input,
+        .f-email input {
+            height: 30px;
+            width: 250px;
+            border: none;
+            outline: none;
+            background-color: transparent;
+            border-bottom: 1px solid #929292;
+            color: #FFFFFF;
+            margin: 10px 0px;
+        }
+
+        .f-email input::placeholder,
+        .f-name input::placeholder {
+            opacity: 0.5;
+            letter-spacing: 1px;
+        }
+
+        .f-email input:focus,
+        .f-name input:focus {
+            border-bottom: 1px solid #17d1ac;
+            transition: all ease 0.5s;
+        }
+
+        .message span {
+            font-size: 18px;
+            color: #4E4E4E;
+            font-family: calibri;
+
+        }
+
+        .message {
+            margin: 20px;
+        }
+
+        .contact-right textarea {
+            width: 100% !important;
+            height: 320px !important;
+            border: none;
+            outline: none;
+            background-color: transparent;
+            box-sizing: border-box;
+            color: #EBEBEB;
+            font-size: 16px;
+        }
+
+        .contact-right textarea::placeholder {
+            color: #EBEBEB;
+            font-size: 18px;
+            letter-spacing: 2px;
+            font-family: calibri;
+        }
+
+        .contact-right button:active {
+            transform: scale(1.04);
+            transition: all ease 0.1s;
+        }
+
+        /* Responsive CSS */
+
+        @media(max-width:1190px) {
+            #main {
+                background-size: 1150px !important;
+
+            }
+
+            .name {
+                left: 10%;
+                top: 50%;
+                transform: translate(-10%, -50%);
+            }
+
+            .about-model img {
+                height: 400px;
+            }
+
+            #services {
+                height: auto;
+            }
+
+            .b-container {
+                flex-wrap: wrap;
+            }
+
+            .s-box {
+                flex-grow: 1;
+            }
+
+            .s-b-img img {
+                object-fit: cover;
+            }
+
+            #contact-form form {
+                width: 95% !important;
+            }
+
+        }
+
+        @media(max-width:970px) {
+            #main {
+                background-image: none !important;
+
+            }
+
+            .name {
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            .about-model {
+                display: none;
+            }
+
+            #about {
+                justify-content: center;
+                padding-top: 0px;
+            }
+
+            .about-text {
+                width: 90%;
+            }
+
+            .about-text h1 {
+                font-size: 4rem;
+            }
+
+            .p-container {
+                width: 100%;
+
+            }
+
+        }
+
+        @media(max-width:900px) {
+            .toggle {
+                display: block;
+            }
+
+            .toggle:before {
+                content: '\f0c9';
+                font-family: fontAwesome;
+                line-height: 0px;
+                margin-left: -30px;
+            }
+
+            .toggle.active:before {
+                content: '\f00d' !important;
+
+            }
+
+            nav {
+                padding: 10px 30px;
+            }
+
+            nav ul {
+                position: absolute;
+                width: 100%;
+                height: auto;
+                box-sizing: border-box;
+                background-color: #0F0F0F;
+                top: 50px;
+                left: 0;
+                transition: 0.5s;
+                overflow: hidden;
+                display: none !important;
+                border: 3px solid #1F1F1F;
+            }
+
+            nav ul li a {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+                color: #ffffff !important;
+                width: 100%;
+                height: 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0px !important;
+                padding: 0px !important;
+            }
+
+            nav ul {
+                padding: 0px;
+                margin: 0px;
+            }
+
+            .active-menu {
+                display: block !important;
+            }
+
+            nav ul li a:hover {
+                background-color: rgba(27, 29, 32, 0.15);
+
+            }
+
+
+            .p-container {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto;
+                grid-gap: 10px;
+                height: auto;
+            }
+
+            .c-b-heading {
+                font-size: 1.4rem;
+                text-align: center;
+            }
+
+            #contact-form {
+                padding: 20px;
+                height: auto;
+                box-sizing: border-box;
+            }
+
+
+            #contact-form form {
+                flex-direction: column;
+                height: auto;
+                padding: 20px;
+                width: 90% !important;
+
+            }
+
+            .contact-left,
+            .contact-right {
+                width: 100%;
+                border: none;
+            }
+
+            .f-name,
+            .f-email {
+                width: 100%;
+
+            }
+
+            .f-name input,
+            .f-email input {
+                width: 100%;
+                border: none;
+                background-color: #262626 !important;
+                padding: 10px;
+                box-sizing: border-box;
+                height: 40px;
+
+            }
+
+            textarea {
+                background-color: #262626 !important;
+                margin: 10px 0px;
+                padding: 10px;
+                height: 200px !important;
+                width: 100% !important;
+            }
+
+            .message {
+                margin: 0px;
+            }
+
+            #contact-form form h1 {
+                margin: 5px 0px;
+            }
+
+
+        }
+
+        @media(max-width:600px) {
+            .p-container {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+
+            .c-b-heading {
+                font-size: 1.2rem;
+                text-align: center;
+                margin: 0px 10%;
+            }
+
+            .name {
+                width: 60%;
+            }
+
+
+            .black-line {
+                margin-bottom: 20px;
+            }
+
+            .social {
+                left: 30px;
+                transform: translateX(-10px);
+            }
+        }
+
+        @media(max-width:400px) {
+            .s-box {
+                width: 100%;
+                height: 400px;
+            }
+        }
+
+        /*
+        < !--===========================================================================-->
+        < !--=======================MY CSS==============================-->
+        < !--=========================================================================-->*/
+        #homeImage-div {
+            float: right;
+            margin-top: 8rem;
+            margin-right: 5rem;
+            /* border: 2px solid black; */
+            height: 25rem;
+            width: 24rem;
+            border-radius: 5px;
+        }
+
+        #aboutImage-div {
+            margin-right: 4rem;
+            border: 2px solid white;
+            height: 25rem;
+            width: 24rem;
+            border-radius: 5px;
+        }
+
+        .bx{
+            font-size: 1.8rem !important;
+        }
+
+        #save-btn {
+            position: fixed;
+            top: 65px;
+            right: 1%;
+            display: none;
+            position: fixed;
+            top: 40%;
+            right: 1%;
+            padding: 0.4rem 2.3rem;
+            border-radius: 5px;
+            background-color: #a3f5b5;
+            border: navajowhite;
+            box-shadow: 0px 0px 20px darkcyan;
+            /* font-weight: bold; */
+            color: black;
+            font-size: 20px;
+            z-index: 4;
+        }
+
+        #edit-btn {
+            position: fixed;
+            top: 40%;
+            right: 1%;
+            display: block;
+            background-color: #17e6e6;
+            border: navajowhite;
+            box-shadow: 0px 0px 20px darkcyan;
+            /* font-weight: bold; */
+            color: black;
+            border-radius: 5px;
+            font-size: 20px;
+            z-index: 4;
+        }
+
+        #download-btn {
+            position: fixed;
+            top: 50%;
+            right: 1%;
+            background-color: #ff8383;
+            border: navajowhite;
+            box-shadow: 0px 0px 20px darkcyan;
+            /* font-weight: bold; */
+            color: black;
+            font-size: 20px;
+            z-index: 4;
+            border-radius: 5px;
+        }
+
+        .card-body p {
+            color: rgb(207, 205, 205);
+        }
+
+        .title-h1 {
+            font: normal bold 3.6rem/40px var(--roboto);
+        }
+
+        .round {
+            border: 0.5px solid #007bff;
+            border-radius: 5px;
+            box-shadow: 0px 0px 12px 0px rgb(64, 64, 250);
+            background-color: white;
+        }
+
+        .img {
+            height: 21rem;
+        }
+
+        .subscribe form textarea {
+            width: 400px;
+            padding: 1.5rem 1rem;
+            border: 1px solid whitesmoke;
+            background: transparent;
+            color: white;
+            font: normal 500 17px/20px var(--roboto);
+        }
+
+        .nav-text,
+        .footer-text {
+            color: var(--primary-color);
+            font: normal 500 2rem var(--roboto);
+        }
+
+        .ml-auto,
+        .mx-auto {
+            margin-left: auto !important;
+        }
+
+        #main ul {
+            margin-bottom: 0;
+        }
+
+        #work-input-div {
+            display: none;
+        }
+
+        #work-input-div div {
+            text-align: center;
+            height: 18rem;
+            width: 27rem;
+            margin: 1rem auto;
+        }
+
+        #editable-home-image {
+            border-radius: 5px;
+            width: 100%;
+            height: 100%;
+        }
+
+        #editable-about-image {
+            border-radius: 5px;
+            width: 100%;
+            height: 100%;
+            /* border:2px solid black; */
+        }
+        fab{
+            size: 1rem;
+        }
+
+        .editable-work-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+        }
+
+        img{
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+        }
+        .work-input {
+            margin: 3.5rem 1.3rem;
+        }
+
+        h1 {
+            font-size: 3.5rem !important;
+        }
+
+        .card-body {
+            border-left: 3px solid #007bff;
+            border-top: 3px solid #007bff;
+        }
+
+        .card-title {
+            font-weight: 900;
+        }
+
+        #about {
+            padding-top: 5rem;
+        }
+
+        #skills {
+            padding-top: 3em;
+        }
+
+        .work__img {
+            margin-bottom: 4rem !important;
+        }
+        .social i:hover{
+            color:rgb(5, 5, 253) !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="">
+        <button class="remove btn btn-danger" id="edit-btn" onclick="editing()">
+            Edit Mode
+        </button>
+        <button class="remove btn btn-success" id="save-btn" onclick="saving()">
+            Save
+        </button>
+        <button type="button" class="remove btn btn-danger remove" style="display: none;" id="download-btn">
+            Download
+        </button>
+
+        <!--  ======================= Start Header Area ============================== -->
+
+        <section id="main">
+            <!--navigation-------------------------------->
+            <nav>
+                <!--logo--->
+                <a href="#" class="logo"><span class="editable-input-inline"> James </span></a>
+                <!--menu--------->
+                <div class="toggle"></div>
+                <ul class="menu">
+                    <li><a href="#main">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#services">Work</a></li>
+                    <li><a href="#contact-form">Contact</a></li>
+                </ul>
+            </nav>
+
+
+            <!--  ======================= End Header Area ============================== -->
+
+            <!--  ======================= Start Main Area ================================ -->
+
+            <!--name--------------------------->
+            <div class="name">
+                <!--hello------->
+                <h2>Hello</h2>
+                <!--name--->
+                <h1>I'm <span style='color:#17d1ac' class="editable-input">James Kamerun</span></h1>
+                <!--details--------------->
+                <h3 class="editable-input">FrontEnd Developer</h3>
+                <!--cv button-------------------->
+                <a href="#contact-form" class="cv-btn">Contact Me</a>
+
+            </div>
+            <div id="homeImage-div">
+                <form action="/portfolio/img/" class=' remove' enctype="multipart/form-data" id="homeImageForm"
+                    method="POST">
+                    {% csrf_token %}
+                    <input type='file' name='Image' accpet='image/*' id='edited-home-image'
+                        style=' display:none; margin: 12rem 0rem 0rem 6rem;'></input>
+                    <button class='btn btn-success' style="display:none; margin: 0rem auto; margin-top: 2rem; "
+                        type="submit" id="saveHomeImagebtn">Save this Image</button>
+                </form>
+                <img src="/static/person_4.jpg" alt="img" id="editable-home-image"
+                    style='height:100%; width:100%; border-radius:5px;' srcset="">
+            </div>
+
+            <!--down arrow-------------->
+            <!-- <div class="black-line"></div> -->
+
+            <div class="social" style='margin-left: 8rem;' >
+                <a href="#" id="editable-link-github"><i class="bx bxl-github"></i></a>
+                <a href="#" id="editable-link-linkedin"><i class="bx bxl-linkedin"></i></a>
+                <a href="#" id="editable-link-facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" id="editable-link-instagram"><i class="bx bxl-instagram"></i></a>
+            </div>
+        </section>
+
+        <!--  ======================= End Home Area =======================  -->
+
+        <!--  ========================= About Area ==========================  -->
+
+        <!--about----------------------->
+        <section id="about">
+            <!--text---------------------->
+            <div class="about-text">
+                <h1>About Me</h1>
+                <h2 class='editable-input'>FrontEnd Developer</h2>
+                <p class='editable-textarea'>Enjoy the ultimate web design editor. Divi is like Photoshop or Sketch for the web. It brings an
+                    advanced design interface to WordPress that both beginners and experts will fall in love with. It's
+                    incredibly smart, super flexible, amazingly powerful and visual by nature. This is how designing for
+                    the web is meant to be done.</p>
+                <!-- <button>View More Details</button> -->
+            </div>
+            <!--about-model----------------->
+            <div id='aboutImage-div' class="about-model border border-light round">
+                <form action="/portfolio/img/" class=' remove' enctype="multipart/form-data" id="aboutImageForm"
+                    method="POST">
+                    {% csrf_token %}
+                    <input type='file' name='Image' accpet='image/*' id='edited-about-image'
+                        style=' display:none;   margin: 12rem 3rem 3rem 5rem;'></input>
+                    <button class='btn btn-success' style="display: none; margin: auto;" type="submit"
+                        id="saveAboutImagebtn">Save this Image</button>
+                </form>
+                <img alt="model" id='editable-about-image' src="/static/about.jpg" />
+            </div>
+        </section>
+        <!--  ========================= End About Area ==========================  -->
+
+        <!--  ======================== Skills Area ==============================  -->
+
+        <section id="skills" class="skills-area">
+            <div class="s-heading">
+                <h1>MY SKILLS</h1>
+            </div>
+            <div class="container services-list my-5">
+                <div class="row" style="display: flex; justify-content: space-around">
+                    <div class="col-lg-3 col-md-6 col-sm-12 m-1 mb-5">
+                        <div class="services">
+                            <div class="card-body s-heading">
+                                <h5 class="card-title text-uppercase font-roboto editable-skill-name">
+                                    Wp developer </h5>
+                                <p class="card-text editable-skill-desc">
+                                    Some quick example text to build on the card title and
+                                    make up the bulk of the card's content.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 m-1 mb-5">
+                        <div class="services">
+                            <div class="card-body s-heading">
+                                <h5 class="card-title text-uppercase font-roboto editable-skill-name">
+                                    ux/ui desing</h5>
+                                <p class="card-text editable-skill-desc">
+                                    Some quick example text to build on the card title and
+                                    make up the bulk of the card's content.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 m-1 mb-5">
+                        <div class="services">
+                            <div class="card-body s-heading">
+                                <h5 class="card-title text-uppercase font-roboto editable-skill-name">
+                                    web design
+                                </h5>
+                                <p class="card-text editable-skill-desc">
+                                    Some quick example text to build on the card title and
+                                    make up the bulk of the card's content.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 mx-1 mb-5">
+                        <div class="services">
+                            <div class="card-body s-heading">
+                                <h5 class="card-title text-uppercase font-roboto editable-skill-name">
+                                    seo optimize
+                                </h5>
+                                <p class="card-text editable-skill-desc">
+                                    Some quick example text to build on the card title and
+                                    make up the bulk of the card's content.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 mx-1 mb-5">
+                        <div class="services">
+                            <div class="card-body s-heading">
+                                <h5 class="card-title text-uppercase font-roboto editable-skill-name">
+                                    seo optimize
+                                </h5>
+                                <p class="card-text editable-skill-desc">
+                                    Some quick example text to build on the card title and
+                                    make up the bulk of the card's content.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 mx-1 mb-5">
+                        <div class="services">
+                            <div class="card-body s-heading">
+                                <h5 class="card-title text-uppercase font-roboto editable-skill-name">
+                                    seo optimize
+                                </h5>
+                                <p class="card-text editable-skill-desc">
+                                    Some quick example text to build on the card title and
+                                    make up
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--  ======================== End Skills Area ==============================  -->
+
+        <!--  ======================== Work Area ==============================  -->
+
+        <!--services-------------------->
+        <section id="services">
+            <!--heading-------------->
+            <div class="s-heading">
+                <h1>MY WORK</h1>
+            </div>
+            <!--services-box-container--------->
+            <div class="b-container">
+                <!--box-1---------------->
+                <div class="s-box">
+                    <!--img------------->
+                    <div class="s-b-img">
+                        <!--type----------->
+                        <div class="s-type editable-work-name" id='editable-work-name-1'>Front-End</div>
+                        <!--name------->
+                        <form action="/portfolio/img/" class='remove' enctype="multipart/form-data" id="workImageForm-1"
+                            method="POST">
+                            {% csrf_token %}
+                            <input type='file' name='Image' accpet='image/*' id='edited-work-image-1'
+                                style='display: none; margin: 8rem -5rem 3rem 5rem;'></input>
+                            <button class='btn btn-success' style="display: none; margin: 2rem 4rem 9rem 9rem;"
+                                type="submit" id="saveWorkImagebtn-1">Save this Image</button>
+                        </form>
+                        <img src="/static/work1.jpg" class='editable-work-image' id='workImage-1'>
+                    </div>
+                </div>
+                <!--box-2---------------->
+                <div class="s-box">
+                    <!--img------------->
+                    <div class="s-b-img">
+                        <!--type----------->
+                        <div class="s-type editable-work-name" id='editable-work-name-2'>Back-End</div>
+                        <!--name------->
+                        <form action="/portfolio/img/" class='remove' enctype="multipart/form-data" id="workImageForm-2"
+                            method="POST">
+                            {% csrf_token %}
+                            <input type='file' name='Image' accpet='image/*' id='edited-work-image-2'
+                                style='display: none; margin: 8rem -5rem 3rem 5rem;'></input>
+                            <button class='btn btn-success' style="display: none; margin: 2rem 4rem 9rem 9rem;"
+                                type="submit" id="saveWorkImagebtn-2">Save this Image</button>
+                        </form>
+                        <img src="/static/work2.jpg" class='editable-work-image' id='workImage-2'>
+                    </div>
+                </div>
+                <!--box-3---------------->
+                <div class="s-box">
+                    <!--img------------->
+                    <div class="s-b-img">
+                        <!--type----------->
+                        <div class="s-type editable-work-name" id='editable-work-name-3'>SEO</div>
+                        <!--name------->
+                        <form action="/portfolio/img/" class='remove' enctype="multipart/form-data" id="workImageForm-3"
+                            method="POST">
+                            {% csrf_token %}
+                            <input type='file' name='Image' accpet='image/*' id='edited-work-image-3'
+                                style='display: none; margin: 8rem -5rem 3rem 5rem;'></input>
+                            <button class='btn btn-success' style="display: none; margin: 2rem 4rem 9rem 9rem;"
+                                type="submit" id="saveWorkImagebtn-3">Save this Image</button>
+                        </form>
+                        <img src="/static/work3.jpg" class='editable-work-image' id='workImage-3'>
+                    </div>
+                </div>
+                <!--box-4---------------->
+                <div class="s-box">
+                    <!--img------------->
+                    <div class="s-b-img">
+                        <!--type----------->
+                        <div class="s-type editable-work-name" id='editable-work-name-4'>Front-End</div>
+                        <!--name------->
+                        <form action="/portfolio/img/" class='remove' enctype="multipart/form-data" id="workImageForm-4"
+                            method="POST">
+                            {% csrf_token %}
+                            <input type='file' name='Image' accpet='image/*' id='edited-work-image-4'
+                                style='display: none; margin: 8rem -5rem 3rem 5rem;'></input>
+                            <button class='btn btn-success' style="display: none; margin: 2rem 4rem 9rem 9rem;"
+                                type="submit" id="saveWorkImagebtn-4">Save this Image</button>
+                        </form>
+                        <img src="/static/work4.jpg" class='editable-work-image' id='workImage-4'>
+                    </div>
+                </div>
+                <!--box-5---------------->
+                <div class="s-box">
+                    <!--img------------->
+                    <div class="s-b-img">
+                        <!--type----------->
+                        <div class="s-type editable-work-name" id='editable-work-name-5'>Front-End</div>
+                        <!--name------->
+                        <form action="/portfolio/img/" class='remove' enctype="multipart/form-data" id="workImageForm-5"
+                            method="POST">
+                            {% csrf_token %}
+                            <input type='file' name='Image' accpet='image/*' id='edited-work-image-5'
+                                style='display: none; margin:8rem -5rem 3rem 5rem;'></input>
+                            <button class='btn btn-success' style="display: none; margin: 2rem 4rem 9rem 9rem;"
+                                type="submit" id="saveWorkImagebtn-5">Save this Image</button>
+                        </form>
+                        <img src="/static/work5.jpg" class='editable-work-image' id='workImage-5'>
+                    </div>
+                </div>
+                <!--box-6---------------->
+                <div class="s-box">
+                    <!--img------------->
+                    <div class="s-b-img">
+                        <!--type----------->
+                        <div class="s-type editable-work-name" id='editable-work-name-6'>Front-End</div>
+                        <!--name------->
+                        <form action="/portfolio/img/" class='remove' enctype="multipart/form-data" id="workImageForm-6"
+                            method="POST">
+                            {% csrf_token %}
+                            <input type='file' name='Image' accpet='image/*' id='edited-work-image-6'
+                                style='display: none; margin:8rem -5rem 3rem 5rem;'></input>
+                            <button class='btn btn-success' style="display: none; margin: 2rem 4rem 9rem 9rem;"
+                                type="submit" id="saveWorkImagebtn-6">Save this Image</button>
+                        </form>
+                        <img src="/static/work6.jpg" class='editable-work-image' id='workImage-6'>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!--  ======================== End Work Area ==============================  -->
+
+        <!--  ========================== Contact me Area ============================  -->
+
+        <!--Contact-btn------------------>
+        <section id="contact-btn">
+            <!--heading-------------->
+            <h1 class="c-b-heading">If You Have Any Project In Your Mind ?</h1>
+            <!--btn-------->
+            <a href='#contact-form'>Contact Me</a>
+        </section>
+
+        <!--contact-form------------------->
+        <section id="contact-form">
+            <form>
+                <!--left--------------------------------------->
+                <div class="contact-left">
+                    <h1 class="c-l-heading" style="border-bottom: 3px solid #1ED98B;">Contact Me
+                    </h1>
+                    <!--name-------->
+                    <div class="f-name">
+                        <span>Name</span>
+                        <input type="text" placeholder="Full Name" />
+                    </div>
+                    <!--email-------->
+                    <div class="f-email">
+                        <span>Email</span>
+                        <input type="email" placeholder="Example@gmail.com" />
+                    </div>
+                </div>
+                <!--right------------------------------------------->
+                <div class="contact-right">
+                    <!--message-------->
+                    <div class="message">
+                        <span>Message</span>
+                        <textarea name="message" rows="5" cols="20" placeholder="Write Message..."></textarea>
+                    </div>
+                    <!--submit-btn------------>
+                    <button>submit</button>
+                </div>
+
+            </form>
+        </section>
+
+        <!--  ========================== Contact Me Area ============================  -->
+        <!--  ======================= End Main Area ================================ -->
+
+        <!--  ======================= Footer Area ================================ -->
+        <footer class="footer-area">
+            <div class="container-fluid bg-light pb-1">
+                <div class="text-center">
+                    <h2 class="para text-dark mt-2 editable-input-inline">James</h2>
+                </div>
+                <div class="copyrights text-center mt-2">
+                    <p class="para text-dark mt-2">Copyright ©2020 All rights reserved</p>
+                </div>
+            </div>
+        </footer>
+
+        <!--  ======================= End Footer Area ================================ -->
+    </div>
+
+
+
+
+    <!-- BootStrap JS Files -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <!-- Resposive js -->
+    <script type="text/javascript" src="js/JQuery3.3.1.js"></script>
+    <script type="text/javascript">
+
+        /*Responsive Navigation*/
+        $(document).ready(function () {
+            $('.toggle').click(function () {
+                $('.toggle').toggleClass('active')
+
+                $('nav ul').toggleClass('active-menu')
+
+
+            })
+        });
+
+    </script>
+
+
+    <script class='remove'>
+        const host_link = document.location.href;
+
+        console.log("Welcome here");
+
+        // HomeImage
+        if (localStorage.getItem('homeImage') == null) {
+
+            localStorage.setItem('homeImage', 'person_4.jpg');
+        }
+        let imageKey = localStorage.getItem('homeImage');
+        console.log(`the image value ${imageKey}`);
+        $('#editable-home-image').attr('src', `/static/${imageKey}`);
+
+        // About Iamge
+        if (localStorage.getItem('aboutImage') == null) {
+
+            localStorage.setItem('aboutImage', 'about.jpg');
+        }
+        imageKey = localStorage.getItem('aboutImage');
+        console.log(`the image value ${imageKey}`);
+        $('#editable-about-image').attr('src', `/static/${imageKey}`);
+
+
+        // For Work Images
+        for (let i = 1; i < 7; i++) {
+            if (localStorage.getItem('workImage-' + i) == null) {
+
+                localStorage.setItem('workImage-' + i, 'work' + i + '.jpg');
+            }
+            imageKey = localStorage.getItem('workImage-' + i);
+            console.log(`the image value ${imageKey}`);
+            $('#workImage-' + i).attr('src', `/static/${imageKey}`);
+        }
+
+        // Downloading the zip file here
+        $('#download-btn').click(() => {
+
+            let removingElements = document.getElementsByClassName('remove');
+            Array.from(removingElements).forEach(element => {
+                element.remove();
+            });
+
+            var token = '{{csrf_token}}';
+
+            // console.log(workImage);
+            downloadData = {
+                'html': document.documentElement.innerHTML,
+                'homeImage': localStorage.getItem('homeImage'),
+                'aboutImage': localStorage.getItem('aboutImage'),
+                'workImage1': localStorage.getItem('workImage-1'),
+                'workImage2': localStorage.getItem('workImage-2'),
+                'workImage3': localStorage.getItem('workImage-3'),
+                'workImage4': localStorage.getItem('workImage-4'),
+                'workImage5': localStorage.getItem('workImage-5'),
+                'workImage6': localStorage.getItem('workImage-6'),
+                'number': '0',
+            };
+            $.ajax({
+                headers: { "X-CSRFToken": token },
+                url: '/portfolio/download/',
+                type: 'POST',
+                data: downloadData,
+                success: function (response) {
+                    if (response.error) {
+                        alert('Download Unsuccessful');
+                    }
+                    else {
+                        alert('Download Successful');
+                        let a = document.createElement('a');
+                        a.setAttribute('href', '../media/user.zip')
+                        a.setAttribute('download', 'done')
+                        a.click();
+
+                        window.location = '/portfolio/download';
+                    }
+                }
+            });
+        })
+
+        // For Editing the porfolio
+        function editing() {
+
+            document.getElementById("save-btn").style.display = "block";
+            document.getElementById("edit-btn").style.display = "none";
+            document.getElementById('download-btn').setAttribute('style', 'display:block')
+
+            // For Input type=text
+            let elements = document.getElementsByClassName("editable-input");
+            Array.from(elements).forEach((element) => {
+                let text = element.innerText;
+                let input = document.createElement("input");
+                input.setAttribute("value", text);
+                input.setAttribute("class", "edited-input round");
+                input.setAttribute("style", "width: 30rem; margin: 0.75rem;");
+                element.parentElement.insertBefore(input, element);
+                element.style.display = "none";
+            });
+
+            // For Home Profile Image
+            saveImagebtn = document.getElementById('saveHomeImagebtn');
+            saveImagebtn.setAttribute('style', 'display:block; margin: 0rem auto; margin-top: 2rem;');
+            element = document.getElementById('editable-home-image');
+            let image = document.getElementById('edited-home-image');
+            image.setAttribute('style', 'display:block; margin: 12rem 0rem 0rem 6rem;');
+            element.parentElement.classList += ' round';
+            element.style.display = 'none';
+
+            imgForm = document.getElementById('homeImageForm');
+            imgForm.insertBefore(image, saveImagebtn)
+            $('#homeImageForm').submit(function (e) {
+                e.preventDefault();
+                $form = $(this);
+                let formData = new FormData(this);
+                $.ajax({
+                    url: '/portfolio/img/',
+                    type: 'POST',
+                    data: formData,
+                    success: function (response) {
+                        $('.error').remove();
+                        console.log(response)
+                        if (response.error) {
+                            alert('Upload Unsuccessful');
+                        }
+                        else {
+                            $('#editable-home-image').attr('src', `../media/${response.responseValue}`)
+                            localStorage.setItem('homeImage', response.responseValue);
+
+                            document.getElementById('editable-home-image').setAttribute('style', 'display:block; ')
+
+                            document.getElementById('saveHomeImagebtn').setAttribute('style', 'display:none;')
+
+                            document.getElementById('edited-home-image').setAttribute('style', 'display:none;')
+
+                        }
+                    },
+                    cache: false,
+                    contentType: false,
+                    processData: false
+                });
+
+            });
+
+            // For About Image
+            saveImagebtn = document.getElementById('saveAboutImagebtn')
+            saveImagebtn.setAttribute('style', 'display:block; margin: auto;');
+            element = document.getElementById('editable-about-image');
+            image = document.getElementById('edited-about-image');
+            image.setAttribute('style', 'display:block; margin: 12rem 3rem 3rem 5rem;');
+            element.parentElement.classList += ' round';
+            element.style.display = 'none';
+
+            imgForm = document.getElementById('aboutImageForm');
+            imgForm.insertBefore(image, saveImagebtn)
+            $('#aboutImageForm').submit(function (e) {
+                e.preventDefault();
+                $form = $(this);
+                let formData = new FormData(this);
+                $.ajax({
+                    url: '/portfolio/img/',
+                    type: 'POST',
+                    data: formData,
+                    success: function (response) {
+                        $('.error').remove();
+                        console.log(response)
+                        if (response.error) {
+                            alert('Upload Unsuccessful');
+                        }
+                        else {
+                            $('#editable-about-image').attr('src', `../media/${response.responseValue}`)
+                            localStorage.setItem('aboutImage', response.responseValue);
+
+                            document.getElementById('editable-about-image').setAttribute('style', 'display:block; ')
+
+                            document.getElementById('saveAboutImagebtn').setAttribute('style', 'display:none;')
+
+                            document.getElementById('edited-about-image').setAttribute('style', 'display:none;')
+
+                        }
+                    },
+                    cache: false,
+                    contentType: false,
+                    processData: false
+                });
+
+            });
+
+            // For TextAreas
+            elements = document.getElementsByClassName("editable-textarea");
+            Array.from(elements).forEach((element) => {
+                let text = element.innerText;
+                let textarea = document.createElement("textarea");
+                textarea.setAttribute("class", "edited-textarea round");
+                textarea.setAttribute(
+                    "style",
+                    "width:30rem; height:20rem; margin:0.75rem;"
+                );
+                textarea.defaultValue = text;
+                element.parentElement.insertBefore(textarea, element);
+                let list = element.classList;
+                let style = element.style;
+                let p = document.createElement("p");
+                p.classList = list;
+                p.style = style;
+                element.parentElement.insertBefore(p, element);
+                element.remove();
+            });
+
+            // For Skill Name
+            elements = document.getElementsByClassName("editable-skill-name");
+            Array.from(elements).forEach((skill) => {
+                let input = document.createElement("input");
+                input.setAttribute("class", "edited-skill-name round");
+                input.setAttribute("style", " width: 14rem; margin: auto;");
+                let skill_value = skill.innerText;
+                // if (skill_value == 'SKILL' || skill_value == '' || skill_value == ' ') {
+                //     skill_value = '';
+                // }
+                input.setAttribute('value', skill_value);
+                skill.parentElement.insertBefore(input, skill);
+                skill.style.display = 'none';
+                skill.parentElement.parentElement.parentElement.style.display = 'block';
+            });
+            // For Skill Description
+            elements = document.getElementsByClassName("editable-skill-desc");
+            Array.from(elements).forEach((element) => {
+                let text = element.innerText;
+                let textarea = document.createElement("textarea");
+                textarea.setAttribute("class", "edited-skill-desc round");
+                textarea.setAttribute(
+                    "style",
+                    "width:14rem; height:13rem; margin: 1rem auto;"
+                );
+                textarea.defaultValue = text;
+                element.parentElement.insertBefore(textarea, element);
+                let list = element.classList;
+                let style = element.style;
+                let p = document.createElement("p");
+                p.classList = list;
+                p.style = style;
+                element.parentElement.insertBefore(p, element);
+                element.remove();
+            });
+
+            // For Work-Names
+            elements = document.getElementsByClassName("editable-work-name");
+            Array.from(elements).forEach((work) => {
+                let input = document.createElement("input");
+                input.setAttribute("class", "edited-work-name round");
+                input.setAttribute("style", " position:absolute; width: 14rem; margin: 1rem 4rem;");
+                let work_value = work.innerText;
+                if (work_value == 'Work-Name' || work_value == '' || work_value == ' ') {
+                    work_value = '';
+                }
+                input.setAttribute('value', work_value);
+                work.parentElement.insertBefore(input, work);
+                work.style.display = 'none';
+                work.parentElement.parentElement.style.display = 'block';
+            });
+            // Work Images
+            for (let i = 1; i < 7; i++) {
+                saveImagebtn = document.getElementById('saveWorkImagebtn-' + i);
+                saveImagebtn.setAttribute('style', 'display:block; margin: 0rem 0rem 4.5rem 7rem;');
+                element = document.getElementById('workImage-' + i);
+                element.parentElement.style.display = 'block';
+                element.parentElement.classList.remove('remove');
+                image = document.getElementById('edited-work-image-' + i);
+                image.setAttribute('style', 'display: block; margin: 8rem -5rem 3rem 5rem;')
+                element.parentElement.classList += ' round';
+                element.style.display = 'none';
+
+                imgForm = document.getElementById('workImageForm-' + i);
+                imgForm.insertBefore(image, saveImagebtn)
+                $('#workImageForm-' + i).submit(function (e) {
+                    e.preventDefault();
+                    $form = $(this);
+                    let formData = new FormData(this);
+                    $.ajax({
+                        url: '/portfolio/img/',
+                        type: 'POST',
+                        data: formData,
+                        success: function (response) {
+                            $('.error').remove();
+                            console.log(response)
+                            if (response.error) {
+                                alert('Upload Unsuccessful');
+                            }
+                            else {
+                                $('#workImage-' + i).attr('src', `../media/${response.responseValue}`)
+                                localStorage.setItem('workImage-' + i, response.responseValue);
+
+                                document.getElementById('workImage-' + i).setAttribute('style', 'display:block; ')
+
+                                document.getElementById('saveWorkImagebtn-' + i).setAttribute('style', 'display:none;')
+
+                                document.getElementById('edited-work-image-' + i).setAttribute('style', 'display:none;')
+
+                            }
+                        },
+                        cache: false,
+                        contentType: false,
+                        processData: false
+                    });
+
+                });
+            }
+
+
+
+            // For Footer and Nav Name
+            elements = document.getElementsByClassName("editable-input-inline");
+            Array.from(elements).forEach((element) => {
+                let text = element.innerText;
+                let input = document.createElement("input");
+                input.setAttribute("value", text);
+                input.setAttribute("class", "edited-input-inline round");
+                input.setAttribute("style", "width: 15rem; margin: 0.75rem;");
+                element.parentElement.insertBefore(input, element);
+                element.style.display = "none";
+            });
+
+            // Footer Links
+            //1.Github Link
+            link = document.getElementById("editable-link-github");
+            link_value = link.href;
+            if (link_value.indexOf(host_link) > -1) link_value = "";
+            input = document.createElement("input");
+            input.setAttribute("type", "text");
+            input.id = "edited-link-github";
+            input.setAttribute("placeholder", "GitHub Link");
+            input.setAttribute("class", "round");
+            input.setAttribute("value", link_value);
+            input.setAttribute("style", "margin-right:1rem;");
+            link.parentElement.insertBefore(input, link);
+            link.style.display = "none";
+
+            //2.LinkedIn Link
+            link = document.getElementById("editable-link-linkedin");
+            link_value = link.href;
+            if (link_value.indexOf(host_link) > -1) link_value = "";
+            input = document.createElement("input");
+            input.setAttribute("type", "text");
+            input.id = "edited-link-linkedin";
+            input.setAttribute("placeholder", "LinkedIn Link");
+            input.setAttribute("class", "round");
+            input.setAttribute("value", link_value);
+            input.setAttribute("style", "margin-right:1rem;");
+            link.parentElement.insertBefore(input, link);
+            link.style.display = "none";
+
+            //3.FaceBook Link
+            link = document.getElementById("editable-link-facebook");
+            link_value = link.href;
+            if (link_value.indexOf(host_link) > -1) link_value = "";
+            input = document.createElement("input");
+            input.setAttribute("type", "text");
+            input.id = "edited-link-facebook";
+            input.setAttribute("placeholder", "FaceBook Link");
+            input.setAttribute("class", "round");
+            input.setAttribute("value", link_value);
+            input.setAttribute("style", "margin-right:1rem;");
+            link.parentElement.insertBefore(input, link);
+            link.style.display = "none";
+
+            //4.Instagram Link
+            link = document.getElementById("editable-link-instagram");
+            link_value = link.href;
+            if (link_value.indexOf(host_link) > -1) link_value = "";
+            input = document.createElement("input");
+            input.setAttribute("type", "text");
+            input.id = "edited-link-instagram";
+            input.setAttribute("placeholder", "Instagram Link");
+            input.setAttribute("class", "round");
+            input.setAttribute("value", link_value);
+            input.setAttribute("style", "margin-right:1rem;");
+            link.parentElement.insertBefore(input, link);
+            link.style.display = "none";
+        }
+
+        //For Saving Changes
+        function saving() {
+            document.getElementById("save-btn").style.display = "none";
+            document.getElementById("edit-btn").style.display = "block";
+
+            // Input type=text
+            let elements = document.getElementsByClassName("edited-input");
+            Array.from(elements).forEach((element) => {
+                let Sibling = element.nextSibling;
+                Sibling.style.display = "inline";
+                let text = element.value;
+                Sibling.innerText = text;
+                element.remove();
+            });
+
+            // Home Profile Image
+            document.getElementById('saveHomeImagebtn').setAttribute('style', 'display:none;')
+            element = document.getElementById('edited-home-image'); //input tag with input value taken from user
+            imgValue = localStorage.getItem('homeImage');
+            let home_image = document.getElementById('editable-home-image'); //img tag
+            if (imgValue != '')
+                home_image.setAttribute('src', `../media/${imgValue}`);
+            home_image.style = 'display:block;'; //now img tag is showm
+            home_image.parentElement.classList.remove('round');
+            element.style.display = 'none';
+
+            // About Image
+            document.getElementById('saveAboutImagebtn').setAttribute('style', 'display:none;')
+            element = document.getElementById('edited-about-image'); //input tag with input value taken from user
+            imgValue = localStorage.getItem('aboutImage');
+            let about_image = document.getElementById('editable-about-image'); //img tag
+            if (imgValue != '')
+                about_image.setAttribute('src', `../media/${imgValue}`)
+            about_image.style = 'display:block;'; //now img tag is showm
+            about_image.parentElement.classList.remove('round');
+            element.style.display = 'none';
+
+            // textarea
+            elements = document.getElementsByClassName("edited-textarea");
+            Array.from(elements).forEach((element) => {
+                let Sibling = element.nextSibling;
+                Sibling.style.display = "block";
+                let text = element.value;
+                Sibling.innerText = text;
+                element.remove();
+            });
+
+            // Skill-Name
+            elements = document.getElementsByClassName("edited-skill-name");
+            Array.from(elements).forEach((skill) => {
+                let Sibling = skill.nextSibling;
+                let skill_value = skill.value;
+                if (skill_value == '' || skill_value == ' ' || skill_value == 'SKILL') {
+                    Sibling.innerText = '';
+                    Sibling.parentElement.parentElement.parentElement.style.display = 'none';
+                }
+                else {
+                    Sibling.style.display = 'block';
+                    Sibling.innerText = skill_value;
+                }
+                skill.remove();
+            });
+
+            // Skill-Description
+            elements = document.getElementsByClassName("edited-skill-desc");
+            Array.from(elements).forEach((element) => {
+                let Sibling = element.nextSibling;
+                let skill_value = element.value;
+                if (skill_value == '' || skill_value == ' ') {
+                    Sibling.innerText = '';
+                    Sibling.parentElement.parentElement.parentElement.style.display = 'none';
+                }
+                else {
+                    Sibling.style.display = 'block';
+                    Sibling.innerText = skill_value;
+                }
+                element.remove();
+            });
+            
+             // Work-Name
+             elements = document.getElementsByClassName("edited-work-name");
+            Array.from(elements).forEach((work) => {
+                let Sibling = work.nextSibling;
+                let work_value = work.value;
+                if (work_value == '' || work_value == ' ' || work_value == 'Work-Name') {
+                    Sibling.innerText = '';
+                    Sibling.parentElement.parentElement.style.display = 'none';
+                }
+                else {
+                    Sibling.style.display = 'block';
+                    Sibling.innerText = work_value;
+                }
+                work.remove();
+            });
+
+            // Work Images
+            for (let i = 1; i < 7; i++) {
+                document.getElementById('saveWorkImagebtn-' + i).setAttribute('style', 'display:none;')
+                element = document.getElementById('edited-work-image-' + i); //input tag with input value taken from user
+                imgValue = localStorage.getItem('workImage-' + i);
+                let work_image = document.getElementById('workImage-' + i); //img tag
+                if (imgValue != '' && imgValue != 'work' + i + '.jpg')
+                    work_image.setAttribute('src', `../media/${imgValue}`)
+                if (imgValue == 'work' + i + '.jpg' || imgValue == null) {
+                    localStorage.removeItem('workImage-' + i);
+                    element.parentElement.parentElement.parentElement.style.display = 'none';
+                    element.parentElement.parentElement.classList += ' remove';
+                }
+                work_image.style = 'display:block;'; //now img tag is showm
+                work_image.parentElement.classList.remove('round');
+                element.style.display = 'none';
+            }
+
+            // Nav and Footer Name
+            elements = document.getElementsByClassName("edited-input-inline");
+            Array.from(elements).forEach((element) => {
+                let Sibling = element.nextSibling;
+                Sibling.style.display = "inline";
+                let text = element.value;
+                Sibling.innerText = text;
+                element.remove();
+            });
+
+            // GitHub Link
+            input = document.getElementById("edited-link-github");
+            link = input.value;
+            document.getElementById("editable-link-github").href = link;
+            if (link != "") {
+                input.nextSibling.style.display = "inline";
+            }
+            input.remove();
+
+            // LinkedIN Link
+            input = document.getElementById("edited-link-linkedin");
+            link = input.value;
+            document.getElementById("editable-link-linkedin").href = link;
+            if (link != "") {
+                input.nextSibling.style.display = "inline";
+            }
+            input.remove();
+
+            // FaceBook Link
+            input = document.getElementById("edited-link-facebook");
+            link = input.value;
+            document.getElementById("editable-link-facebook").href = link;
+            if (link != "") {
+                input.nextSibling.style.display = "inline";
+            }
+            input.remove();
+
+            // Instagram Link
+            input = document.getElementById("edited-link-instagram");
+            link = input.value;
+            document.getElementById("editable-link-instagram").href = link;
+            if (link != "") {
+                input.nextSibling.style.display = "inline";
+            }
+            input.remove();
+        }
+    </script>
+</body>
+
+</html>

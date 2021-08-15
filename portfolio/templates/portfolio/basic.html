@@ -1,0 +1,196 @@
+
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Portfolio</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="/static/logo1.png" type="image/x-icon">
+
+    <style>
+        body {
+            font-family: 'Rubik', sans-serif;
+        }
+
+        /* NAVIGATION SECTION */
+        .navbar {
+            /* padding: 22px; */
+            padding: 13px;
+            background-color: white;
+        }
+
+        #logo {
+            width: 55px;
+            margin-left: 137PX;
+            padding: 4px;
+            border-radius: 50%;
+            background-color: #c0f5ed;
+            box-shadow: 0 0 20px #00735e;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            /* margin-left: 124px; */
+            margin-left: 25px;
+            border-radius: 10px;
+            padding: 0px 25px;
+            background-color: #c0f5ed;
+            box-shadow: 0 0 20px #00735e;
+
+        }
+
+        .navbar-nav {
+            /* position: absolute;
+            right: 100px; */
+            font-size: 17px;
+        }
+
+        .nav-link {
+            margin: 0 20px;
+
+        }
+
+        .nav-link:hover {
+            background-color: #32dbc6;
+            color: white;
+            border-radius: 5px;
+            /* box-shadow: 0 0 10px #2196f3, 0 0 20px #2196f3, 0 0 40px #2196f3; */
+            box-shadow: 0 0 10px #2196f3, 0 0 20px #2196f3, 0 0 40px #2196f3;
+            transition-delay: 100ms;
+        }
+
+        .welcome-user {
+            border: 1px solid cyan;
+            color: #01666b;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px #0a0a0a;
+        }
+        /* HOME section */
+
+
+        /* FOOTER */
+        .footer {
+            background-color: black;
+            margin-top: 50px;
+            height: 85vh;
+            color: white;
+        }
+
+        .contact-logo {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* UTILITY  */
+        .center {
+            text-align: center;
+
+        }
+
+        hr {
+            background-color: white;
+            width: 83%;
+            margin-top: 2rem;
+        }
+
+    </style>
+        {% block style %} {% endblock %}
+
+</head>
+
+<body>
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <img src="/static/logo5.png" alt="Logo" id="logo">
+        <a class="navbar-brand" href="#">MyFolio</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="margin-right: 2rem;">
+            <div class="navbar-nav ml-auto">
+                <a class="nav-link" href="http://127.0.0.1:8000/">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link " style="cursor: pointer;"onclick="topFunction(30000)">Features <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/contact">Contact</a>
+                <a class="nav-link" href="/about" tabindex="-1" aria-disabled="true">About</a>
+            </div>
+        </div>
+        <div id="userDetails">
+            <!-- Button to launch Login Modal -->
+            <ul class="navbar-nav mr-2">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle welcome-user" style="color: #01666b;" href='#' id="navbarDropdown" role="button"
+                        data-toggle="dropdown"> Welcome {{request.user}}</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/logout">Logout</a>
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    {% block body %} {% endblock %}
+    <!-- FOOTER -->
+    <div class="footer ">
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-4 p-3">
+                    <h4>About Us</h4>
+                    <p style="color: grey">We are expert in making the best porfolios and resume you can expect. We
+                        provide the facility of making your resume and portfolio that can land you your
+                        dream job </p>
+                </div>
+                <div class="col-4 p-3">
+                    <h4>Features</h4>
+                    <ul style="color: grey; list-style: none;padding:0px;">
+                        <li>Resume</li>
+                        <li>Portfolio</li>
+                        <li>Discussion Forum</li>
+                    </ul>
+                </div>
+                <div class="col-4 p-3">
+                    <h4>Follow us</h4>
+                    <div class="contact-logo">
+                        <img src="/static/lg1.png" alt="" style="width: 50px;margin:5px 0px;">
+                        <img src="/static/lg2.png" alt="" style="width: 50px;margin:5px 0px;">
+                        <img src="/static/lg3.jpg" alt="" style="width: 50px;margin:5px 0px;">
+                        <img src="/static/lg4.png" alt="" style="width: 50px;margin:5px 0px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <p class="center">Copywrite &#169;2020 MyFolio.com. All rights reserved</p>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+    <script>
+        function topFunction(x) {
+            document.documentElement.scrollTop = x;
+        }
+    </script>
+
+    {% block js %} {% endblock %}
+</body>
+
+</html>

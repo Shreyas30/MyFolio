@@ -1,0 +1,238 @@
+{% extends "forum/basic.html" %}
+{% block title %}Payment{% endblock %}
+
+{% block js %}
+<script>
+
+    if ({{ plan }} == 1) {
+        window.location = '/forum/subscribe';
+    }
+
+    let price1 = ` <div class="pricing-card" id="price1">
+                    <h3 class="pricing-card-header">Personal</h3>
+                    <div class="price"><sup></sup>Free<span></span></div>
+                    <ul>
+                        <li><strong>Profile </strong>Creation</li>
+                        <li><strong>In-Email</strong>Messages</li>
+                        <li><strong>5 </strong>Profile Search/Month</li>
+                        <li><strong>5 </strong>POSTS/DAY</li>
+                        <li><strong>NO </strong>Record of who viewed your profile</li>
+                    </ul>
+                </div>`
+    let price2 = `<div class="pricing-card" id="price2">
+        <h3 class="pricing-card-header">Professional</h3>
+        <div class="price"><sup>$</sup>30<span>/MO</span></div>
+        <ul>
+            <li><strong>Profile </strong>Creation</li>
+            <li><strong>In-Email</strong>Messages</li>
+            <li><strong>100 </strong>Profile Search/Month</li>
+            <li><strong>20 </strong>POSTS/Day</li>
+            <li><strong>NO </strong>Record of who viewed your profile</li>
+        </ul>
+    </div>`
+    let price3 = ` <div class="pricing-card" id="price3">
+        <h3 class="pricing-card-header">Premium</h3>
+        <div class="price"><sup>$</sup>50<span>/MO</span></div>
+        <ul>
+            <li><strong>Profile </strong>Creation</li>
+            <li><strong>In-Email</strong>Messages</li>
+            <li><strong>Unlimited </strong>Profile Search</li>
+            <li><strong>Unlimited </strong> POSTS/Day</li>
+            <li><strong>Check </strong>who has viewed your profile recently</li>
+        </ul>
+    </div>`
+
+    let planDetails = document.getElementById('planDetails')
+    if ("{{ plan }}" == "1") {
+        planDetails.innerHTML = price1
+    }
+    else if ("{{ plan }}" == "2") {
+        planDetails.innerHTML = price2
+    }
+    else if ("{{ plan }}" == "3") {
+        planDetails.innerHTML = price3
+    }
+</script>
+{% endblock js %}
+
+{% block style %}
+<style>
+    .heading {
+
+        margin: 37px 77px;
+        text-align: center;
+        color: #1b5250;
+        text-shadow: 0 2px 4px darkcyan;
+    }
+
+    #paymentContainer::before {
+        content: "";
+        position: absolute;
+        height: 667px;
+        width: 100%;
+        top: 0px;
+        left: 0px;
+        background: url("/static/payment2.jpg") no-repeat center center/cover;
+        opacity: 0.3;
+        z-index: -1
+    }
+
+    /* Payment Coumn */
+    .payRow {
+        margin-top: 22px;
+        border: 2px solid;
+        width: 100%;
+        padding: 11px;
+        border-radius: 18px;
+
+    }
+
+    .panel-title {
+        border: 1px solid;
+        display: inline-block;
+        border-radius: 11px;
+        padding: 6px;
+        background-color: #8ef9c5;
+    }
+
+    /* Plan Details */
+    /* Pricing details */
+    .pricing-table {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        width: min(1600px, 100%);
+        margin: auto;
+    }
+
+    .pricing-card {
+        flex: 1;
+        max-width: 360px;
+        background-color: #bbf3eb;
+        border-radius: 52px;
+        margin: 20px 10px;
+        text-align: center;
+        cursor: pointer;
+        overflow: hidden;
+        color: #2d2d2d;
+        transition: .3s linear;
+    }
+
+    .pricing-card-header {
+        background-color: #0fbcf9;
+        display: inline-block;
+        color: #fff;
+        padding: 12px 30px;
+        border-radius: 0 0 20px 20px;
+        font-size: 16px;
+        text-transform: uppercase;
+        font-weight: 600;
+        transition: .4s linear;
+    }
+
+    .pricing-card:hover .pricing-card-header {
+        box-shadow: 0 0 0 20em #0fbcf9;
+    }
+
+    .price {
+        font-size: 70px;
+        color: #0fbcf9;
+        margin: 0 0;
+        transition: .2s linear;
+    }
+
+    .price sup,
+    .price span {
+        font-size: 22px;
+        font-weight: 700;
+    }
+
+    .pricing-card:hover,
+    .pricing-card:hover .price {
+        color: #fff;
+    }
+
+    .pricing-card li {
+        font-size: 16px;
+        padding: 7px 0;
+        text-transform: uppercase;
+    }
+
+    #planDetails {
+        padding: 0 7em;
+    }
+</style>
+{% endblock style %}
+
+{% block body %}
+<div class="container" id="paymentContainer">
+    <h2 class="heading">Plan Details</h2>
+    <div class="row">
+        <div class="col-6 " id="planDetails">
+
+        </div>
+
+        <div class="col-6 payRow">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Payment Details
+                    </h3>
+                    <div class="checkbox pull-right">
+                        <label>
+                            <input type="checkbox" />
+                            Remember
+                        </label>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="cardNumber">
+                                <h5 style="font-weight: bold;">CARD NUMBER</h5>
+                            </label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="cardNumber" placeholder="Valid Card Number"
+                                    required autofocus />
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-7 col-md-7">
+                                <div class="form-group">
+                                    <label for="expityMonth">
+                                        <h5 style="font-weight: bold;">EXPIRY DATE</h5>
+                                    </label>
+                                    <div class="col-xs-6 col-lg-6 pl-ziro">
+                                        <input type="text" class="form-control" id="expityMonth" placeholder="MM"
+                                            required />
+                                    </div>
+                                    <div class="col-xs-6 col-lg-6 pl-ziro" style="margin-top: 2px;">
+                                        <input type="text" class="form-control" id="expityYear" placeholder="YY"
+                                            required /></div>
+                                </div>
+                            </div>
+                            <div class="col-xs-5 col-md-5 pull-right">
+                                <div class="form-group">
+                                    <label for="cvCode">
+                                        <h5 style="font-weight: bold;">CVV</h5>
+                                    </label>
+                                    <input type="password" class="form-control" id="cvCode" placeholder="CVV"
+                                        required />
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <br />
+            <form action="/forum/subscribe/" method="POST">
+                {% csrf_token %}
+                <input type="text" style="display:none" name="plan" value="{{plan}}">
+                <button class="btn btn-success btn-lg btn-block" style="margin-top: -13px;" type="submit">Pay</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock body %}
+

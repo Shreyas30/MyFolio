@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Portfolio</title>
+    <script>
+        window.onbeforeunload = function (e) { localStorage.clear(); };
+    </script>
+    <!-- =============== Fonts ============== -->
+    <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <!-- ==================== ICONS ================= -->
+
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <!-- Bootstrap css file  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
+    <style>
+        /* Global Classes */
+
+        .title-text {
+            font: normal bold 50px/ 72px var(--roboto);
+        }
+
+        .text-uppercase {
+            text-transform: uppercase;
+        }
+
+        /* Buttons */
+
+        .button {
+            padding: .8rem 2.2rem;
+            font: normal 500 16px/20px var(--roboto);
+            position: relative;
+            border: 3px solid transparent;
+            border-radius: 4px;
+        }
+
+        .button.primary-button {
+            background: var(--gradient-color);
+            background-clip: padding-box;
+            color: whitesmoke;
+            transition: background .6s ease;
+            box-shadow: var(--box-shadow);
+        }
+
+        .button.primary-button:hover {
+            background: whitesmoke;
+            background-clip: padding-box;
+            color: black;
+        }
+
+        .button.primary-button::after,
+        .button.secondary-button::after {
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            bottom: -2px;
+            right: -2px;
+            background: var(--gradient-color);
+            content: ' ';
+            z-index: -1;
+            border-radius: 4px;
+        }
+
+        .button.secondary-button {
+            background: white;
+            background-clip: padding-box;
+            transition: background .6s ease;
+        }
+
+        .button.secondary-button:hover {
+            background: var(--gradient-color);
+            color: whitesmoke;
+            box-shadow: var(--box-shadow);
+        }
+
+        p.para {
+            color: var(--text-color);
+            font: normal 500 16px/ 25px var(--roboto);
+        }
+
+        .font-roboto {
+            font-family: var(--roboto);
+        }
+
+        button:focus,
+        button:active button:hover .btn:active,
+        .btn.active {
+            outline: 0px !important;
+            box-shadow: none !important;
+        }
+
+        .title-h1 {
+            font: normal bold 39px/ 40px var(--roboto);
+        }
+
+
+        .navbar_fixed {
+            position: fixed;
+            width: 100%;
+            top: -1px;
+            left: 0;
+            right: 0;
+            background: #ffffff;
+            box-shadow: var(--box-shadow);
+            z-index: 999;
+            transition: background 1s ease;
+        }
+
+        /* @font-face */
+
+        @font-face {
+            font-family: "Roboto";
+            src: '../fonts/Roboto/Roboto-Regular.ttf';
+        }
+
+        * {
+            font-family: 'Grandstander', cursive;
+            /* font-family: 'Montserrat', sans-serif; */
+        }
+
+        /* ============================== Custom CSS =================================== */
+
+        /* import fonts from fonts.css file */
+        @import url(./fonts.css);
+
+
+        /* css variables */
+        @import url(./partials/_variables.css);
+
+        /* import global styling */
+        @import url(./partials/_global.css);
+
+
+        /* start navigation */
+
+        .header_area .main-menu .navbar .navbar-brand {
+            padding: 0 2rem 0 5rem;
+        }
+
+        .header_area .main-menu .navbar {
+            padding: 1rem 20rem;
+        }
+
+        .header_area .main-menu .nav-item .nav-link {
+            font: normal 500 15px/2px var(--roboto);
+            text-transform: uppercase;
+            padding: 1.7rem;
+            color: var(--title-color);
+        }
+
+        .nav-text {
+            color: white !important;
+            font-size: 2rem !important;
+        }
+
+        .header_area .main-menu .navbar-nav .active a {
+            background: var(--gradient-color);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .navbar {
+            padding: 0.5rem;
+            background-color: rgb(248, 241, 228);
+        }
+
+        .nav-link {
+            color: white !important;
+            ;
+            font-size: 1.2rem !important;
+            padding: 0.5rem 1.7rem !important;
+        }
+
+        .nav-link:hover {
+            color: rgb(4, 4, 109) !important;
+            text-decoration: underline !important;
+        }
+
+        /* end navigation */
+
+        /* Home Area */
+
+        .site-main .site-banner {
+            background: url(../img/banner/home-banner.png) no-repeat 0% 50%;
+        }
+
+        .site-main .site-banner .site-title h3 {
+            padding-top: 35%;
+            font-weight: 500;
+        }
+
+        .site-main .site-banner .site-title h3::after {
+            content: " ";
+            height: 2px;
+            width: 18vw;
+            background: black;
+            display: inline-block;
+            margin-left: 5%;
+            transform: translateY(-10px);
+        }
+
+        .site-main .site-banner .site-title h1 {
+            font-size: 5rem;
+        }
+
+        .site-main .site-banner .site-title h4 {
+            font-size: 1.5rem;
+        }
+
+        .site-main .site-banner .banner-image>img {
+            padding: 0;
+            width: 29rem;
+            height: 27rem;
+        }
+
+        .site-main .site-banner .banner-image {
+            margin-top: 8rem;
+            width: 31rem;
+        }
+
+
+
+        /* End Home Area */
+
+        /* Start About Area */
+
+        .site-main .about-area {
+            padding: 8rem 5rem;
+        }
+
+        .site-main .about-area .about-title h2>span {
+            display: block;
+            font: normal bold 49px/ 60px var(--roboto);
+            letter-spacing: 21px;
+        }
+
+        .site-main .about-area .about-title .paragraph>p {
+            padding: .4rem 0;
+        }
+
+        /* End About Area */
+
+
+        /* Start Skill Area */
+
+        .site-main .brand-area {
+            padding: 1rem 20rem;
+            margin-bottom: 4rem;
+        }
+
+        .site-main .brand-area .first-row .col-lg-4 {
+            display: flex;
+            justify-content: center;
+        }
+
+        .site-main .brand-area .first-row .col-lg-4>.single-brand {
+            border: 1px solid var(--border-color);
+            text-align: center;
+            padding: 1.8rem 0rem;
+            margin: .9rem 0;
+            width: 180px;
+            height: 100px;
+            cursor: pointer;
+            transition: transform .4s ease;
+        }
+
+        .site-main .brand-area .first-row .col-lg-4>.single-brand>img {
+            width: 50%;
+        }
+
+        .site-main .brand-area .first-row .col-lg-4>.single-brand:hover {
+            box-shadow: var(--box-shadow);
+            transform: scale(1.1);
+        }
+
+        .site-main .brand-area .first-row .col-lg-4>.single-brand:hover>img {
+            filter: brightness(0.15);
+        }
+
+        .site-main .brand-area .experience-area {
+            padding-left: 1rem;
+        }
+
+        .site-main .brand-area .experience-area span {
+            display: block;
+        }
+
+        .site-main .brand-area .experience-area .years-area {
+            background: url(../img/client-info-bg.png) no-repeat 45px 20px;
+            padding: 2rem 0;
+            width: 40rem;
+            height: 18rem;
+            padding-left: 8rem;
+            position: relative;
+        }
+
+        .site-main .brand-area .experience-area .bg-panel {
+            position: absolute;
+            left: -190px;
+            top: 0%;
+            background: #e029290a;
+            width: 400px;
+            height: 400px;
+            margin-left: 340px;
+            z-index: -1;
+        }
+
+        .site-main .brand-area .experience-area .years-area .years {
+            font: normal bold 84px/40px var(--roboto);
+            color: var(--primary-color2);
+            z-index: 2;
+        }
+
+        .site-main .brand-area .experience-area .years-area h2>span {
+            font: normal 600 22px/30px var(--roboto);
+        }
+
+        .site-main .brand-area .experience-area .call-area {
+            padding-left: 10rem;
+        }
+
+        /* End Skills Area */
+
+        /* Work Area */
+
+        .site-main .services-area {
+            padding: 7rem 2rem;
+        }
+
+        .site-main .services-area .services-title {
+            padding: 0 14rem;
+        }
+
+        .site-main .services-area .services-title h1 {
+            font-size: 35px;
+        }
+
+        .site-main>.services-area .services {
+            background: rgba(248, 252, 253, 0.973);
+            padding: 2rem 0;
+            width: 16rem;
+            margin: 5rem .5rem;
+            transition: box-shadow .7s ease;
+        }
+
+        .site-main>.services-area .services:hover {
+            box-shadow: var(--box-shadow);
+        }
+
+
+
+        /* End Work Area */
+
+        /* Subscribe me */
+
+        .site-main .subscribe-us-area .subscribe {
+            background: url(/static/subscribe-bg.png) no-repeat;
+            padding: 10rem 0;
+            margin: 3rem auto;
+        }
+
+        .site-main .subscribe-us-area .subscribe .subscribe-title h4 {
+            font: normal 700 30px/ 30px var(--roboto);
+            color: whitesmoke;
+        }
+
+        .site-main .subscribe-us-area .subscribe .subscribe-title p {
+            color: whitesmoke;
+            padding: 1rem 4rem;
+        }
+
+        .site-main .subscribe-us-area .subscribe form .input-textbox input {
+            width: 400px;
+            padding: 1.5rem 1rem;
+            border: 1px solid whitesmoke;
+            background: transparent;
+            color: white;
+            font: normal 500 17px/20px var(--roboto);
+        }
+
+        .site-main .subscribe-us-area .subscribe form .input-textbox input::placeholder {
+            color: whitesmoke;
+        }
+
+        .site-main .subscribe-us-area .subscribe form .btn-submit button {
+            background: whitesmoke;
+            color: #000;
+            padding: .7rem 2rem;
+        }
+
+        /* End subscribe me */
+
+        /* Footer Area */
+
+        footer.footer-area {
+            padding-top: 5rem;
+            background: url(../img/footer-bg.png) no-repeat;
+        }
+
+        footer.footer-area .social h5 {
+            font: normal 500 23px/ 30px var(--roboto);
+        }
+
+        footer.footer-area .social a>i {
+            font-size: 22px;
+            padding: 2rem;
+            color: var(--border-color);
+        }
+
+        footer.footer-area .social a:hover>i {
+            color: var(--primary-color);
+        }
+
+
+        /* End Footer */
+
+
+        /* ================================= Responsive CSS ==================================  */
+
+        /* if the viewport is equal to 340px or less than that*/
+        @media only screen and (max-width: 340px) {
+
+            .header_area .main-menu .navbar,
+            .header_area .main-menu .navbar .navbar-brand,
+            .site-main .subscribe-us-area .subscribe .subscribe-title,
+            .site-main .subscribe-us-area .subscribe .subscribe-title p,
+            h4,
+            .site-main .services-area,
+            .site-main .subscribe-us-area .subscribe {
+                padding: 2%;
+                margin: 0%;
+            }
+
+            .site-main .site-banner .site-title h1 {
+                font-size: 41px;
+            }
+
+            .site-main .subscribe-us-area .subscribe form .input-textbox input {
+                width: 15rem !important;
+            }
+
+            .site-main>.services-area .services {
+                width: 13rem;
+            }
+        }
+
+        @media only screen and (max-width: 792px) {
+            .site-main .about-area .about-title h2>span {
+                font-size: 31px;
+                letter-spacing: 10px;
+            }
+
+            .site-main .brand-area .experience-area .years-area {
+                padding-left: 1%;
+                width: 49%;
+            }
+
+            .site-main .brand-area .experience-area .bg-panel {
+                margin-left: 30%;
+                width: 80%;
+            }
+
+            .site-main .brand-area .experience-area .call-area {
+                padding-left: 3%;
+            }
+
+            .site-main .project-area .button-group button {
+                font: normal 500 18px/40px var(--roboto);
+            }
+
+            .site-main .about-area .about-title p {
+                padding: 0%;
+            }
+
+            .site-main .subscribe-us-area .subscribe form .input-textbox input {
+                width: 20rem;
+                margin: 5%;
+            }
+        }
+
+        @media only screen and (max-width: 1910px) {
+            .header_area .main-menu .navbar {
+                padding: 1rem;
+            }
+
+            .container {
+                max-width: 90%;
+            }
+
+            .site-main .brand-area,
+            .site-main .services-area .services-title,
+            .site-main .about-area {
+                padding: 3% 4%;
+            }
+        }
+
+        /*
+    <!--  =========================================================================== -->
+    <!--  ======================= MY CSS ============================== -->
+    <!--  ========================================================================= --> */
+        #save-btn {
+            position: fixed;
+            top: 65px;
+            right: 1%;
+            display: none;
+            position: fixed;
+            top: 40%;
+            right: 1%;
+            padding: 0.4rem 2.3rem;
+            border-radius: 5px;
+            background-color: #a3f5b5;
+            border: navajowhite;
+            box-shadow: 0px 0px 20px darkcyan;
+            /* font-weight: bold; */
+            color: black;
+            font-size: 20px;
+            z-index: 4;
+        }
+
+        #edit-btn {
+            position: fixed;
+            top: 40%;
+            right: 1%;
+            display: block;
+            background-color: #17e6e6;
+            border: navajowhite;
+            box-shadow: 0px 0px 20px darkcyan;
+            /* font-weight: bold; */
+            color: black;
+            border-radius: 5px;
+            font-size: 20px;
+            z-index: 4;
+        }
+
+        #download-btn {
+            position: fixed;
+            top: 50%;
+            right: 1%;
+            background-color: #ff8383;
+            border: navajowhite;
+            box-shadow: 0px 0px 20px darkcyan;
+            /* font-weight: bold; */
+            color: black;
+            font-size: 20px;
+            z-index: 4;
+            border-radius: 5px;
+        }
+
+
+        .title-h1 {
+            font: normal bold 3.6rem/40px var(--roboto);
+        }
+
+        .round {
+            border: 0.5px solid #007bff;
+            border-radius: 5px;
+            box-shadow: 0px 0px 12px 0px rgb(64, 64, 250);
+        }
+
+        .img {
+            height: 21rem;
+        }
+
+        .subscribe form textarea {
+            width: 400px;
+            padding: 1.5rem 1rem;
+            border: 1px solid whitesmoke;
+            background: transparent;
+            color: white;
+            font: normal 500 17px/20px var(--roboto);
+        }
+
+        .nav-text,
+        .footer-text {
+            color: var(--primary-color);
+            font: normal 500 2rem var(--roboto);
+        }
+
+        .ml-auto,
+        .mx-auto {
+            margin-left: auto !important;
+        }
+
+        #work-input-div {
+            display: none;
+        }
+
+        #work-input-div div {
+            text-align: center;
+            height: 18rem;
+            width: 27rem;
+            margin: 1rem auto;
+        }
+
+        #editable-home-image {
+            border-radius: 5px;
+        }
+
+        #editable-about-image {
+            border-radius: 5px;
+            width: 27rem;
+            height: 27rem;
+            /* border:2px solid black; */
+        }
+
+        .editable-work-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+        }
+
+        .work-input {
+            margin: 3.5rem 1.3rem;
+        }
+
+        h1 {
+            font-size: 3.5rem !important;
+        }
+
+        .card-body {
+            border-left: 3px solid #007bff;
+            border-top: 3px solid #007bff;
+        }
+
+        .card-title {
+            font-weight: 900;
+        }
+
+        #about {
+            padding-top: 5rem;
+        }
+
+        #skills {
+            padding-top: 6em;
+        }
+
+        .work__img {
+            margin-bottom: 4rem !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <button class="remove btn btn-danger" id="edit-btn" onclick="editing()">
+            Edit Mode
+        </button>
+        <button class="remove btn btn-success" id="save-btn" onclick="saving()">
+            Save
+        </button>
+        <button type="button" class="remove btn btn-danger remove" style="display: none;" id="download-btn">
+            Download
+        </button>
+
+        <!--  ======================= Start Header Area ============================== -->
+
+        <header class="header_area">
+            <div class="main-menu fixed-top">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                    <span class="nav-text editable-input-inline mx-5">Akshay</span>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <div class="mr-auto"></div>
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#home">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#about">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#skills">Skills</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#work">Work</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#contact">contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <!--  ======================= End Header Area ============================== -->
+
+        <!--  ======================= Start Main Area ================================ -->
+        <main class="site-main">
+            <!--  ======================= Start Home Area =======================  -->
+            <section id="home" class="site-banner">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12 site-title">
+                            <h3 class="title-text" style="font-size: 2.5rem">Hey</h3>
+                            <h2 class="title-text text-uppercase" style="font-size: 4rem">
+                                I am <br /><span class="editable-input">Akshay</span>
+                            </h2>
+                            <h4 class="title-text text-uppercase editable-input">
+                                Senior Wordpress Developer
+                            </h4>
+                            <div class="site-buttons">
+                                <div class="d-flex flex-row flex-wrap my-4">
+                                    <a href="#contact" class="btn btn-primary mr-4 text-uppercase">Contact me</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12 banner-image" style='padding:0px;'>
+                            <form action="/portfolio/img/" class=' remove' enctype="multipart/form-data"
+                                id="homeImageForm" method="POST">
+                                {% csrf_token %}
+                                <input type='file' name='Image' accpet='image/*' id='edited-home-image'
+                                    style=' display:none; margin: 14rem 0rem 0rem 10rem;'></input>
+                                <button class='btn btn-success'
+                                    style="display:none; margin: 0rem auto; margin-top: 2rem; " type="submit"
+                                    id="saveHomeImagebtn">Save this Image</button>
+                            </form>
+                            <img src="/static/banner-image.png" alt="banner-img" class="img-fluid" id="editable-home-image">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--  ======================= End Home Area =======================  -->
+
+            <!--  ========================= About Area ==========================  -->
+
+            <section id="about" class="about-area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12">
+                            <div class="about-image mt-5" style='width:27rem;height:27rem;'>
+                                <form action="/portfolio/img/" class=' remove' enctype="multipart/form-data"
+                                    id="aboutImageForm" method="POST">
+                                    {% csrf_token %}
+                                    <input type='file' name='Image' accpet='image/*' id='edited-about-image'
+                                        style=' display:none;   margin: 13rem 3rem 3rem 6rem;'></input>
+                                    <button class='btn btn-success' style="display: none; margin: auto;" type="submit"
+                                        id="saveAboutImagebtn">Save this Image</button>
+                                </form>
+                                <img src="/static/about-us.png" id='editable-about-image' alt="About us" class="img-fluid" />
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12 about-title">
+                            <h2 class="text-uppercase pt-5">
+                                <span>Let me</span>
+                                <span>introduce</span>
+                                <span>myself</span>
+                            </h2>
+                            <div class="paragraph py-4 w-75">
+                                <p class="para editable-textarea">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Error rerum iure obcaecati vel possimus officia maiores
+                                    perferendis ut! Quos, perspiciatis. It is a long established
+                                    fact that a reader will be distracted by the readable
+                                    content of a page when looking at its layout. The point of
+                                    using Lorem Ipsum is that it has a more-or-less normal
+                                    distribution of letters, as opposed to using 'Content here,
+                                    content here
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--  ========================= End About Area ==========================  -->
+
+            <!--  ======================== Skills Area ==============================  -->
+
+            <section id="skills" class="skills-area">
+                <h1 class="text-uppercase text-center title-text">
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-gear" fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M8.837 1.626c-.246-.835-1.428-.835-1.674 0l-.094.319A1.873 1.873 0 0 1 4.377 3.06l-.292-.16c-.764-.415-1.6.42-1.184 1.185l.159.292a1.873 1.873 0 0 1-1.115 2.692l-.319.094c-.835.246-.835 1.428 0 1.674l.319.094a1.873 1.873 0 0 1 1.115 2.693l-.16.291c-.415.764.42 1.6 1.185 1.184l.292-.159a1.873 1.873 0 0 1 2.692 1.116l.094.318c.246.835 1.428.835 1.674 0l.094-.319a1.873 1.873 0 0 1 2.693-1.115l.291.16c.764.415 1.6-.42 1.184-1.185l-.159-.291a1.873 1.873 0 0 1 1.116-2.693l.318-.094c.835-.246.835-1.428 0-1.674l-.319-.094a1.873 1.873 0 0 1-1.115-2.692l.16-.292c.415-.764-.42-1.6-1.185-1.184l-.291.159A1.873 1.873 0 0 1 8.93 1.945l-.094-.319zm-2.633-.283c.527-1.79 3.065-1.79 3.592 0l.094.319a.873.873 0 0 0 1.255.52l.292-.16c1.64-.892 3.434.901 2.54 2.541l-.159.292a.873.873 0 0 0 .52 1.255l.319.094c1.79.527 1.79 3.065 0 3.592l-.319.094a.873.873 0 0 0-.52 1.255l.16.292c.893 1.64-.902 3.434-2.541 2.54l-.292-.159a.873.873 0 0 0-1.255.52l-.094.319c-.527 1.79-3.065 1.79-3.592 0l-.094-.319a.873.873 0 0 0-1.255-.52l-.292.16c-1.64.893-3.433-.902-2.54-2.541l.159-.292a.873.873 0 0 0-.52-1.255l-.319-.094c-1.79-.527-1.79-3.065 0-3.592l.319-.094a.873.873 0 0 0 .52-1.255l-.16-.292c-.892-1.64.902-3.433 2.541-2.54l.292.159a.873.873 0 0 0 1.255-.52l.094-.319z" />
+                        <path fill-rule="evenodd"
+                            d="M8 5.754a2.246 2.246 0 1 0 0 4.492 2.246 2.246 0 0 0 0-4.492zM4.754 8a3.246 3.246 0 1 1 6.492 0 3.246 3.246 0 0 1-6.492 0z" />
+                    </svg>
+                    <span class='mx-5'>MY SKILLS</span>
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-gear" fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M8.837 1.626c-.246-.835-1.428-.835-1.674 0l-.094.319A1.873 1.873 0 0 1 4.377 3.06l-.292-.16c-.764-.415-1.6.42-1.184 1.185l.159.292a1.873 1.873 0 0 1-1.115 2.692l-.319.094c-.835.246-.835 1.428 0 1.674l.319.094a1.873 1.873 0 0 1 1.115 2.693l-.16.291c-.415.764.42 1.6 1.185 1.184l.292-.159a1.873 1.873 0 0 1 2.692 1.116l.094.318c.246.835 1.428.835 1.674 0l.094-.319a1.873 1.873 0 0 1 2.693-1.115l.291.16c.764.415 1.6-.42 1.184-1.185l-.159-.291a1.873 1.873 0 0 1 1.116-2.693l.318-.094c.835-.246.835-1.428 0-1.674l-.319-.094a1.873 1.873 0 0 1-1.115-2.692l.16-.292c.415-.764-.42-1.6-1.185-1.184l-.291.159A1.873 1.873 0 0 1 8.93 1.945l-.094-.319zm-2.633-.283c.527-1.79 3.065-1.79 3.592 0l.094.319a.873.873 0 0 0 1.255.52l.292-.16c1.64-.892 3.434.901 2.54 2.541l-.159.292a.873.873 0 0 0 .52 1.255l.319.094c1.79.527 1.79 3.065 0 3.592l-.319.094a.873.873 0 0 0-.52 1.255l.16.292c.893 1.64-.902 3.434-2.541 2.54l-.292-.159a.873.873 0 0 0-1.255.52l-.094.319c-.527 1.79-3.065 1.79-3.592 0l-.094-.319a.873.873 0 0 0-1.255-.52l-.292.16c-1.64.893-3.433-.902-2.54-2.541l.159-.292a.873.873 0 0 0-.52-1.255l-.319-.094c-1.79-.527-1.79-3.065 0-3.592l.319-.094a.873.873 0 0 0 .52-1.255l-.16-.292c-.892-1.64.902-3.433 2.541-2.54l.292.159a.873.873 0 0 0 1.255-.52l.094-.319z" />
+                        <path fill-rule="evenodd"
+                            d="M8 5.754a2.246 2.246 0 1 0 0 4.492 2.246 2.246 0 0 0 0-4.492zM4.754 8a3.246 3.246 0 1 1 6.492 0 3.246 3.246 0 0 1-6.492 0z" />
+                    </svg>
+                </h1>
+                <div class="container services-list my-5">
+                    <div class="row" style="display: flex; justify-content: space-around">
+                        <div class="col-lg-3 col-md-6 col-sm-12 m-1 mb-5">
+                            <div class="services">
+                                <div class="card-body">
+                                    <h5 class="card-title text-uppercase font-roboto editable-skill-name">
+                                        Wp developer </h5>
+                                    <p class="card-text text-secondary editable-skill-desc">
+                                        Some quick example text to build on the card title and
+                                        make up the bulk of the card's content.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 m-1 mb-5">
+                            <div class="services">
+                                <div class="card-body">
+                                    <h5 class="card-title text-uppercase font-roboto editable-skill-name">
+                                        ux/ui desing</h5>
+                                    <p class="card-text text-secondary editable-skill-desc">
+                                        Some quick example text to build on the card title and
+                                        make up the bulk of the card's content.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 m-1 mb-5">
+                            <div class="services">
+                                <div class="card-body">
+                                    <h5 class="card-title text-uppercase font-roboto editable-skill-name">
+                                        web design
+                                    </h5>
+                                    <p class="card-text text-secondary editable-skill-desc">
+                                        Some quick example text to build on the card title and
+                                        make up the bulk of the card's content.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 mx-1 mb-5">
+                            <div class="services">
+                                <div class="card-body">
+                                    <h5 class="card-title text-uppercase font-roboto editable-skill-name">
+                                        seo optimize
+                                    </h5>
+                                    <p class="card-text text-secondary editable-skill-desc">
+                                        Some quick example text to build on the card title and
+                                        make up the bulk of the card's content.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 mx-1 mb-5">
+                            <div class="services">
+                                <div class="card-body">
+                                    <h5 class="card-title text-uppercase font-roboto editable-skill-name">
+                                        seo optimize
+                                    </h5>
+                                    <p class="card-text text-secondary editable-skill-desc">
+                                        Some quick example text to build on the card title and
+                                        make up the bulk of the card's content.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 mx-1 mb-5">
+                            <div class="services">
+                                <div class="card-body">
+                                    <h5 class="card-title text-uppercase font-roboto editable-skill-name">
+                                        seo optimize
+                                    </h5>
+                                    <p class="card-text text-secondary editable-skill-desc">
+                                        Some quick example text to build on the card title and
+                                        make up
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--  ======================== End Skills Area ==============================  -->
+
+            <!--  ======================== Work Area ==============================  -->
+
+            <section id="work" class="about-area">
+                <div class="container">
+                    <div class="row text-center">
+                        <div class="col-12">
+                            <div class="about-title my-5">
+                                <h1 class="text-uppercase title-h1">
+                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bar-chart-line"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2zm1 12h2V2h-2v12zm-3 0V7H7v7h2zm-5 0v-3H2v3h2z" />
+                                    </svg>
+                                    <span class='mx-5'>My Work</span>
+                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bar-chart-line"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2zm1 12h2V2h-2v12zm-3 0V7H7v7h2zm-5 0v-3H2v3h2z" />
+                                    </svg>
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="work-input-div" class="d-flex justify-content-around flex-wrap" style="display: none">
+                    <div class="work__img round">
+                        <form action="/portfolio/img/" class='remove' enctype="multipart/form-data" id="workImageForm-1"
+                            method="POST">
+                            {% csrf_token %}
+                            <input type='file' name='Image' accpet='image/*' id='edited-work-image-1'
+                                style='display: none; margin: 8rem -5rem 3rem 7rem;'></input>
+                            <button class='btn btn-success' style="display: none; margin: 2rem 4rem 9rem 9rem;"
+                                type="submit" id="saveWorkImagebtn-1">Save this Image</button>
+                        </form>
+                        <img class="editable-work-image" id='workImage-1' src="img/work1.jpg" alt="image" />
+                    </div>
+                    <div class="work__img round">
+                        <form action="/portfolio/img/" class='remove' enctype="multipart/form-data" id="workImageForm-2"
+                            method="POST">
+                            {% csrf_token %}
+                            <input type='file' name='Image' accpet='image/*' id='edited-work-image-2'
+                                style='display: none; margin: 8rem -5rem 3rem 7rem;'></input>
+                            <button class='btn btn-success' style="display: none; margin: 2rem 4rem 9rem 9rem;"
+                                type="submit" id="saveWorkImagebtn-2">Save this Image</button>
+                        </form>
+                        <img class="editable-work-image" id='workImage-2' src="img/work2.jpg" alt="image" />
+                    </div>
+                    <div class="work__img round">
+                        <form action="/portfolio/img/" class='remove' enctype="multipart/form-data" id="workImageForm-3"
+                            method="POST">
+                            {% csrf_token %}
+                            <input type='file' name='Image' accpet='image/*' id='edited-work-image-3'
+                                style='display: none; margin: 8rem -5rem 3rem 7rem;'></input>
+                            <button class='btn btn-success' style="display: none; margin: 2rem 4rem 9rem 9rem;"
+                                type="submit" id="saveWorkImagebtn-3">Save this Image</button>
+                        </form>
+                        <img class="editable-work-image" id='workImage-3' src="img/work3.jpg" alt="image" />
+                    </div>
+                    <div class="work__img round">
+                        <form action="/portfolio/img/" class='remove' enctype="multipart/form-data" id="workImageForm-4"
+                            method="POST">
+                            {% csrf_token %}
+                            <input type='file' name='Image' accpet='image/*' id='edited-work-image-4'
+                                style='display: none; margin: 8rem -5rem 3rem 7rem;'></input>
+                            <button class='btn btn-success' style="display: none; margin: 2rem 4rem 9rem 9rem;"
+                                type="submit" id="saveWorkImagebtn-4">Save this Image</button>
+                        </form>
+                        <img class="editable-work-image" id='workImage-4' src="img/work4.jpg" alt="image" />
+                    </div>
+                    <div class="work__img round">
+                        <form action="/portfolio/img/" class='remove' enctype="multipart/form-data" id="workImageForm-5"
+                            method="POST">
+                            {% csrf_token %}
+                            <input type='file' name='Image' accpet='image/*' id='edited-work-image-5'
+                                style='display: none; margin: 8rem -5rem 3rem 7rem;'></input>
+                            <button class='btn btn-success' style="display: none; margin: 2rem 4rem 9rem 9rem;"
+                                type="submit" id="saveWorkImagebtn-5">Save this Image</button>
+                        </form>
+                        <img class="editable-work-image" id='workImage-5' src="img/work5.jpg" alt="image" />
+                    </div>
+                    <div class="work__img round">
+                        <form action="/portfolio/img/" class='remove' enctype="multipart/form-data" id="workImageForm-6"
+                            method="POST">
+                            {% csrf_token %}
+                            <input type='file' name='Image' accpet='image/*' id='edited-work-image-6'
+                                style='display: none; margin: 8rem -5rem 3rem 7rem;'></input>
+                            <button class='btn btn-success' style="display: none; margin: 2rem 4rem 9rem 9rem;"
+                                type="submit" id="saveWorkImagebtn-6">Save this Image</button>
+                        </form>
+                        <img class="editable-work-image" id='workImage-6' src="img/work6.jpg" alt="image" />
+                    </div>
+                </div>
+            </section>
+
+            <!--  ======================== End Work Area ==============================  -->
+
+            <!--  ========================== Contact me Area ============================  -->
+            <section id="contact" class="subscribe-us-area pt-5">
+                <div id='contact-bg' class="container subscribe" style="padding: 2rem; background: url(/static/subscribe-bg.png) no-repeat; margin: 3rem auto;">
+                    <div class="row">
+                        <div class="col-lg-12 text-center subscribe-title">
+                            <h2 class="text-uppercase text-light">CONTACT ME</h2>
+                        </div>
+                    </div>
+                    <div class="d-sm-flex justify-content-center">
+                        <form class="w-50">
+                            <div class="row d-flex flex-column flex-wrap">
+                                <div class="col input-textbox">
+                                    <input type="text" id="txtname" class="form-control mx-auto" placeholder="Name" />
+                                </div>
+                                <div class="col input-textbox">
+                                    <input type="text" id="txtemail" class="form-control mx-auto" placeholder="Email" />
+                                </div>
+                                <div class="mx-auto">
+                                    <textarea
+                                        class="form-control mx-auto bg-transparent text-light border boder-light rounded"
+                                        id="exampleFormControlTextarea1" rows="7" cols="48" placeholder=""></textarea>
+                                </div>
+                                <div class="mx-auto">
+                                    <div class="btn-submit mx-auto">
+                                        <button type="submit" class="btn btn-success mx-auto my-3">
+                                            Contact
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            <!--  ========================== Contact Me Area ============================  -->
+        </main>
+        <!--  ======================= End Main Area ================================ -->
+
+        <!--  ======================= Footer Area ================================ -->
+        <footer class="footer-area">
+            <div class="container bg-dark pb-2">
+                <div class="">
+                    <div class="social text-center">
+                        <h5 class="text-uppercase text-light pt-3 pb-1">Follow me</h5>
+                        <a href="" id="editable-link-github"><i class='bx bxl-github'></i></a>
+                        <a href="" id="editable-link-linkedin"><i class="bx bxl-linkedin"></i></a>
+                        <a href="" id="editable-link-facebook"><i class="bx bxl-facebook"></i></a>
+                        <a href="" id="editable-link-twitter"><i class="bx bxl-twitter"></i></a>
+                    </div>
+                    <div class="copyrights text-center mt-2">
+                        <p class="para text-light">Copyright ©2020 All rights reserved</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!--  ======================= End Footer Area ================================ -->
+    </div>
+
+   
+
+    <!-- BootStrap JS Files -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <script class='remove'>
+        const host_link = document.location.href;
+
+        console.log("Welcome here");
+
+        // HomeImage
+        if (localStorage.getItem('homeImage') == null) {
+
+            localStorage.setItem('homeImage', 'banner-image.png');
+        }
+        let imageKey = localStorage.getItem('homeImage');
+        console.log(`the image value ${imageKey}`);
+        $('#editable-home-image').attr('src', `/static/${imageKey}`);
+
+        // About Iamge
+        if (localStorage.getItem('aboutImage') == null) {
+
+            localStorage.setItem('aboutImage', 'about-us.png');
+        }
+        imageKey = localStorage.getItem('aboutImage');
+        console.log(`the image value ${imageKey}`);
+        $('#editable-about-image').attr('src', `/static/${imageKey}`);
+
+
+        // For Work Images
+        for (let i = 1; i < 7; i++) {
+            if (localStorage.getItem('workImage-' + i) == null) {
+
+                localStorage.setItem('workImage-' + i, 'work' + i + '.jpg');
+            }
+            imageKey = localStorage.getItem('workImage-' + i);
+            console.log(`the image value ${imageKey}`);
+            $('#workImage-' + i).attr('src', `/static/${imageKey}`);
+        }
+
+        // Downloading the zip file here
+        $('#download-btn').click(() => {
+            console.log(document.documentElement.innerHTML);
+            localStorage.setItem('code',document.documentElement.innerHTML);
+
+            let removingElements = document.getElementsByClassName('remove');
+            Array.from(removingElements).forEach(element => {
+                element.remove();
+            });
+
+            contact_bg=document.getElementById('contact-bg');
+            contact_bg.setAttribute('style','padding: 2rem; background: url(../media/subscribe-bg.png) no-repeat; margin: 3rem auto;');
+            
+            var token = '{{csrf_token}}';
+
+            // console.log(workImage);
+            downloadData = {
+                'html': document.documentElement.innerHTML,
+                'homeImage': localStorage.getItem('homeImage'),
+                'aboutImage': localStorage.getItem('aboutImage'),
+                'workImage1': localStorage.getItem('workImage-1'),
+                'workImage2': localStorage.getItem('workImage-2'),
+                'workImage3': localStorage.getItem('workImage-3'),
+                'workImage4': localStorage.getItem('workImage-4'),
+                'workImage5': localStorage.getItem('workImage-5'),
+                'workImage6': localStorage.getItem('workImage-6'),
+                'number': '1',
+                'staticImage1':'subscribe-bg.png',
+            };
+            $.ajax({
+                headers: { "X-CSRFToken": token },
+                url: '/portfolio/download/',
+                type: 'POST',
+                data: downloadData,
+                success: function (response) {
+                    if (response.error) {
+                        alert('Download Unsuccessful');
+                    }
+                    else {
+                        alert('Download Successful');
+                        let a = document.createElement('a');
+                        a.setAttribute('href', '../media/user.zip')
+                        a.setAttribute('download', 'done')
+                        a.click();
+
+                        window.location = '/portfolio/download';
+                    }
+                }
+            });
+        })
+
+        // For Editing the porfolio
+        function editing() {
+
+            document.getElementById("save-btn").style.display = "block";
+            document.getElementById("edit-btn").style.display = "none";
+            document.getElementById('download-btn').setAttribute('style', 'display:block')
+
+            // For Input type=text
+            let elements = document.getElementsByClassName("editable-input");
+            Array.from(elements).forEach((element) => {
+                let text = element.innerText;
+                let input = document.createElement("input");
+                input.setAttribute("value", text);
+                input.setAttribute("class", "edited-input round");
+                input.setAttribute("style", "width: 25rem; margin: 0.75rem;");
+                element.parentElement.insertBefore(input, element);
+                element.style.display = "none";
+            });
+
+            // For Home Profile Image
+            saveImagebtn = document.getElementById('saveHomeImagebtn');
+            saveImagebtn.setAttribute('style', 'display:block; margin: 0rem auto; margin-top: 2rem;');
+            element = document.getElementById('editable-home-image');
+            let image = document.getElementById('edited-home-image');
+            image.style.display = 'block';
+            element.parentElement.classList += ' round';
+            element.style.display = 'none';
+
+            imgForm = document.getElementById('homeImageForm');
+            imgForm.insertBefore(image, saveImagebtn)
+            $('#homeImageForm').submit(function (e) {
+                e.preventDefault();
+                $form = $(this);
+                let formData = new FormData(this);
+                $.ajax({
+                    url: '/portfolio/img/',
+                    type: 'POST',
+                    data: formData,
+                    success: function (response) {
+                        $('.error').remove();
+                        console.log(response)
+                        if (response.error) {
+                            alert('Upload Unsuccessful');
+                        }
+                        else {
+                            $('#editable-home-image').attr('src', `../media/${response.responseValue}`)
+                            localStorage.setItem('homeImage', response.responseValue);
+
+                            document.getElementById('editable-home-image').setAttribute('style', 'display:block; ')
+
+                            document.getElementById('saveHomeImagebtn').setAttribute('style', 'display:none;')
+
+                            document.getElementById('edited-home-image').setAttribute('style', 'display:none;')
+
+                        }
+                    },
+                    cache: false,
+                    contentType: false,
+                    processData: false
+                });
+
+            });
+
+            // For About Image
+            saveImagebtn = document.getElementById('saveAboutImagebtn')
+            saveImagebtn.setAttribute('style', 'display:block; margin: auto;')
+            element = document.getElementById('editable-about-image');
+            image = document.getElementById('edited-about-image');
+            image.style.display = 'block';
+            element.parentElement.classList += ' round';
+            element.style.display = 'none';
+
+            imgForm = document.getElementById('aboutImageForm');
+            imgForm.insertBefore(image, saveImagebtn)
+            $('#aboutImageForm').submit(function (e) {
+                e.preventDefault();
+                $form = $(this);
+                let formData = new FormData(this);
+                $.ajax({
+                    url: '/portfolio/img/',
+                    type: 'POST',
+                    data: formData,
+                    success: function (response) {
+                        $('.error').remove();
+                        console.log(response)
+                        if (response.error) {
+                            alert('Upload Unsuccessful');
+                        }
+                        else {
+                            $('#editable-about-image').attr('src', `../media/${response.responseValue}`)
+                            localStorage.setItem('aboutImage', response.responseValue);
+
+                            document.getElementById('editable-about-image').setAttribute('style', 'display:block; ')
+
+                            document.getElementById('saveAboutImagebtn').setAttribute('style', 'display:none;')
+
+                            document.getElementById('edited-about-image').setAttribute('style', 'display:none;')
+
+                        }
+                    },
+                    cache: false,
+                    contentType: false,
+                    processData: false
+                });
+
+            });
+
+            // For TextAreas
+            elements = document.getElementsByClassName("editable-textarea");
+            Array.from(elements).forEach((element) => {
+                let text = element.innerText;
+                let textarea = document.createElement("textarea");
+                textarea.setAttribute("class", "edited-textarea round");
+                textarea.setAttribute(
+                    "style",
+                    "width:30rem; height:20rem; margin:0.75rem;"
+                );
+                textarea.defaultValue = text;
+                element.parentElement.insertBefore(textarea, element);
+                let list = element.classList;
+                let style = element.style;
+                let p = document.createElement("p");
+                p.classList = list;
+                p.style = style;
+                element.parentElement.insertBefore(p, element);
+                element.remove();
+            });
+
+            // For Skill Name
+            elements = document.getElementsByClassName("editable-skill-name");
+            Array.from(elements).forEach((skill) => {
+                let input = document.createElement("input");
+                input.setAttribute("class", "edited-skill-name round");
+                input.setAttribute("style", " width: 11rem; margin: auto;");
+                let skill_value = skill.innerText;
+                    // if (skill_value == 'SKILL' || skill_value == '' || skill_value == ' ') {
+                    //     skill_value = '';
+                    // }
+                    input.setAttribute('value', skill_value);
+                    skill.parentElement.insertBefore(input, skill);
+                    skill.style.display = 'none';
+                    skill.parentElement.parentElement.parentElement.style.display='block';
+            });
+            // For Skill Description
+            elements = document.getElementsByClassName("editable-skill-desc");
+            Array.from(elements).forEach((element) => {
+                let text = element.innerText;
+                let textarea = document.createElement("textarea");
+                textarea.setAttribute("class", "edited-skill-desc round");
+                textarea.setAttribute(
+                    "style",
+                    "width:11rem; height:13rem; margin: 1rem auto;"
+                );
+                textarea.defaultValue = text;
+                element.parentElement.insertBefore(textarea, element);
+                let list = element.classList;
+                let style = element.style;
+                let p = document.createElement("p");
+                p.classList = list;
+                p.style = style;
+                element.parentElement.insertBefore(p, element);
+                element.remove();
+            });
+
+            // Work Images
+            for (let i = 1; i < 7; i++) {
+                saveImagebtn = document.getElementById('saveWorkImagebtn-' + i);
+                saveImagebtn.setAttribute('style', 'display:block; margin: 0rem 0rem 4.5rem 9rem;')
+                element = document.getElementById('workImage-' + i);
+                element.parentElement.style.display = 'block';
+                element.parentElement.classList.remove('remove');
+                image = document.getElementById('edited-work-image-' + i);
+                image.style.display = 'block';
+                element.parentElement.classList += ' round';
+                element.style.display = 'none';
+
+                imgForm = document.getElementById('workImageForm-' + i);
+                imgForm.insertBefore(image, saveImagebtn)
+                $('#workImageForm-' + i).submit(function (e) {
+                    e.preventDefault();
+                    $form = $(this);
+                    let formData = new FormData(this);
+                    $.ajax({
+                        url: '/portfolio/img/',
+                        type: 'POST',
+                        data: formData,
+                        success: function (response) {
+                            $('.error').remove();
+                            console.log(response)
+                            if (response.error) {
+                                alert('Upload Unsuccessful');
+                            }
+                            else {
+                                $('#workImage-' + i).attr('src', `../media/${response.responseValue}`)
+                                localStorage.setItem('workImage-' + i, response.responseValue);
+
+                                document.getElementById('workImage-' + i).setAttribute('style', 'display:block; ')
+
+                                document.getElementById('saveWorkImagebtn-' + i).setAttribute('style', 'display:none;')
+
+                                document.getElementById('edited-work-image-' + i).setAttribute('style', 'display:none;')
+
+                            }
+                        },
+                        cache: false,
+                        contentType: false,
+                        processData: false
+                    });
+
+                });
+            }
+
+
+
+            // For Footer and Nav Name
+            elements = document.getElementsByClassName("editable-input-inline");
+            Array.from(elements).forEach((element) => {
+                let text = element.innerText;
+                let input = document.createElement("input");
+                input.setAttribute("value", text);
+                input.setAttribute("class", "edited-input-inline round");
+                input.setAttribute("style", "width: 15rem; margin: 0.75rem;");
+                element.parentElement.insertBefore(input, element);
+                element.style.display = "none";
+            });
+
+            // Footer Links
+            //1.Github Link
+            link = document.getElementById("editable-link-github");
+            link_value = link.href;
+            if (link_value.indexOf(host_link) > -1) link_value = "";
+            input = document.createElement("input");
+            input.setAttribute("type", "text");
+            input.id = "edited-link-github";
+            input.setAttribute("placeholder", "GitHub Link");
+            input.setAttribute("class", "round");
+            input.setAttribute("value", link_value);
+            input.setAttribute("style", "margin-right:1rem;");
+            link.parentElement.insertBefore(input, link);
+            link.style.display = "none";
+
+            //2.LinkedIn Link
+            link = document.getElementById("editable-link-linkedin");
+            link_value = link.href;
+            if (link_value.indexOf(host_link) > -1) link_value = "";
+            input = document.createElement("input");
+            input.setAttribute("type", "text");
+            input.id = "edited-link-linkedin";
+            input.setAttribute("placeholder", "LinkedIn Link");
+            input.setAttribute("class", "round");
+            input.setAttribute("value", link_value);
+            input.setAttribute("style", "margin-right:1rem;");
+            link.parentElement.insertBefore(input, link);
+            link.style.display = "none";
+
+            //3.FaceBook Link
+            link = document.getElementById("editable-link-facebook");
+            link_value = link.href;
+            if (link_value.indexOf(host_link) > -1) link_value = "";
+            input = document.createElement("input");
+            input.setAttribute("type", "text");
+            input.id = "edited-link-facebook";
+            input.setAttribute("placeholder", "FaceBook Link");
+            input.setAttribute("class", "round");
+            input.setAttribute("value", link_value);
+            input.setAttribute("style", "margin-right:1rem;");
+            link.parentElement.insertBefore(input, link);
+            link.style.display = "none";
+
+            //4.Twitter Link
+            link = document.getElementById("editable-link-twitter");
+            link_value = link.href;
+            if (link_value.indexOf(host_link) > -1) link_value = "";
+            input = document.createElement("input");
+            input.setAttribute("type", "text");
+            input.id = "edited-link-twitter";
+            input.setAttribute("placeholder", "Twitter Link");
+            input.setAttribute("class", "round");
+            input.setAttribute("value", link_value);
+            input.setAttribute("style", "margin-right:1rem;");
+            link.parentElement.insertBefore(input, link);
+            link.style.display = "none";
+        }
+
+        //For Saving Changes
+        function saving() {
+            document.getElementById("save-btn").style.display = "none";
+            document.getElementById("edit-btn").style.display = "block";
+
+            // Input type=text
+            let elements = document.getElementsByClassName("edited-input");
+            Array.from(elements).forEach((element) => {
+                let Sibling = element.nextSibling;
+                Sibling.style.display = "inline";
+                let text = element.value;
+                Sibling.innerText = text;
+                element.remove();
+            });
+
+            // Home Profile Image
+            document.getElementById('saveHomeImagebtn').setAttribute('style', 'display:none;')
+            element = document.getElementById('edited-home-image'); //input tag with input value taken from user
+            imgValue = localStorage.getItem('homeImage');
+            let home_image = document.getElementById('editable-home-image'); //img tag
+            if (imgValue != '')
+                home_image.setAttribute('src', `../media/${imgValue}`);
+            home_image.style = 'display:block;'; //now img tag is showm
+            home_image.parentElement.classList.remove('round');
+            element.style.display = 'none';
+
+            // About Image
+            document.getElementById('saveAboutImagebtn').setAttribute('style', 'display:none;')
+            element = document.getElementById('edited-about-image'); //input tag with input value taken from user
+            imgValue = localStorage.getItem('aboutImage');
+            let about_image = document.getElementById('editable-about-image'); //img tag
+            if (imgValue != '')
+                about_image.setAttribute('src', `../media/${imgValue}`)
+            about_image.style = 'display:block;'; //now img tag is showm
+            about_image.parentElement.classList.remove('round');
+            element.style.display = 'none';
+
+            // textarea
+            elements = document.getElementsByClassName("edited-textarea");
+            Array.from(elements).forEach((element) => {
+                let Sibling = element.nextSibling;
+                Sibling.style.display = "block";
+                let text = element.value;
+                Sibling.innerText = text;
+                element.remove();
+            });
+
+            // Skill-Name
+            elements = document.getElementsByClassName("edited-skill-name");
+            Array.from(elements).forEach((skill) => {
+                let Sibling = skill.nextSibling;
+                let skill_value = skill.value;
+                if (skill_value == '' || skill_value == ' ' || skill_value == 'SKILL') {
+                    Sibling.innerText = '';
+                    Sibling.parentElement.parentElement.parentElement.style.display = 'none';
+                }
+                else {
+                    Sibling.style.display = 'block';
+                    Sibling.innerText = skill_value;
+                }
+                skill.remove();
+            });
+
+            // Skill-Description
+            elements = document.getElementsByClassName("edited-skill-desc");
+            Array.from(elements).forEach((element) => {
+                let Sibling = element.nextSibling;
+                Sibling.style.display = "block";
+                let text = element.value;
+                Sibling.innerText = text;
+                element.remove();
+            });
+
+            // Work Images
+            for (let i = 1; i < 7; i++) {
+                document.getElementById('saveWorkImagebtn-' + i).setAttribute('style', 'display:none;')
+                element = document.getElementById('edited-work-image-' + i); //input tag with input value taken from user
+                imgValue = localStorage.getItem('workImage-' + i);
+                let work_image = document.getElementById('workImage-' + i); //img tag
+                if (imgValue != '' && imgValue != 'work' + i + '.jpg')
+                    work_image.setAttribute('src', `../media/${imgValue}`)
+                if (imgValue == 'work' + i + '.jpg' || imgValue == null) {
+                    localStorage.removeItem('workImage-' + i)
+                    element.parentElement.parentElement.style.display = 'none';
+                    element.parentElement.parentElement.classList += ' remove';
+                }
+                work_image.style = 'display:block;'; //now img tag is showm
+                work_image.parentElement.classList.remove('round');
+                element.style.display = 'none';
+            }
+
+            // Nav and Footer Name
+            elements = document.getElementsByClassName("edited-input-inline");
+            Array.from(elements).forEach((element) => {
+                let Sibling = element.nextSibling;
+                Sibling.style.display = "inline";
+                let text = element.value;
+                Sibling.innerText = text;
+                element.remove();
+            });
+
+            // GitHub Link
+            input = document.getElementById("edited-link-github");
+            link = input.value;
+            document.getElementById("editable-link-github").href = link;
+            if (link != "") {
+                input.nextSibling.style.display = "inline";
+            }
+            input.remove();
+
+            // LinkedIN Link
+            input = document.getElementById("edited-link-linkedin");
+            link = input.value;
+            document.getElementById("editable-link-linkedin").href = link;
+            if (link != "") {
+                input.nextSibling.style.display = "inline";
+            }
+            input.remove();
+
+            // FaceBook Link
+            input = document.getElementById("edited-link-facebook");
+            link = input.value;
+            document.getElementById("editable-link-facebook").href = link;
+            if (link != "") {
+                input.nextSibling.style.display = "inline";
+            }
+            input.remove();
+
+            // Twitter Link
+            input = document.getElementById("edited-link-twitter");
+            link = input.value;
+            document.getElementById("editable-link-twitter").href = link;
+            if (link != "") {
+                input.nextSibling.style.display = "inline";
+            }
+            input.remove();
+        }
+    </script>
+</body>
+
+</html>

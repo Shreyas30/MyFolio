@@ -1,0 +1,149 @@
+{% extends "forum/basic.html" %}
+{% block title %}Subscribe{% endblock %}
+{% block style %}
+<style>
+    .heading {
+        margin: 37px 77px;
+        text-align: center;
+        color: #1b5250;
+        text-shadow: 0 2px 4px darkcyan;
+    }
+
+    .detailLabel {
+        display: inline-block;
+    }
+
+    .detail {
+        /* position: relative;
+        right: -28px; */
+        display: inline-block;
+        border: 1px solid;
+        min-width: 17em;
+        border-radius: 3px;
+        padding: 3px;
+        background-color: #caf6ff;
+    }
+</style>
+{% endblock style %}
+{% block body %}
+
+<div>
+    <div class="container">
+        <h2 class="heading">Basic Information</h2>
+        <div id="previousDetails">
+            <div class="row">
+                <div class="col-6">
+                    <label for="" class="detailLabel">
+                        <h5>Username :</h5>
+                    </label>
+                    <h5 style="margin-left: 5px;" class="detail">{{request.user.username}}</h5>
+                </div>
+                <div class="col-6">
+                    <label for="" class="detailLabel">
+                        <h5>Email :</h5>
+                    </label>
+                    <h5 style="margin-left: 48px;" class="detail">{{request.user.email}}</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <label for="" class="detailLabel">
+                        <h5>First Name :</h5>
+                    </label>
+                    <h5 class="detail">{{request.user.first_name}}</h5>
+                </div>
+                <div class="col-6">
+                    <label for="" class="detailLabel">
+                        <h5>Last Name :</h5>
+                    </label>
+                    <h5 class="detail">{{request.user.last_name}}</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <label for="" class="detailLabel">
+                        <h5>Plan :</h5>
+                    </label>
+
+                    <h5 style="margin-left: 61px;" id="planInfo" class="detail">Personal</h5>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <h2 class="heading">Complete Your Profile</h2>
+        <img style="width: 120px;margin: 0 30em" src="/static/completeProfile.png" alt="">
+        <form action="/forum/post/" enctype="multipart/form-data" method="POST">{% csrf_token %}
+
+            <input type="text" style="display: none;" name="subsType" value="{{plan}}">
+
+            <hr class="detail-seperation-hr">
+            <div id="personal">
+                <div class="form-group row">
+                    <label for="jobTitle" class="col-sm-2 col-form-label">Job Title</label>
+                    <div class="col">
+                        <input type="text" class="form-control" name="jobTitle" id="jobTitle"
+                            placeholder="Tell Your Job Title..." required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="bio" class="col-sm-2 col-form-label">Bio</label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" name="bio" id='bio' rows="3"
+                            placeholder="Let Others Know You..."></textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="portfolio" class="col-sm-2 col-form-label">Portfolio Link</label>
+                    <div class="col">
+                        <input type="text" class="form-control" name="portfolio" id="portfolio"
+                            placeholder="Enter Your Portfolio Link Here..." required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="resume" class="col-sm-2 col-form-label">Upload Resume</label>
+                    <div class="col-6" style="margin-left: 1em;">
+                        <input type="file" class="custom-file-input" name="resume" id="resume"
+                            placeholder="Upload your Resume" required>
+                        <label class="custom-file-label" for="resume">Choose File</label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="profilePic" class="col-sm-2 col-form-label">Profile Picture</label>
+                    <div class="col-6" style="margin-left: 1em;">
+                        <input type="file" class="custom-file-input" name="profilePic" id="profilePic" required>
+                        <label class="custom-file-label" for="profilePic">Choose File</label>
+                    </div>
+                </div>
+                <hr class="detail-seperation-hr">
+
+                <button class="btn btn-info" type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+
+{% endblock body %}
+
+{% block js %}
+<script>
+    let planDetails = document.getElementById('planInfo');
+    if ("{{ plan }}" == "1") {
+        planDetails.innerHTML = "Personal"
+    }
+    else if ("{{ plan }}" == "2") {
+        planDetails.innerHTML = "Professional"
+    }
+    else if ("{{ plan }}" == "3") {
+        planDetails.innerHTML = "Premium"
+    }
+
+    // Add the following code if you want the name of the file appear on select
+    $(".custom-file-input").on("change", function () {
+        var fileName = $(this).val().split("\\").pop();
+        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    });
+
+</script>
+{% endblock js %}
